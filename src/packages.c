@@ -17,7 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  *
- * $Id: packages.c,v 1.18 2004/03/15 09:53:24 waldi Exp $
+ * $Id$
  */
 
 #include <config.h>

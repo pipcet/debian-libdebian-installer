@@ -17,7 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  *
- * $Id: exec.c,v 1.12 2004/02/24 00:45:54 waldi Exp $
+ * $Id$
  */
 
 #include <config.h>

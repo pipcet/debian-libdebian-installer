@@ -18,7 +18,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  *
- * $Id: mem_chunk.h,v 1.2 2003/11/20 20:02:48 waldi Exp $
+ * $Id$
  */
 
 #ifndef DEBIAN_INSTALLER__MEM_CHUNK_H

@@ -18,7 +18,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  *
- * $Id: string.c,v 1.5 2003/12/11 19:29:50 waldi Exp $
+ * $Id$
  */
 
 #include <config.h>

@@ -17,7 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  *
- * $Id: packages_internal.h,v 1.5 2004/03/09 17:10:28 waldi Exp $
+ * $Id$
  */
 
 #ifndef DEBIAN_INSTALLER__PACKAGES_INTERNAL_H

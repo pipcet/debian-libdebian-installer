@@ -17,7 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  *
- * $Id: slist_internal.h,v 1.1 2004/03/04 09:49:56 waldi Exp $
+ * $Id$
  */
 
 #ifndef DEBIAN_INSTALLER__SLIST_INTERNAL_H

@@ -17,7 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  *
- * $Id: parser_rfc822.h,v 1.2 2003/11/06 07:52:16 waldi Exp $
+ * $Id$
  */
 
 #ifndef DEBIAN_INSTALLER__PARSER_RFC822_H
