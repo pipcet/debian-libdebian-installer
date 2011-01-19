@@ -162,14 +162,12 @@ static int internal_di_exec (const char *path, bool use_path, const char *const 
       {
         bool exit = false;
 
+        /* Implementations of poll() deliver various combinations of POLLIN and
+           POLLHUP on EOF. fgets() detects it and we check with feof() below.
+           References: http://www.greenend.org.uk/rjk/2001/06/poll.html */
         for (i = 0; i < pipes; i++)
         {
-/* References: http://www.greenend.org.uk/rjk/2001/06/poll.html */
-#if defined(__FreeBSD_kernel__)
-          if ((pollfds[i].revents & POLLIN) && (! (pollfds[i].revents & POLLHUP)))
-#else
-          if (pollfds[i].revents & POLLIN)
-#endif
+          if (pollfds[i].revents & (POLLIN | POLLHUP))
           {
             while (fgets (line, sizeof (line), files[i].file) != NULL)
             {
@@ -180,8 +178,8 @@ static int internal_di_exec (const char *path, bool use_path, const char *const 
                 len--;
               }
               files[i].handler (line, len, io_user_data);
+              exit = true;
             }
-            exit = true;
           }
         }
 
@@ -189,7 +187,7 @@ static int internal_di_exec (const char *path, bool use_path, const char *const 
           continue;
 
         for (i = 0; i < pipes; i++)
-          if (pollfds[i].revents & POLLHUP)
+          if (feof(files[i].file))
             exit = true;
 
         if (exit)
