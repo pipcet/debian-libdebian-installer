@@ -6,7 +6,7 @@ libdebian-installer (0.78) UNRELEASED; urgency=low
     (closes: #584538).
 
   [ Martin Michlmayr ]
-  * Add support for Buffalo Linkstation LiveV3 (LS-CHL).
+  * Add support for Buffalo Linkstation LiveV3 (LS-CHL).  Closes: #612168
 
  -- Samuel Thibault <sthibault@debian.org>  Thu, 20 Jan 2011 00:43:29 +0100
 
