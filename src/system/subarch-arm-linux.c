@@ -47,6 +47,7 @@ static struct map map_hardware[] = {
     { "QNAP TS-109/TS-209", "orion5x" },
     { "QNAP TS-409", "orion5x" },
     { "HP Media Vault mv2120", "orion5x" },
+    { "Buffalo Linkstation LiveV3 (LS-CHL)", "orion5x" },
     { "Buffalo Linkstation Pro/Live", "orion5x" },
     { "Marvell Orion-NAS Reference Design", "orion5x" },
     { "Marvell Orion-2 Development Board", "orion5x" },

@@ -5,6 +5,9 @@ libdebian-installer (0.78) UNRELEASED; urgency=low
     to handle the os-dependant status returned by poll() on end-of-file
     (closes: #584538).
 
+  [ Martin Michlmayr ]
+  * Add support for Buffalo Linkstation LiveV3 (LS-CHL).
+
  -- Samuel Thibault <sthibault@debian.org>  Thu, 20 Jan 2011 00:43:29 +0100
 
 libdebian-installer (0.77) unstable; urgency=low
