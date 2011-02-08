@@ -8,6 +8,10 @@ libdebian-installer (0.78) UNRELEASED; urgency=low
   [ Martin Michlmayr ]
   * Add support for Buffalo Linkstation LiveV3 (LS-CHL).  Closes: #612168
 
+  [ Konstantinos Margaritis ]
+  * Add support for the new armhf port and the Genesi EfikaMX Smartbook/
+    Smarttop platforms.
+
  -- Samuel Thibault <sthibault@debian.org>  Thu, 20 Jan 2011 00:43:29 +0100
 
 libdebian-installer (0.77) unstable; urgency=low
