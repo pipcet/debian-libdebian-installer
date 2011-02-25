@@ -12,6 +12,9 @@ libdebian-installer (0.78) UNRELEASED; urgency=low
   * Add support for the new armhf port and the Genesi EfikaMX Smartbook/
     Smarttop platforms.
 
+  [ Bastian Blank ]
+  * Add minimal support for SHA1 checksums in Release file parser.
+
  -- Samuel Thibault <sthibault@debian.org>  Thu, 20 Jan 2011 00:43:29 +0100
 
 libdebian-installer (0.77) unstable; urgency=low
