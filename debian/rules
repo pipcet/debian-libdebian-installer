@@ -23,6 +23,8 @@ override_dh_auto_build:
 	dh_auto_build
 	$(MAKE) -C build/doc doc
 
+clean: configure
+
 override_dh_clean:
 ifneq "$(wildcard /usr/share/misc/config.sub)" ""
 	-cp -f /usr/share/misc/config.sub config.sub
