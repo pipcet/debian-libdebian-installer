@@ -3,6 +3,10 @@ libdebian-installer (0.77squeeze1) UNRELEASED; urgency=low
   [ Martin Michlmayr ]
   * Add support for Buffalo Linkstation LiveV3 (LS-CHL).  Closes: #612168
 
+  [ Bastian Blank ]
+  * Add minimal support for SHA1 checksums in Release file parser.
+    (closes: #615883)
+
  -- Martin Michlmayr <tbm@cyrius.com>  Wed, 23 Feb 2011 18:52:37 +0000
 
 libdebian-installer (0.77) unstable; urgency=low

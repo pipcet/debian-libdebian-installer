@@ -70,7 +70,15 @@ const di_parser_fieldinfo
       "MD5Sum",
       di_release_parser_read_file,
       NULL,
-      offsetof (di_release, md5sum)
+      0
+    ),
+  internal_di_release_parser_field_sha1 =
+    DI_PARSER_FIELDINFO
+    (
+      "SHA1",
+      di_release_parser_read_file,
+      NULL,
+      1
     );
 
 /**
@@ -82,6 +90,7 @@ const di_parser_fieldinfo *di_release_parser_fieldinfo[] =
   &internal_di_release_parser_field_suite,
   &internal_di_release_parser_field_codename,
   &internal_di_release_parser_field_md5sum,
+  &internal_di_release_parser_field_sha1,
   NULL
 };
 
@@ -92,7 +101,8 @@ static void internal_di_release_file_destroy_func (void *data)
   di_release_file *file = data;
 
   di_free (file->filename);
-  di_free (file->sum);
+  di_free (file->sum[0]);
+  di_free (file->sum[1]);
 }
 
 /**
@@ -158,11 +168,11 @@ void di_release_parser_read_file (data, fip, field_modifier, value, user_data)
   void *user_data __attribute__ ((unused));
 {
   char *begin = value->string, *next = begin, *end = value->string + value->size;
-  char buf_sum[65], buf_filename[129];
+  char *buf_sum, buf_filename[129];
   int ret;
   size_t buf_size;
   di_release *release = *data;
-  di_hash_table *table = *(di_hash_table **)((char *)*data + fip->integer);
+  di_hash_table *table = release->md5sum;
 
   while (1)
   {
@@ -170,16 +180,21 @@ void di_release_parser_read_file (data, fip, field_modifier, value, user_data)
     if (!next)
       next = end;
 
-    ret = sscanf (begin, "%64s %zu %128s", buf_sum, &buf_size, buf_filename);
+    ret = sscanf (begin, "%ms %zu %128s", &buf_sum, &buf_size, buf_filename);
 
     if (ret == 3)
     {
-      di_release_file *file = di_mem_chunk_alloc (release->release_file_mem_chunk);
-      file->key.string = strdup (buf_filename);
-      file->key.size = strlen (buf_filename);
+      di_rstring key = { buf_filename, strlen (buf_filename) };
+      di_release_file *file = di_hash_table_lookup (table, &key);
+      if (!file)
+      {
+        file = di_mem_chunk_alloc0 (release->release_file_mem_chunk);
+        file->key.string = strdup (buf_filename);
+        file->key.size = strlen (buf_filename);
+        di_hash_table_insert (table, &file->key, file);
+      }
       file->size = buf_size;
-      file->sum = strdup (buf_sum);
-      di_hash_table_insert (table, &file->key, file);
+      file->sum[fip->integer] = buf_sum;
     }
 
     begin = next + 1;
