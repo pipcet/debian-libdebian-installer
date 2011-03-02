@@ -14,6 +14,7 @@ libdebian-installer (0.78) UNRELEASED; urgency=low
 
   [ Bastian Blank ]
   * Add minimal support for SHA1 checksums in Release file parser.
+  * Adopt copyright file to reality.
 
   [ Colin Watson ]
   * Add a proper copyright/licence statement to subarch-x86-linux.c.
