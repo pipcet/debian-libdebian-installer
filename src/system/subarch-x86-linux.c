@@ -1,7 +1,49 @@
-/* Some code here borrowed from dmidecode, also GPLed and copyrighted by:
+/*
+ * subarch-x86-linux.c
+ *
+ * Copyright (C) 2007 Colin Watson <cjwatson@debian.org>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ *
+ * Some code here borrowed from dmidecode, whose copyright and license
+ * follow:
+ *
  *   (C) 2000-2002 Alan Cox <alan@redhat.com>
- *   (C) 2002-2005 Jean Delvare <khali@linux-fr.org>
- * I (Colin Watson) copied it in reduced form rather than using dmidecode
+ *   (C) 2002-2007 Jean Delvare <khali@linux-fr.org>
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 2 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, write to the Free Software
+ *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+ *
+ *   For the avoidance of doubt the "preferred form" of this code is one which
+ *   is in an open unpatent encumbered format. Where cryptographic key signing
+ *   forms part of the process of creating an executable the information
+ *   including keys needed to generate an equivalently functional executable
+ *   are deemed to be part of the source code.
+ *
+ * I (Colin Watson) copied this in reduced form rather than using dmidecode
  * directly because the d-i initrd is tight on space and this is much
  * smaller (1.8KB versus 46KB, at the time of writing).
  */
