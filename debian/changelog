@@ -1,3 +1,9 @@
+libdebian-installer (0.77+squeeze2) squeeze; urgency=low
+
+  * Upload to drop .git from source tarball
+
+ -- Otavio Salvador <otavio@debian.org>  Sat, 12 Mar 2011 15:30:02 -0300
+
 libdebian-installer (0.77+squeeze1) squeeze; urgency=low
 
   [ Martin Michlmayr ]
