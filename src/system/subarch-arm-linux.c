@@ -16,6 +16,7 @@ static const char *supported_generic_subarches[] = {
     "dove",
     "omap",
     "omap4",
+    "mx51",
     NULL
 };
 
@@ -73,6 +74,8 @@ static struct map map_hardware[] = {
     { "Linksys NSLU2", "ixp4xx" },
     { "ARM-Versatile AB", "versatile" },
     { "ARM-Versatile PB", "versatile" },
+    { "Genesi Efika MX (Smartbook)", "efikasb" },
+    { "Genesi Efika MX (Smarttop)", "efikamx" },
     { NULL, NULL }
 };
 
