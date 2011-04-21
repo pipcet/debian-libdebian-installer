@@ -1,3 +1,9 @@
+libdebian-installer (0.79) UNRELEASED; urgency=low
+
+  * subarch-arm-linux.c: add mx5 flavour (armhf architecture)
+
+ -- Hector Oron <zumbi@debian.org>  Thu, 21 Apr 2011 13:41:37 +0100
+
 libdebian-installer (0.78) unstable; urgency=low
 
   [ Jeremie Koenig ]
@@ -20,7 +26,7 @@ libdebian-installer (0.78) unstable; urgency=low
   [ Colin Watson ]
   * Add a proper copyright/licence statement to subarch-x86-linux.c.
 
- --  <zumbi@debian.org>  Tue, 22 Mar 2011 12:04:06 +0000
+ -- Hector Oron <zumbi@debian.org>  Tue, 22 Mar 2011 12:04:06 +0000
 
 libdebian-installer (0.77) unstable; urgency=low
 
