@@ -77,6 +77,9 @@ static struct map map_hardware[] = {
     { "ARM-Versatile PB", "versatile" },
     { "Genesi Efika MX (Smartbook)", "mx5" },
     { "Genesi Efika MX (Smarttop)", "mx5" },
+    { "Nokia RX-51 Board", "omap" },
+    { "OMAP3 Beagle Board", "omap" },
+    { "OMAP4 Panda Board", "omap" },
     { NULL, NULL }
 };
 
