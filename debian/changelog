@@ -8,7 +8,10 @@ libdebian-installer (0.79) UNRELEASED; urgency=low
   * Add support for Pandaboard
   * Add support for Beagleboard
 
- -- Sebastian Reichel <sre@debian.org>  Wed, 15 Jun 2011 23:45:26 +0200
+  [ Luk Claes ]
+  * Do'nt ship .la files (Closes: #621628).
+
+ -- Luk Claes <luk@debian.org>  Wed, 22 Jun 2011 19:11:41 +0200
 
 libdebian-installer (0.78) unstable; urgency=low
 
