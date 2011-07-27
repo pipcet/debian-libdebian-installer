@@ -1,4 +1,4 @@
-libdebian-installer (0.79) UNRELEASED; urgency=low
+libdebian-installer (0.79) unstable; urgency=low
 
   [ Hector Oron ]
   * subarch-arm-linux.c: add mx5 flavour (armhf architecture)
@@ -15,7 +15,7 @@ libdebian-installer (0.79) UNRELEASED; urgency=low
   * devfs: linux references the CD device as srX instead of scdX.
     Closes: #635400.
 
- -- Luk Claes <luk@debian.org>  Wed, 22 Jun 2011 19:11:41 +0200
+ -- Otavio Salvador <otavio@ossystems.com.br>  Wed, 27 Jul 2011 23:00:47 +0200
 
 libdebian-installer (0.78) unstable; urgency=low
 
