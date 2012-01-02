@@ -1,3 +1,9 @@
+libdebian-installer (0.80) UNRELEASED; urgency=low
+
+  * Detect IBM pSeries platform as powerpc/chrp_ibm.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Mon, 02 Jan 2012 23:41:19 +0100
+
 libdebian-installer (0.79) unstable; urgency=low
 
   [ Hector Oron ]

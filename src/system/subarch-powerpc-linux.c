@@ -34,6 +34,7 @@ static struct map map_platform[] = {
 	{ "Cell", "cell" },
 	{ "PA Semi", "pasemi" },
 	{ "Maple", "chrp_ibm" },
+	{ "pSeries", "chrp_ibm" },
 	{ NULL, NULL }
 };
 
