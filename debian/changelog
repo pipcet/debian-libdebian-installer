@@ -1,10 +1,13 @@
-libdebian-installer (0.80) unstable; urgency=low
-
-  [ Aurelien Jarno ]
-  * Detect IBM pSeries platform as powerpc/chrp_ibm.
+libdebian-installer (0.81) UNRELEASED; urgency=low
 
   [ Simon Guinot ]
   * Add LaCie NAS devices (Kirkwood)  Closes: #670527
+
+ -- Julien Cristau <jcristau@debian.org>  Wed, 23 May 2012 21:48:39 +0200
+
+libdebian-installer (0.80) unstable; urgency=low
+
+  * Detect IBM pSeries platform as powerpc/chrp_ibm.
 
  -- Aurelien Jarno <aurel32@debian.org>  Mon, 02 Jan 2012 23:45:48 +0100
 
