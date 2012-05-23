@@ -225,7 +225,8 @@ int di_parser_rfc822_read_file (const char *file, di_parser_info *info, di_parse
     ret = 0;
     goto cleanup;
   }
-  if (!(begin = mmap (NULL, statbuf.st_size, PROT_READ, MAP_PRIVATE, fd, 0)))
+  begin = mmap (NULL, statbuf.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
+  if (begin == MAP_FAILED)
     goto cleanup;
   madvise (begin, statbuf.st_size, MADV_SEQUENTIAL);
 

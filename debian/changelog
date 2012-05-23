@@ -3,6 +3,9 @@ libdebian-installer (0.81) UNRELEASED; urgency=low
   [ Simon Guinot ]
   * Add LaCie NAS devices (Kirkwood)  Closes: #670527
 
+  [ Julien Cristau ]
+  * parser_rfc822: mmap returns MAP_FAILED on error, not NULL.
+
  -- Julien Cristau <jcristau@debian.org>  Wed, 23 May 2012 21:48:39 +0200
 
 libdebian-installer (0.80) unstable; urgency=low
