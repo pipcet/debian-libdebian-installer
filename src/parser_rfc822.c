@@ -28,6 +28,7 @@
 #include <ctype.h>
 #include <fcntl.h>
 #include <limits.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/mman.h>
@@ -60,9 +61,19 @@ int di_parser_rfc822_read (char *begin, size_t size, di_parser_info *info, di_pa
   di_rstring field_modifier_string;
   di_rstring value_string;
   void *act = NULL;
+  bool pgp_mode = false;
+  const char pgp_begin_msg[] = "-----BEGIN PGP SIGNED MESSAGE-----";
+  const char pgp_begin_sig[] = "-----BEGIN PGP SIGNATURE-----";
 
   cur = begin;
   end = begin + size;
+
+  if (!strncmp(cur, pgp_begin_msg, strlen(pgp_begin_msg)))
+  {
+    pgp_mode = true;
+    // Skip PGP header
+    cur = strstr (cur, "\n\n");
+  }
 
   while (cur < end)
   {
@@ -81,6 +92,13 @@ int di_parser_rfc822_read (char *begin, size_t size, di_parser_info *info, di_pa
 
     while (1)
     {
+      if (pgp_mode && !strncmp(cur, pgp_begin_sig, strlen(pgp_begin_sig)))
+      {
+        // Let's exit, the rest of the file is not interesting
+        cur += size;
+        break;
+      }
+
       field_begin = cur;
       readsize = end - field_begin < READSIZE ? end - field_begin : READSIZE;
       if (!readsize)

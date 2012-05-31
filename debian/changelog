@@ -6,6 +6,9 @@ libdebian-installer (0.81) UNRELEASED; urgency=low
   [ Julien Cristau ]
   * parser_rfc822: mmap returns MAP_FAILED on error, not NULL.
 
+  [ Bastian Blank ]
+  * Support PGP signed files in RFC822 parser. (closes: #674060)
+
  -- Julien Cristau <jcristau@debian.org>  Wed, 23 May 2012 21:48:39 +0200
 
 libdebian-installer (0.80) unstable; urgency=low
