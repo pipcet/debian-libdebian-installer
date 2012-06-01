@@ -1,4 +1,4 @@
-libdebian-installer (0.81) UNRELEASED; urgency=low
+libdebian-installer (0.81) unstable; urgency=low
 
   [ Simon Guinot ]
   * Add LaCie NAS devices (Kirkwood)  Closes: #670527
@@ -9,7 +9,7 @@ libdebian-installer (0.81) UNRELEASED; urgency=low
   [ Bastian Blank ]
   * Support PGP signed files in RFC822 parser. (closes: #674060)
 
- -- Julien Cristau <jcristau@debian.org>  Wed, 23 May 2012 21:48:39 +0200
+ -- Bastian Blank <waldi@debian.org>  Fri, 01 Jun 2012 18:50:51 +0200
 
 libdebian-installer (0.80) unstable; urgency=low
 
