@@ -41,6 +41,7 @@ static struct map map_hardware[] = {
     { "Marvell OpenRD Ultimate Board", "kirkwood" },
     { "Marvell SheevaPlug Reference Board", "kirkwood" },
     { "Marvell eSATA SheevaPlug Reference Board", "kirkwood" },
+    { "Globalscale Technologies Dreamplug", "kirkwood" },
     { "QNAP TS-119/TS-219", "kirkwood" },
     { "QNAP TS-41x", "kirkwood" },
     { "Seagate FreeAgent DockStar", "kirkwood" },
@@ -89,17 +90,30 @@ static struct map map_hardware[] = {
     { NULL, NULL }
 };
 
-const char *di_system_subarch_analyze(void)
+static int read_dt_model(char *entry, int entry_len)
+{
+	FILE *model;
+	int ret;
+
+	model = fopen("/proc/device-tree/model", "r");
+	if (model == NULL)
+		return 1;
+
+	ret = fgets(entry, entry_len, model) == NULL;
+	fclose(model);
+	return ret;
+}
+
+static int read_cpuinfo(char *entry, int entry_len)
 {
 	FILE *cpuinfo;
 	char line[1024];
-	char entry[256];
 	char *pos;
-	int i;
+	int ret = 1;
 
 	cpuinfo = fopen("/proc/cpuinfo", "r");
 	if (cpuinfo == NULL)
-		return "unknown";
+		return 1;
 
 	while (fgets(line, sizeof(line), cpuinfo) != NULL)
 	{
@@ -110,12 +124,29 @@ const char *di_system_subarch_analyze(void)
 			   continue;
 		while (*++pos && (*pos == '\t' || *pos == ' '));
 
-		strncpy(entry, pos, sizeof(entry));
+		strncpy(entry, pos, entry_len);
+		ret = 0;
 		break;
 	    }
 	}
 
 	fclose(cpuinfo);
+	return ret;
+}
+
+const char *di_system_subarch_analyze(void)
+{
+	char entry[256];
+	int i;
+	int ret;
+
+	entry[0] = '\0';
+
+	ret = read_dt_model(entry, sizeof(entry));
+	if (ret)
+		ret = read_cpuinfo(entry, sizeof(entry));
+	if (ret)
+		return "unknown";
 
 	for (i = 0; map_hardware[i].entry; i++)
 	{

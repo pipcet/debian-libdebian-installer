@@ -1,3 +1,11 @@
+libdebian-installer (0.82) unstable; urgency=low
+
+  [ Ian Campbell ]
+  * Support for reading hardware model from Device Tree (armel).
+  * Add Dreamplug device (Kirkwood)
+
+ -- Ian Campbell <ijc@hellion.org.uk>  Tue, 10 Jul 2012 21:15:56 +0000
+
 libdebian-installer (0.81) unstable; urgency=low
 
   [ Simon Guinot ]
