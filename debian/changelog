@@ -1,4 +1,4 @@
-libdebian-installer (0.82) unstable; urgency=low
+libdebian-installer (0.82) UNRELEASED; urgency=low
 
   [ Ian Campbell ]
   * Support for reading hardware model from Device Tree (armel).
