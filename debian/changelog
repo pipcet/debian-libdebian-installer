@@ -4,6 +4,9 @@ libdebian-installer (0.82) UNRELEASED; urgency=low
   * Support for reading hardware model from Device Tree (armel).
   * Add Dreamplug device (Kirkwood)
 
+  [ Christian Perrier ]
+  * Add myself to Uplaoders.
+
  -- Ian Campbell <ijc@hellion.org.uk>  Tue, 10 Jul 2012 21:15:56 +0000
 
 libdebian-installer (0.81) unstable; urgency=low
