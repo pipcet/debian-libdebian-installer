@@ -1,5 +1,6 @@
-libdebian-installer (0.83) UNRELEASED; urgency=low
+libdebian-installer (0.83) unstable; urgency=low
 
+  * Re-upload without files from git checkout.
   * Use dh-autoreconf to avoid huge diffs when automake gets an update:
     - Add dh-autoreconf to Build-Depends.
     - Use the autoreconf dh sequence.
@@ -8,7 +9,7 @@ libdebian-installer (0.83) UNRELEASED; urgency=low
   * Simplify the config.{guess,sub} update by using the autotools-dev dh
     sequence.
 
- -- Cyril Brulebois <kibi@debian.org>  Sat, 11 Aug 2012 01:46:32 +0200
+ -- Cyril Brulebois <kibi@debian.org>  Sun, 12 Aug 2012 21:21:55 +0200
 
 libdebian-installer (0.82) unstable; urgency=low
 
