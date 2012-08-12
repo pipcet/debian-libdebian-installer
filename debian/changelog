@@ -1,3 +1,15 @@
+libdebian-installer (0.83) UNRELEASED; urgency=low
+
+  * Use dh-autoreconf to avoid huge diffs when automake gets an update:
+    - Add dh-autoreconf to Build-Depends.
+    - Use the autoreconf dh sequence.
+    - Get rid of the configure target accordingly (it was running
+      autoreconf, then exiting with error code 1).
+  * Simplify the config.{guess,sub} update by using the autotools-dev dh
+    sequence.
+
+ -- Cyril Brulebois <kibi@debian.org>  Sat, 11 Aug 2012 01:46:32 +0200
+
 libdebian-installer (0.82) unstable; urgency=low
 
   [ Ian Campbell ]

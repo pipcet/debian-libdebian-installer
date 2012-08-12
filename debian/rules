@@ -1,6 +1,6 @@
 #! /usr/bin/make -f
 %:
-	dh $@ --builddirectory=build
+	dh $@ --builddirectory=build --with autotools-dev,autoreconf
 
 DEB_HOST_ARCH_OS    := $(shell dpkg-architecture -qDEB_HOST_ARCH_OS 2>/dev/null)
 
@@ -15,24 +15,9 @@ endif
 
 export CFLAGS
 
-configure:
-	autoreconf -i -v
-	@exit 1
-
 override_dh_auto_build:
 	dh_auto_build
 	$(MAKE) -C build/doc doc
-
-clean: configure
-
-override_dh_clean:
-ifneq "$(wildcard /usr/share/misc/config.sub)" ""
-	-cp -f /usr/share/misc/config.sub config.sub
-endif
-ifneq "$(wildcard /usr/share/misc/config.guess)" ""
-	-cp -f /usr/share/misc/config.guess config.guess
-endif
-	dh_clean
 
 override_dh_install:
 	install $(CURDIR)/debian/tmp/usr/lib/libdebian-installer.so.4 $(CURDIR)/debian/libdebian-installer4-udeb/lib
