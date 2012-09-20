@@ -1,9 +1,9 @@
-libdebian-installer (0.84) UNRELEASED; urgency=low
+libdebian-installer (0.84) unstable; urgency=low
 
   [ Steve McIntyre ]
   * Add "efi" as a subarch for amd64 and i386
 
- -- Steve McIntyre <93sam@debian.org>  Wed, 22 Aug 2012 19:24:48 +0100
+ -- Cyril Brulebois <kibi@debian.org>  Thu, 20 Sep 2012 16:13:10 +0200
 
 libdebian-installer (0.83) unstable; urgency=low
 
