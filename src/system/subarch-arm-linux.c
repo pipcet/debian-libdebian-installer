@@ -18,6 +18,7 @@ static const char *supported_generic_subarches[] = {
     "omap4",
     "mx51",
     "mx5",
+    "vexpress",
     NULL
 };
 
@@ -87,6 +88,7 @@ static struct map map_hardware[] = {
     { "Nokia RX-51 Board", "omap" },
     { "OMAP3 Beagle Board", "omap" },
     { "OMAP4 Panda Board", "omap" },
+    { "ARM-Versatile Express", "vexpress" },
     { NULL, NULL }
 };
 
