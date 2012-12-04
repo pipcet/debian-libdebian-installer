@@ -1,6 +1,6 @@
 #! /usr/bin/make -f
 %:
-	dh $@ --builddirectory=build --with autotools-dev,autoreconf
+	dh $@ --builddirectory=build --with autoreconf
 
 DEB_HOST_ARCH_OS    := $(shell dpkg-architecture -qDEB_HOST_ARCH_OS 2>/dev/null)
 

@@ -1,3 +1,10 @@
+libdebian-installer (0.86) UNRELEASED; urgency=low
+
+  * Drop use of autotools-dev dh sequence.  dh-autoreconf(7) documents that
+    the autoreconf sequence subsumes and conflicts with it.
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 04 Dec 2012 00:09:58 +0000
+
 libdebian-installer (0.85) unstable; urgency=low
 
   * Add support for versatile express platform.
