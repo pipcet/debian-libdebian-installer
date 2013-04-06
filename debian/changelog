@@ -1,3 +1,9 @@
+libdebian-installer (0.86) UNRELEASED; urgency=low
+
+  * Drop support for PGP signed files in RFC822 parser.
+
+ -- Bastian Blank <waldi@debian.org>  Sat, 06 Apr 2013 15:31:10 +0200
+
 libdebian-installer (0.85) unstable; urgency=low
 
   * Add support for versatile express platform.
