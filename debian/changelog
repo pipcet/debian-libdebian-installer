@@ -1,4 +1,4 @@
-libdebian-installer (0.87) UNRELEASED; urgency=low
+libdebian-installer (0.87) unstable; urgency=low
 
   * Drop autotools-dev dh sequence (autoreconf already does what's needed
     and one should use only one of them anyway), and autotools-dev build-dep.
@@ -7,7 +7,7 @@ libdebian-installer (0.87) UNRELEASED; urgency=low
     autoreconf dh sequence aims at keeping clean, be it only for release
     managers' ease of reviewing.
 
- -- Cyril Brulebois <kibi@debian.org>  Tue, 09 Apr 2013 04:44:01 +0200
+ -- Cyril Brulebois <kibi@debian.org>  Tue, 09 Apr 2013 04:50:44 +0200
 
 libdebian-installer (0.86) unstable; urgency=low
 
