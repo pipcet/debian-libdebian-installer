@@ -1,3 +1,10 @@
+libdebian-installer (0.87) UNRELEASED; urgency=low
+
+  * Drop autotools-dev dh sequence (autoreconf already does what's needed
+    and one should use only one of them anyway), and autotools-dev build-dep.
+
+ -- Cyril Brulebois <kibi@debian.org>  Tue, 09 Apr 2013 04:44:01 +0200
+
 libdebian-installer (0.86) unstable; urgency=low
 
   * Drop support for PGP signed files in RFC822 parser.
