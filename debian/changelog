@@ -2,6 +2,10 @@ libdebian-installer (0.87) UNRELEASED; urgency=low
 
   * Drop autotools-dev dh sequence (autoreconf already does what's needed
     and one should use only one of them anyway), and autotools-dev build-dep.
+  * Update the HACKING file: no need for a manual “autoreconf -i -v” when
+    building a Debian package. That clutters source diffs, which the
+    autoreconf dh sequence aims at keeping clean, be it only for release
+    managers' ease of reviewing.
 
  -- Cyril Brulebois <kibi@debian.org>  Tue, 09 Apr 2013 04:44:01 +0200
 
