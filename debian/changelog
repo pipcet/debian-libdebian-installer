@@ -1,3 +1,11 @@
+libdebian-installer (0.88) UNRELEASED; urgency=low
+
+  * Drop the nonnull function attribute from di_mem_chunk_new and
+    internal_di_mem_chunk_compute_size; it is meaningless on functions none
+    of whose parameters are pointers, and clang warns about this.
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 04 Jun 2013 15:31:42 +0100
+
 libdebian-installer (0.87) unstable; urgency=low
 
   * Drop autotools-dev dh sequence (autoreconf already does what's needed

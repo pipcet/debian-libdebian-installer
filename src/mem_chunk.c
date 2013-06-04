@@ -74,7 +74,7 @@ struct di_mem_area
                                 */
 };
 
-static size_t internal_di_mem_chunk_compute_size (size_t size, size_t min_size) __attribute__ ((nonnull));
+static size_t internal_di_mem_chunk_compute_size (size_t size, size_t min_size);
 
 /** @} */
 

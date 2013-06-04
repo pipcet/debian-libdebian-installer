@@ -30,7 +30,7 @@ typedef struct di_mem_chunk di_mem_chunk;
  * @{
  */
 
-di_mem_chunk* di_mem_chunk_new (di_ksize_t atom_size, di_ksize_t area_size) __attribute__ ((nonnull));
+di_mem_chunk* di_mem_chunk_new (di_ksize_t atom_size, di_ksize_t area_size);
 void *di_mem_chunk_alloc (di_mem_chunk *mem_chunk);
 void *di_mem_chunk_alloc0 (di_mem_chunk *mem_chunk);
 void di_mem_chunk_destroy (di_mem_chunk *mem_chunk);
