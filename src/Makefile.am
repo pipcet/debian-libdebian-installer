@@ -1,6 +1,6 @@
 SUBDIRS = system
 
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I$(top_srcdir)/include
 
 lib_LTLIBRARIES = libdebian-installer.la libdebian-installer-extra.la
