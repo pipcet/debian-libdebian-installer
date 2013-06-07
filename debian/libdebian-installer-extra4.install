@@ -1,1 +1,1 @@
-usr/lib/libdebian-installer-extra.so.*
+usr/lib/*/libdebian-installer-extra.so.*

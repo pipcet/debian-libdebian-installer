@@ -7,6 +7,8 @@ libdebian-installer (0.88) UNRELEASED; urgency=low
   * Switch from INCLUDES to AM_CPPFLAGS in Makefile.am files.
   * Restore handling of pipe errors, since this is now a build failure in
     Debian due to -Werror=unused-result.
+  * Convert to multiarch.  (libdebian-installer4-dev cannot currently be
+    Multi-Arch: same due to differences in doxygen output.)
 
   [ Dmitrijs Ledkovs ]
   * Set debian source format to '3.0 (native)'.
