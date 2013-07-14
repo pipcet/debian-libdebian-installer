@@ -15,6 +15,9 @@ libdebian-installer (0.88) UNRELEASED; urgency=low
   * Bump debhelper compat level to 9.
   * Set Vcs-* to canonical format.
 
+  [ Christian Perrier ]
+  * Update Standards to 3.9.4 (checked)
+
  -- Colin Watson <cjwatson@debian.org>  Tue, 04 Jun 2013 15:31:42 +0100
 
 libdebian-installer (0.87) unstable; urgency=low
