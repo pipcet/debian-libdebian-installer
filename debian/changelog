@@ -1,4 +1,4 @@
-libdebian-installer (0.88) UNRELEASED; urgency=low
+libdebian-installer (0.88) unstable; urgency=low
 
   [ Colin Watson ]
   * Drop the nonnull function attribute from di_mem_chunk_new and
@@ -18,7 +18,7 @@ libdebian-installer (0.88) UNRELEASED; urgency=low
   [ Christian Perrier ]
   * Update Standards to 3.9.4 (checked)
 
- -- Colin Watson <cjwatson@debian.org>  Tue, 04 Jun 2013 15:31:42 +0100
+ -- Christian Perrier <bubulle@debian.org>  Sun, 14 Jul 2013 13:18:37 +0200
 
 libdebian-installer (0.87) unstable; urgency=low
 
