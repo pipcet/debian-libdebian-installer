@@ -161,7 +161,7 @@ const char *di_system_subarch_analyze(void)
 	if (ret)
 		ret = read_cpuinfo(entry, sizeof(entry));
 	if (ret)
-		return "unknown";
+		return "generic";
 
 	for (i = 0; map_hardware[i].entry; i++)
 	{
@@ -172,7 +172,7 @@ const char *di_system_subarch_analyze(void)
 	    }
 	}
 
-	return "unknown";
+	return "generic";
 }
 
 const char *di_system_subarch_analyze_guess(void)
