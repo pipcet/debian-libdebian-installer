@@ -1,3 +1,9 @@
+libdebian-installer (0.89) UNRELEASED; urgency=low
+
+  * Add support for EXYNOS5440 platforms
+
+ -- dann frazier <dannf@debian.org>  Fri, 20 Dec 2013 16:25:21 -0700
+
 libdebian-installer (0.88) unstable; urgency=low
 
   [ Colin Watson ]
