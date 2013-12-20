@@ -15,6 +15,8 @@ struct map {
 static const char *supported_generic_subarches[] = {
     "dove",
     "exynos5",
+    "highbank",
+    "midway",
     "omap",
     "omap4",
     "mx51",
@@ -92,6 +94,8 @@ static struct map map_hardware[] = {
     { "ARM-Versatile Express", "vexpress" },
     { "SAMSUNG SSDK5440 board based on EXYNOS5440", "exynos5" },
     { "SAMSUNG SD5v1 board based on EXYNOS5440", "exynos5" },
+    { "Calxeda Highbank", "highbank" },
+    { "Calxeda ECX-2000", "midway" },
     { NULL, NULL }
 };
 
