@@ -38,7 +38,7 @@ void di_system_init (const char *_progname)
 
 /*
  * HACK: If there's a better way to do this, we should probably use that
- *       instead of this stub function for non armel archs
+ *       instead of this stub function for non armel/arm64 archs
  */
 
 const char *di_system_subarch_analyze_guess (void)

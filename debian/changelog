@@ -2,6 +2,7 @@ libdebian-installer (0.89) UNRELEASED; urgency=low
 
   * Add support for EXYNOS5440 platforms
   * Add support for Calxeda Highbank and Midway platforms
+  * Add support for arm64
 
  -- dann frazier <dannf@debian.org>  Fri, 20 Dec 2013 16:25:21 -0700
 

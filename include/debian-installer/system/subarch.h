@@ -21,7 +21,7 @@
 #ifndef DEBIAN_INSTALLER__SYSTEM__SUBARCH_H
 #define DEBIAN_INSTALLER__SYSTEM__SUBARCH_H
 
-#ifdef __ARMEL__
+#if defined(__ARMEL__) || defined (__AARCH64EL__)
 #define DI_SYSTEM_SUBARCH_CAN_GUESS 1
 #endif
 

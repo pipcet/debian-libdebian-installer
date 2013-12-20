@@ -13,6 +13,7 @@ libsystem_la_SOURCES = \
 EXTRA_libsystem_la_SOURCES = \
 	subarch-generic.c \
 	subarch-arm-linux.c \
+	subarch-arm64-linux.c \
 	subarch-armeb-linux.c \
 	subarch-armel-linux.c \
 	subarch-armhf-linux.c \
