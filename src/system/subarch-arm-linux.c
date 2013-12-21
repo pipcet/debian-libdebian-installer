@@ -14,9 +14,6 @@ struct map {
 
 static const char *supported_generic_subarches[] = {
     "dove",
-    "exynos5",
-    "highbank",
-    "midway",
     "omap",
     "omap4",
     "mx51",
