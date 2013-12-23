@@ -23,6 +23,7 @@ static const char *supported_generic_subarches[] = {
 };
 
 static struct map map_hardware[] = {
+    /* ARM32 */
     { "Acorn-RiscPC" , "rpc" },
     { "EBSA285" , "netwinder" },
     { "Rebel-NetWinder" , "netwinder" },
@@ -93,7 +94,11 @@ static struct map map_hardware[] = {
     { "SAMSUNG SD5v1 board based on EXYNOS5440", "exynos5" },
     { "Calxeda Highbank", "highbank" },
     { "Calxeda ECX-2000", "midway" },
+
+    /* ARM64 */
     { "Foundation-v8A", "foundation" },
+
+    /* ARM32 and ARM64 */
     { "linux,dummy-virt", "virt" },
     { NULL, NULL }
 };
