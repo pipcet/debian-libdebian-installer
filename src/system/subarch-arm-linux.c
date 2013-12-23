@@ -93,6 +93,7 @@ static struct map map_hardware[] = {
     { "SAMSUNG SD5v1 board based on EXYNOS5440", "exynos5" },
     { "Calxeda Highbank", "highbank" },
     { "Calxeda ECX-2000", "midway" },
+    { "Foundation-v8A", "foundation" },
     { "linux,dummy-virt", "virt" },
     { NULL, NULL }
 };
