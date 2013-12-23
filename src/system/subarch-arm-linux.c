@@ -97,6 +97,7 @@ static struct map map_hardware[] = {
 
     /* ARM64 */
     { "Foundation-v8A", "foundation" },
+    { "APM X-Gene CPU Potenza", "xgene" },
 
     /* ARM32 and ARM64 */
     { "linux,dummy-virt", "virt" },
