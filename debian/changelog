@@ -1,3 +1,9 @@
+libdebian-installer (0.90) UNRELEASED; urgency=medium
+
+  * Add support for Loongson 3A platforms.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 25 Dec 2013 12:21:47 +0100
+
 libdebian-installer (0.89) unstable; urgency=low
 
   * Add support for EXYNOS5440 platforms
