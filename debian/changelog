@@ -1,3 +1,16 @@
+libdebian-installer (0.91) UNRELEASED; urgency=medium
+
+  * mips, mipsel: rewrite subarch-mips-linux.c:
+     - Use a regex system instead of a two level lookup to provide more
+       flexibility.
+     - Use subarch-mips-linux.c for mipsel, as more and more systems are
+       bi-endian.
+     - Remove non-supported platforms.
+     - Add support for Cavium Octeon platforms.
+     - Detect more Loongson 2E and 2F machines.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 27 Dec 2013 23:55:12 +0100
+
 libdebian-installer (0.90) unstable; urgency=medium
 
   * Add support for Loongson 3A platforms.
