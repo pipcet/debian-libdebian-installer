@@ -1,8 +1,8 @@
-libdebian-installer (0.90) UNRELEASED; urgency=medium
+libdebian-installer (0.90) unstable; urgency=medium
 
   * Add support for Loongson 3A platforms.
 
- -- Aurelien Jarno <aurel32@debian.org>  Wed, 25 Dec 2013 12:21:47 +0100
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 27 Dec 2013 20:27:38 +0100
 
 libdebian-installer (0.89) unstable; urgency=low
 
