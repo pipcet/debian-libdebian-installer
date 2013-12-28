@@ -1,4 +1,4 @@
-libdebian-installer (0.91) UNRELEASED; urgency=medium
+libdebian-installer (0.91) unstable; urgency=medium
 
   * mips, mipsel: rewrite subarch-mips-linux.c:
      - Use a regex system instead of a two level lookup to provide more
@@ -9,7 +9,7 @@ libdebian-installer (0.91) UNRELEASED; urgency=medium
      - Add support for Cavium Octeon platforms.
      - Detect more Loongson 2E and 2F machines.
 
- -- Aurelien Jarno <aurel32@debian.org>  Fri, 27 Dec 2013 23:55:12 +0100
+ -- Aurelien Jarno <aurel32@debian.org>  Sat, 28 Dec 2013 09:50:51 +0100
 
 libdebian-installer (0.90) unstable; urgency=medium
 
