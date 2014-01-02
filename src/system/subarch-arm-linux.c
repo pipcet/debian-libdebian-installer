@@ -12,6 +12,7 @@ struct map {
 	char *ret;
 };
 
+/* Do not add new armhf platforms here */
 static const char *supported_generic_subarches[] = {
     "dove",
     "omap",
@@ -23,7 +24,7 @@ static const char *supported_generic_subarches[] = {
 };
 
 static struct map map_hardware[] = {
-    /* ARM32 */
+    /* ARM32: armel */
     { "Acorn-RiscPC" , "rpc" },
     { "EBSA285" , "netwinder" },
     { "Rebel-NetWinder" , "netwinder" },
@@ -85,16 +86,22 @@ static struct map map_hardware[] = {
     { "Linksys NSLU2", "ixp4xx" },
     { "ARM-Versatile AB", "versatile" },
     { "ARM-Versatile PB", "versatile" },
+
+    /* ARM32: armhf
+     *
+     * These flavours were removed in Jessie (replaced by the generic armmp
+     * flavour). These are kept solely to allow the Jessie installer to be able
+     * to install Wheezy.
+     *
+     * Do not add new flavours here -- new platforms should use the armmp
+     * kernel, which is the default if nothing is found here.
+     */
     { "Genesi Efika MX (Smartbook)", "mx5" },
     { "Genesi Efika MX (Smarttop)", "mx5" },
     { "Nokia RX-51 Board", "omap" },
     { "OMAP3 Beagle Board", "omap" },
     { "OMAP4 Panda Board", "omap" },
     { "ARM-Versatile Express", "vexpress" },
-    { "SAMSUNG SSDK5440 board based on EXYNOS5440", "exynos5" },
-    { "SAMSUNG SD5v1 board based on EXYNOS5440", "exynos5" },
-    { "Calxeda Highbank", "highbank" },
-    { "Calxeda ECX-2000", "midway" },
 
     /* ARM64 */
     { "Foundation-v8A", "foundation" },
