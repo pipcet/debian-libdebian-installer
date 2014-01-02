@@ -24,7 +24,7 @@ static const char *supported_generic_subarches[] = {
 };
 
 static struct map map_hardware[] = {
-    /* ARM32: armel */
+    /* armel */
     { "Acorn-RiscPC" , "rpc" },
     { "EBSA285" , "netwinder" },
     { "Rebel-NetWinder" , "netwinder" },
@@ -87,7 +87,7 @@ static struct map map_hardware[] = {
     { "ARM-Versatile AB", "versatile" },
     { "ARM-Versatile PB", "versatile" },
 
-    /* ARM32: armhf
+    /* armhf
      *
      * These flavours were removed in Jessie (replaced by the generic armmp
      * flavour). These are kept solely to allow the Jessie installer to be able
@@ -102,14 +102,6 @@ static struct map map_hardware[] = {
     { "OMAP3 Beagle Board", "omap" },
     { "OMAP4 Panda Board", "omap" },
     { "ARM-Versatile Express", "vexpress" },
-
-    /* ARM64 */
-    { "Foundation-v8A", "foundation" },
-    { "APM X-Gene CPU Potenza", "xgene" },
-
-    /* ARM32 and ARM64 */
-    { "linux,dummy-virt", "virt" },
-    { NULL, NULL }
 };
 
 static int read_dt_model(char *entry, int entry_len)
