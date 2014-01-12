@@ -1,3 +1,9 @@
+libdebian-installer (0.92) UNRELEASED; urgency=low
+
+  * armel: Add support for "Buffalo Linkstation LS-CHLv2". (Closes: #735452)
+
+ -- Ian Campbell <ijc@hellion.org.uk>  Sat, 25 Jan 2014 07:46:33 +0000
+
 libdebian-installer (0.91) unstable; urgency=medium
 
   * mips, mipsel: rewrite subarch-mips-linux.c:
