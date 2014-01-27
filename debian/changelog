@@ -1,10 +1,11 @@
-libdebian-installer (0.92) UNRELEASED; urgency=low
+libdebian-installer (0.92) unstable; urgency=low
 
+  [ Ian Campbell ]
   * armel: Add support for "Buffalo Linkstation LS-CHLv2". (Closes: #735452)
   * armhf/el: Return "generic" subarch for unknown platforms.
   * arm64: Always return "generic" subarch.
 
- -- Ian Campbell <ijc@hellion.org.uk>  Sat, 25 Jan 2014 07:46:33 +0000
+ -- Colin Watson <cjwatson@debian.org>  Mon, 27 Jan 2014 16:21:00 +0000
 
 libdebian-installer (0.91) unstable; urgency=medium
 
