@@ -1,8 +1,12 @@
 libdebian-installer (0.93) UNRELEASED; urgency=medium
 
+  [ Colin Watson ]
   * Policy version 3.9.5: no changes required.
   * Upgrade doxygen configuration file using "doxygen -u", suppressing
     several build warnings.
+
+  [ Ian Campbell ]
+  * Add support for the Buffalo Linkstation LS-XHL. (Closes: #740787)
 
  -- Colin Watson <cjwatson@debian.org>  Thu, 13 Feb 2014 11:00:59 +0000
 
