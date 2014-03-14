@@ -1,4 +1,4 @@
-libdebian-installer (0.93) UNRELEASED; urgency=medium
+libdebian-installer (0.93) unstable; urgency=medium
 
   [ Colin Watson ]
   * Policy version 3.9.5: no changes required.
@@ -8,7 +8,7 @@ libdebian-installer (0.93) UNRELEASED; urgency=medium
   [ Ian Campbell ]
   * Add support for the Buffalo Linkstation LS-XHL. (Closes: #740787)
 
- -- Colin Watson <cjwatson@debian.org>  Thu, 13 Feb 2014 11:00:59 +0000
+ -- Cyril Brulebois <kibi@debian.org>  Fri, 14 Mar 2014 12:33:35 +0100
 
 libdebian-installer (0.92) unstable; urgency=low
 
