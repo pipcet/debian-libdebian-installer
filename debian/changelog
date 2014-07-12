@@ -1,9 +1,9 @@
-libdebian-installer (0.94) UNRELEASED; urgency=medium
+libdebian-installer (0.94) unstable; urgency=medium
 
   [ Aurelien Jarno ]
   * Group Loongson 3A and 3B in the same loongson-3 subarchitecture.
 
- -- Aurelien Jarno <aurel32@debian.org>  Sat, 12 Jul 2014 16:33:36 +0200
+ -- Aurelien Jarno <aurel32@debian.org>  Sat, 12 Jul 2014 16:35:02 +0200
 
 libdebian-installer (0.93) unstable; urgency=medium
 
