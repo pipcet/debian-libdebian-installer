@@ -1,3 +1,11 @@
+libdebian-installer (0.95) UNRELEASED; urgency=medium
+
+  [ Aurelien Jarno ]
+  * Add ppc64 and ppc64el support, based on a patch from
+    Frederic Bonnard.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 17 Aug 2014 23:22:46 +0200
+
 libdebian-installer (0.94) unstable; urgency=medium
 
   [ Aurelien Jarno ]
