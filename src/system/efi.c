@@ -1,7 +1,7 @@
 /*
- * subarch-arm64-linux.c
+ * efi.c
  *
- * Copyright (C) 2013 Ian Campbell <ijc@hellion.org.uk>
+ * Copyright (C) 2012 Steve McIntyre <steve@einval.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,16 +14,22 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include <debian-installer/system/subarch.h>
+#include <unistd.h>
+
 #include <debian-installer/system/efi.h>
 
-const char *di_system_subarch_analyze(void)
+/* Are we on an EFI system? Check to see if /sys/firmware/efi
+ * exists */
+int di_system_is_efi(void)
 {
-	if (di_system_is_efi())
-		return "efi";
+	int ret = access("/sys/firmware/efi", R_OK);
+	if (ret == 0)
+		return 1;
 	else
-		return "generic";
+		return 0;
 }
+

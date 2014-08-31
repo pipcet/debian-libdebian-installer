@@ -58,6 +58,7 @@
 #include <fcntl.h>
 
 #include <debian-installer/system/subarch.h>
+#include <debian-installer/system/efi.h>
 
 #define WORD(x) (*(const uint16_t *)(x))
 #define DWORD(x) (*(const uint32_t *)(x))
@@ -250,17 +251,6 @@ static char *dmi_system_manufacturer(void)
 	return ret;
 }
 
-/* Are we on an EFI system? Check to see if /sys/firmware/efi
- * exists */
-static int is_efi(void)
-{
-	int ret = access("/sys/firmware/efi", R_OK);
-	if (ret == 0)
-		return 1;
-	else
-		return 0;
-}
-
 struct map {
 	const char *entry;
 	const char *ret;
@@ -280,7 +270,7 @@ const char *di_system_subarch_analyze(void)
 
 	/* Look for generic EFI first; this will be over-ridden by the mac
 	 * detection next if we're on a mac. */
-	if (is_efi())
+	if (di_system_is_efi())
 		ret = "efi";
 
 	if (manufacturer)

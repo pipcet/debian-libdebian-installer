@@ -1,3 +1,9 @@
+libdebian-installer (0.96) UNRELEASED; urgency=medium
+
+  * arm64: Detect UEFI based systems as "efi" subarch.
+
+ -- Ian Campbell <ijc@debian.org>  Sun, 31 Aug 2014 22:58:14 +0100
+
 libdebian-installer (0.95) unstable; urgency=medium
 
   [ Aurelien Jarno ]
