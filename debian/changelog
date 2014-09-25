@@ -1,9 +1,10 @@
-libdebian-installer (0.96.0~reproducible1) UNRELEASED; urgency=low
+libdebian-installer (0.97) unstable; urgency=low
 
+  [ Jérémy Bobbio ]
   * Do not write timesamps in Doxygen generated documentation for
     reproducibility of the build process.
 
- -- Jérémy Bobbio <lunar@debian.org>  Wed, 24 Sep 2014 19:08:26 +0000
+ -- Christian Perrier <bubulle@debian.org>  Thu, 25 Sep 2014 06:39:10 +0200
 
 libdebian-installer (0.96) unstable; urgency=medium
 
