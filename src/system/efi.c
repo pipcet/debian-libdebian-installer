@@ -28,7 +28,14 @@ int di_system_is_efi(void)
 {
 	int ret = access("/sys/firmware/efi", R_OK);
 	if (ret == 0)
-		return 1;
+	{
+		/* Have we been told to ignore EFI in partman-efi? */
+		ret = access("/var/lib/partman/ignore_uefi", R_OK);
+		if (ret == 0)
+			return 0;
+		else
+			return 1;
+	}
 	else
 		return 0;
 }
