@@ -2,8 +2,9 @@ libdebian-installer (0.98) unstable; urgency=low
 
   [ Steve McIntyre ]
   * Recognise the new ignore_uefi flag from partman-efi.
+  * Add myself to uploaders.
 
- -- Steve McIntyre <93sam@debian.org>  Wed, 01 Oct 2014 01:42:22 +0100
+ -- Steve McIntyre <93sam@debian.org>  Tue, 25 Nov 2014 17:32:51 +0000
 
 libdebian-installer (0.97) unstable; urgency=low
 
