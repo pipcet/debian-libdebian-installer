@@ -103,6 +103,7 @@ static struct map map_hardware[] = {
     { "OMAP3 Beagle Board", "omap" },
     { "OMAP4 Panda Board", "omap" },
     { "ARM-Versatile Express", "vexpress" },
+    { NULL, NULL }
 };
 
 static int read_dt_model(char *entry, int entry_len)

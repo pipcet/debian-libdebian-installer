@@ -1,3 +1,10 @@
+libdebian-installer (0.99) UNRELEASED; urgency=medium
+
+  * Replace NULL terminator for the arm map_hardware table, accidentally
+    dropped in 0.92 (Closes: #776488).
+
+ -- dann frazier <dannf@debian.org>  Wed, 28 Jan 2015 09:05:27 -0700
+
 libdebian-installer (0.98) unstable; urgency=low
 
   [ Steve McIntyre ]
