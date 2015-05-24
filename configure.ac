@@ -9,6 +9,8 @@ AC_CHECK_FUNCS(memrchr)
 
 AC_CHECK_PROGS(DOXYGEN, doxygen, true)
 
+PKG_CHECK_MODULES([CHECK], [check >= 0.9.4])
+
 LIBRARY_VERSION_MAJOR=4
 LIBRARY_VERSION_MINOR=0
 LIBRARY_VERSION_REVISION=7
@@ -89,6 +91,7 @@ include/debian-installer/Makefile
 include/debian-installer/system/Makefile
 src/Makefile
 src/system/Makefile
+test/Makefile
 libdebian-installer.pc
 libdebian-installer-extra.pc
 ])

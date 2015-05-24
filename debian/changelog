@@ -1,3 +1,9 @@
+libdebian-installer (0.100) UNRELEASED; urgency=medium
+
+  * Run unit tests during build.
+
+ -- Philipp Kern <pkern@debian.org>  Mon, 25 May 2015 00:15:03 +0200
+
 libdebian-installer (0.99) unstable; urgency=medium
 
   * Replace NULL terminator for the arm map_hardware table, accidentally

@@ -1,22 +1,19 @@
-#include <stdio.h>
+#include <stdlib.h>
 
-extern int test_hash_run();
-extern int test_system_packages_run();
+#include <check.h>
 
-static int (*func_run[])() ={
-  test_hash_run,
-  test_system_packages_run,
-  NULL
-};
+#include "test_hash.h"
+#include "test_system_packages.h"
 
-int
-main() {
-  int result=0;
-  int i=0;
+int main() {
+  int number_failed;
+  SRunner *sr;
 
-  for(i=0; !result && func_run[i]; i++) {
-    result = func_run[i]();
-    }
+  sr = srunner_create(make_test_hash_suite());
+  srunner_add_suite(sr, make_test_system_packages_suite());
+  srunner_run_all(sr, CK_NORMAL);
+  number_failed = srunner_ntests_failed(sr);
+  srunner_free(sr);
 
-  return result;
+  return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
