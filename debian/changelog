@@ -1,6 +1,7 @@
 libdebian-installer (0.100) UNRELEASED; urgency=medium
 
   * Run unit tests during build.
+  * Add a simple unit test to test libdebian-installer's exec functionality.
 
  -- Philipp Kern <pkern@debian.org>  Mon, 25 May 2015 00:15:03 +0200
 

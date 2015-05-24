@@ -2,6 +2,7 @@
 
 #include <check.h>
 
+#include "test_exec.h"
 #include "test_hash.h"
 #include "test_system_packages.h"
 
@@ -11,6 +12,7 @@ int main() {
 
   sr = srunner_create(make_test_hash_suite());
   srunner_add_suite(sr, make_test_system_packages_suite());
+  srunner_add_suite(sr, make_test_exec_suite());
   srunner_run_all(sr, CK_NORMAL);
   number_failed = srunner_ntests_failed(sr);
   srunner_free(sr);
