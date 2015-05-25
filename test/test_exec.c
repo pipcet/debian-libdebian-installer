@@ -17,10 +17,25 @@ START_TEST(test_exec)
 }
 END_TEST
 
+START_TEST(test_exec_fail)
+{
+  const char* argv[] = {"/bin/false", NULL};
+  int retval = di_exec(argv[0], argv);
+  ck_assert_int_eq(di_exec_mangle_status(retval), 1);
+}
+END_TEST
+
 START_TEST(test_exec_shell)
 {
   int retval = di_exec_shell("/bin/echo test");
   ck_assert_int_eq(di_exec_mangle_status(retval), 0);
+}
+END_TEST
+
+START_TEST(test_exec_shell_fail)
+{
+  int retval = di_exec_shell("/bin/false ignored arguments");
+  ck_assert_int_eq(di_exec_mangle_status(retval), 1);
 }
 END_TEST
 
@@ -52,7 +67,9 @@ Suite* make_test_exec_suite() {
   s = suite_create("test exec");
   tc_core = tcase_create("Core");
   tcase_add_test(tc_core, test_exec);
+  tcase_add_test(tc_core, test_exec_fail);
   tcase_add_test(tc_core, test_exec_shell);
+  tcase_add_test(tc_core, test_exec_shell_fail);
   tcase_add_test(tc_core, test_exec_stdout_capture);
   suite_add_tcase(s, tc_core);
 
