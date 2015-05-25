@@ -1,14 +1,11 @@
-libdebian-installer (0.101) UNRELEASED; urgency=medium
-
-  * Update Standards to 3.9.6 (checked)
-
- -- Christian Perrier <bubulle@debian.org>  Mon, 25 May 2015 08:11:01 +0200
-
 libdebian-installer (0.100) unstable; urgency=medium
 
   [ Philipp Kern ]
   * Run unit tests during build.
   * Add a simple unit test to test libdebian-installer's exec functionality.
+
+  [ Christian Perrier ]
+  * Update Standards to 3.9.6 (checked)
 
  -- Christian Perrier <bubulle@debian.org>  Mon, 25 May 2015 07:59:28 +0200
 
