@@ -1,7 +1,11 @@
 SUBDIRS = system
 
+# Force include/debian-installer not to be in the default search path.
+# (It provides string.h and trumps the system copy.)
+DEFAULT_INCLUDES = -I.@am__isrc@
+
 AM_CPPFLAGS = \
-	-I$(top_srcdir)/include
+	-I$(top_srcdir)/include -I$(top_builddir)/
 
 lib_LTLIBRARIES = libdebian-installer.la libdebian-installer-extra.la
 
