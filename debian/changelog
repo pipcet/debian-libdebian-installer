@@ -1,10 +1,10 @@
-libdebian-installer (0.101) UNRELEASED; urgency=medium
+libdebian-installer (0.101) unstable; urgency=medium
 
   [ Martin Michlmayr ]
   * Add device tree variants for supported armel/kirkwood devices.
     (Closes: #787563)
 
- -- Martin Michlmayr <tbm@cyrius.com>  Tue, 02 Jun 2015 14:14:46 -0400
+ -- Cyril Brulebois <kibi@debian.org>  Wed, 03 Jun 2015 00:55:08 +0200
 
 libdebian-installer (0.100) unstable; urgency=medium
 
