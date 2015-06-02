@@ -1,3 +1,11 @@
+libdebian-installer (0.99+deb8u1) UNRELEASED; urgency=medium
+
+  [ Martin Michlmayr ]
+  * Add device tree variants for supported armel/kirkwood devices.
+    (Closes: #787563)
+
+ -- Martin Michlmayr <tbm@cyrius.com>  Tue, 02 Jun 2015 14:14:46 -0400
+
 libdebian-installer (0.99) unstable; urgency=medium
 
   * Replace NULL terminator for the arm map_hardware table, accidentally
