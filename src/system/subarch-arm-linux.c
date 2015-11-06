@@ -63,6 +63,7 @@ static struct map map_hardware[] = {
     { "LaCie d2 Network v2", "kirkwood" },
     { "LaCie 2Big Network v2", "kirkwood" },
     { "LaCie 5Big Network v2", "kirkwood" },
+    { "Iomega Iconnect", "kirkwood" },
     { "Buffalo/Revogear Kurobox Pro", "orion5x" },
     { "D-Link DNS-323", "orion5x" },
     { "QNAP TS-109/TS-209", "orion5x" },
