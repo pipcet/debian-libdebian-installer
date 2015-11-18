@@ -1,9 +1,9 @@
-libdebian-installer (0.102) UNRELEASED; urgency=medium
+libdebian-installer (0.102) unstable; urgency=medium
 
   [ Karsten Merker ]
   * armel: Add kirkwood mapping for the Iomega Iconnect dtb.
 
- -- Karsten Merker <merker@debian.org>  Fri, 06 Nov 2015 12:55:43 +0200
+ -- Christian Perrier <bubulle@debian.org>  Wed, 18 Nov 2015 07:21:51 +0100
 
 libdebian-installer (0.101) unstable; urgency=medium
 
