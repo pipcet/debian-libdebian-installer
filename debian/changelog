@@ -1,3 +1,9 @@
+libdebian-installer (0.103) UNRELEASED; urgency=medium
+
+  * Use HTTPS for Vcs-* URLs, and link to cgit rather than gitweb.
+
+ -- Colin Watson <cjwatson@debian.org>  Fri, 29 Jan 2016 13:35:18 +0000
+
 libdebian-installer (0.102) unstable; urgency=medium
 
   [ Karsten Merker ]
