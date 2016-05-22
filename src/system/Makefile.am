@@ -25,6 +25,7 @@ EXTRA_libsystem_la_SOURCES = \
 	subarch-m68k-linux.c \
 	subarch-mips-linux.c \
 	subarch-mipsel-linux.c \
+	subarch-mips64el-linux.c \
 	subarch-powerpc-linux.c \
 	subarch-ppc64-linux.c \
 	subarch-ppc64el-linux.c \
