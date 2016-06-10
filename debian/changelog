@@ -1,3 +1,10 @@
+libdebian-installer (0.106) UNRELEASED; urgency=medium
+
+  [ Steve McIntyre ]
+  * armhf: Add EFI detection.
+
+ -- Steve McIntyre <93sam@debian.org>  Fri, 10 Jun 2016 14:22:35 +0100
+
 libdebian-installer (0.105) unstable; urgency=medium
 
   [ Aurelien Jarno ]

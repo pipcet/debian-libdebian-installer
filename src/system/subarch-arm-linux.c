@@ -200,6 +200,10 @@ const char *di_system_subarch_analyze_guess(void)
 	struct utsname sysinfo;
 	size_t uname_release_len, i;
 
+	/* If we detect EFI firmware, bail out early here */
+	if (di_system_is_efi())
+		return "efi";
+
 	/* Attempt to determine subarch based on kernel release version */
 	uname(&sysinfo);
 	uname_release_len = strlen(sysinfo.release);
