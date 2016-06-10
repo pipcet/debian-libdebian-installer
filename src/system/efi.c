@@ -26,11 +26,12 @@
  * exists */
 int di_system_is_efi(void)
 {
-	int ret = access("/sys/firmware/efi", R_OK);
-	if (ret == 0)
+	int efivars_access = access("/sys/firmware/efi/efivars", R_OK);
+	int vars_access = access("/sys/firmware/efi/vars", R_OK);
+	if (efivars_access == 0 || vars_access == 0)
 	{
 		/* Have we been told to ignore EFI in partman-efi? */
-		ret = access("/var/lib/partman/ignore_uefi", R_OK);
+		int ret = access("/var/lib/partman/ignore_uefi", R_OK);
 		if (ret == 0)
 			return 0;
 		else

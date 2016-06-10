@@ -3,6 +3,12 @@ libdebian-installer (0.106) UNRELEASED; urgency=medium
   [ Steve McIntyre ]
   * armhf: Add EFI detection.
 
+  [ Mathieu Trudel-Lapierre ]
+  * validate the presence of efivars *or* vars under /sys/firmware/efi to
+    decide whether we should show the system as running in EFI mode;
+    either of these paths is required for efibootmgr to set a BootEntry at
+    the end of installation. Closes: #826665
+
  -- Steve McIntyre <93sam@debian.org>  Fri, 10 Jun 2016 14:22:35 +0100
 
 libdebian-installer (0.105) unstable; urgency=medium
