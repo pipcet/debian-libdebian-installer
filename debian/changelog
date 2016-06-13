@@ -1,4 +1,4 @@
-libdebian-installer (0.106) UNRELEASED; urgency=medium
+libdebian-installer (0.106) unstable; urgency=medium
 
   [ Steve McIntyre ]
   * armhf: Add EFI detection.
@@ -9,7 +9,7 @@ libdebian-installer (0.106) UNRELEASED; urgency=medium
     either of these paths is required for efibootmgr to set a BootEntry at
     the end of installation. Closes: #826665
 
- -- Steve McIntyre <93sam@debian.org>  Fri, 10 Jun 2016 14:22:35 +0100
+ -- Christian Perrier <bubulle@debian.org>  Sun, 12 Jun 2016 09:06:30 +0200
 
 libdebian-installer (0.105) unstable; urgency=medium
 
