@@ -6,6 +6,7 @@
 #include <sys/utsname.h>
 
 #include <debian-installer/system/subarch.h>
+#include <debian-installer/system/efi.h>
 
 struct map {
 	char *entry;

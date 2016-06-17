@@ -1,3 +1,10 @@
+libdebian-installer (0.107) UNRELEASED; urgency=medium
+
+  [ Steve McIntyre ]
+  * armel/armhf: Fix missing efi include FTBFS
+
+ -- Steve McIntyre <93sam@debian.org>  Fri, 17 Jun 2016 22:45:50 +0100
+
 libdebian-installer (0.106) unstable; urgency=medium
 
   [ Steve McIntyre ]
