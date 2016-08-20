@@ -1,6 +1,9 @@
 AUTOMAKE_OPTIONS = foreign
 
-SUBDIRS = doc include src test
+SUBDIRS = doc include src
+if ENABLE_CHECK
+SUBDIRS += test
+endif
 
 pkgconfigdir = ${libdir}/pkgconfig
 pkgconfig_DATA = \

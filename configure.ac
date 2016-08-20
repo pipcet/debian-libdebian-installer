@@ -7,9 +7,14 @@ AC_PROG_LIBTOOL
 
 AC_CHECK_FUNCS(memrchr)
 
+AC_ARG_ENABLE([check],AS_HELP_STRING([--disable-check],[Disable running the test suite]))
+
 AC_CHECK_PROGS(DOXYGEN, doxygen, true)
 
-PKG_CHECK_MODULES([CHECK], [check >= 0.9.4])
+AS_IF([test "x$enable_check" != xno],[
+	PKG_CHECK_MODULES([CHECK], [check >= 0.9.4])
+])
+AM_CONDITIONAL([ENABLE_CHECK],[test "x$enable_check" != xno])
 
 LIBRARY_VERSION_MAJOR=4
 LIBRARY_VERSION_MINOR=0

@@ -16,6 +16,11 @@ endif
 
 export CFLAGS
 
+ifneq ($(filter nocheck,$(DEB_BUILD_OPTIONS)),)
+override_dh_auto_configure:
+	dh_auto_configure -- --disable-check
+endif
+
 override_dh_auto_build:
 	dh_auto_build
 	$(MAKE) -C build/doc doc
