@@ -7,7 +7,7 @@
 #include <debian-installer/types.h>
 #include <debian-installer/exec.h>
 
-#include "test_exec.h"
+#include "test.h"
 
 START_TEST(test_exec)
 {

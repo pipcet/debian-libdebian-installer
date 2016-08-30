@@ -7,7 +7,7 @@
 #include <debian-installer/hash.h>
 #include <debian-installer/string.h>
 
-#include "test_hash.h"
+#include "test.h"
 
 #define STRING_MAX_LENGTH 10
 #define KEY_VALUE_NBR 20

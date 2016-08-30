@@ -2,9 +2,7 @@
 
 #include <check.h>
 
-#include "test_exec.h"
-#include "test_hash.h"
-#include "test_system_packages.h"
+#include "test.h"
 
 int main() {
   int number_failed;

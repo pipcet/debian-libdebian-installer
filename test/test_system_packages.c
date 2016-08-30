@@ -8,7 +8,7 @@
 #include <debian-installer/string.h>
 #include <debian-installer/system/packages.h>
 
-#include "test_system_packages.h"
+#include "test.h"
 
 #define DOWNLOAD_PACKAGES       DATADIR "/Packages"
 
