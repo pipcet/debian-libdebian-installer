@@ -1,19 +1,11 @@
 #! /usr/bin/make -f
+
+export DEB_CFLAGS_MAINT_APPEND = -Wall -W -Werror -Wmissing-declarations
+
 include /usr/share/dpkg/default.mk
 
 %:
 	dh $@ --builddirectory=build --with autoreconf
-
-#CFLAGS = -Wall -W -Werror -ggdb -Wstrict-prototypes -Wmissing-declarations -Wmissing-prototypes
-CFLAGS = -Wall -W -Werror -ggdb -Wmissing-declarations
-
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	CFLAGS += -O0
-else
-	CFLAGS += -Os -fomit-frame-pointer
-endif
-
-export CFLAGS
 
 override_dh_auto_build:
 	dh_auto_build
