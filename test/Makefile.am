@@ -4,6 +4,9 @@ check_PROGRAMS = test
 
 EXTRA_DIST = Packages
 
+LOG_DRIVER = env AM_TAP_AWK='$(AWK)' $(SHELL) $(top_srcdir)/tap-driver.sh
+TEST_LOG_DRIVER = env AM_TAP_AWK='$(AWK)' $(SHELL) $(top_srcdir)/tap-driver.sh
+
 # Force include/debian-installer not to be in the default search path.
 # (It provides string.h and trumps the system copy.)
 DEFAULT_INCLUDES = -I.@am__isrc@

@@ -1,6 +1,7 @@
 AC_INIT([libdebian-installer],m4_esyscmd(dpkg-parsechangelog | perl -ne 'print $1 if m/^Version: (.*)$/;'))
 AM_INIT_AUTOMAKE([])
 AM_MAINTAINER_MODE
+AC_REQUIRE_AUX_FILE([tap-driver.sh])
 
 AC_PROG_CC
 AC_PROG_LIBTOOL
