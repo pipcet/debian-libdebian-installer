@@ -7,11 +7,6 @@ LIBDI_4.1 {
     di_list_free;
     di_list_prepend;
     di_list_prepend_chunk;
-    di_release_alloc;
-    di_release_free;
-    di_release_parser_fieldinfo;
-    di_release_parser_read_file;
-    di_release_read_file;
   local:
     *;
 };
