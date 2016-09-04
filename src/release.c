@@ -1,7 +1,7 @@
 /*
  * release.c
  *
- * Copyright (C) 2003 Bastian Blank <waldi@debian.org>
+ * Copyright (C) 2003-2016 Bastian Blank <waldi@debian.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,3 +21,53 @@
 
 #include <debian-installer/release.h>
 
+di_release *di_release_read(const char *mem, size_t len)
+{
+  return NULL;
+}
+
+di_release *di_release_read_file(const char *filename)
+{
+  return NULL;
+}
+
+void di_release_free(di_release *release)
+{
+  return;
+}
+
+const char *di_release_get_codename(const di_release *release)
+{
+  return NULL;
+}
+
+const char *di_release_get_description(const di_release *release)
+{
+  return NULL;
+}
+
+const char *di_release_get_label(const di_release *release)
+{
+  return NULL;
+}
+
+const char *di_release_get_origin(const di_release *release)
+{
+  return NULL;
+}
+
+const char *di_release_get_suite(const di_release *release)
+{
+  return NULL;
+}
+
+const char *di_release_get_version(const di_release *release)
+{
+  return NULL;
+}
+
+di_release_file di_release_get_file(const di_release *release, const char *filename)
+{
+  di_release_file file = { 0, };
+  return file;
+}

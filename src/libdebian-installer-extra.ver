@@ -11,6 +11,20 @@ LIBDI_4.1 {
     *;
 };
 
+LIBDI_5.0 {
+  global:
+    di_release_free;
+    di_release_get_codename;
+    di_release_get_description;
+    di_release_get_file;
+    di_release_get_label;
+    di_release_get_origin;
+    di_release_get_suite;
+    di_release_get_version;
+    di_release_read;
+    di_release_read_file;
+} LIBDI_4.1;
+
 #LIBDI_PRIVATE {
 #  global:
 #    internal_*;
