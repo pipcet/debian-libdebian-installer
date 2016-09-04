@@ -28,6 +28,14 @@ static di_parser_fields_function_read
   di_release_parser_read_file;
 
 const di_parser_fieldinfo
+  di_release_parser_field_acquire_byhash =
+    DI_PARSER_FIELDINFO
+    (
+      "Acquire-By-Hash",
+      di_parser_read_boolean,
+      NULL,
+      offsetof(di_release, acquire_byhash)
+    ),
   di_release_parser_field_codename =
     DI_PARSER_FIELDINFO
     (
@@ -90,6 +98,7 @@ const di_parser_fieldinfo
  */
 const di_parser_fieldinfo *di_release_parser_fieldinfo[] =
 {
+  &di_release_parser_field_acquire_byhash,
   &di_release_parser_field_codename,
   &di_release_parser_field_description,
   &di_release_parser_field_label,

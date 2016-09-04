@@ -20,6 +20,8 @@
 #include <debian-installer/tree.h>
 
 struct di_release {
+  bool acquire_byhash;
+
   char *description;
   char *origin;
   char *label;
@@ -32,6 +34,7 @@ struct di_release {
 
 struct di_release_file_internal {
   char *name;
+  char *name_sha256;
   char *sum_sha256;
 };
 

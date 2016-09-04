@@ -17,6 +17,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#define _GNU_SOURCE
+
 #include <config.h>
 
 #include <debian-installer/release.h>
@@ -24,6 +26,7 @@
 
 #include <debian-installer/mem.h>
 
+#include <stdio.h>
 #include <string.h>
 
 static di_compare_func files_compare;
@@ -38,8 +41,22 @@ static void files_destroy(void *data)
 {
   struct di_release_file_internal *file = data;
   di_free(file->name);
+  di_free(file->name_sha256);
   di_free(file->sum_sha256);
   di_free(file);
+}
+
+static void files_finish(void *key __attribute__((unused)), void *value, void *user_data)
+{
+  struct di_release *release = user_data;
+  struct di_release_file_internal *file = value;
+
+  if (release->acquire_byhash)
+  {
+    const char *delim = strrchr(file->name, '/');
+    if (delim)
+      asprintf(&file->name_sha256, "%.*s/by-hash/SHA256/%s", (int)(delim - file->name), file->name, file->sum_sha256);
+  }
 }
 
 di_release *di_release_read(const char *mem, size_t len)
@@ -52,6 +69,8 @@ di_release *di_release_read(const char *mem, size_t len)
     di_release_free(ret);
     return NULL;
   }
+
+  di_tree_foreach(ret->files, files_finish, ret);
 
   return ret;
 }
@@ -66,6 +85,8 @@ di_release *di_release_read_file(const char *filename)
     di_release_free(ret);
     return NULL;
   }
+
+  di_tree_foreach(ret->files, files_finish, ret);
 
   return ret;
 }
@@ -123,6 +144,7 @@ di_release_file di_release_get_file(const di_release *release, const char *filen
     if (f)
     {
       file.name = f->name;
+      file.name_byhash = f->name_sha256;
       file.checksum.type = DI_RELEASE_FILE_CHECKSUM_SHA256;
       file.checksum.value = f->sum_sha256;
     }
