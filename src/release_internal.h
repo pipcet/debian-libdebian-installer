@@ -34,3 +34,6 @@ struct di_release_file_internal {
   char *name;
   char *sum_sha256;
 };
+
+int di_release_parser(const char *mem, size_t len, di_release *release);
+int di_release_parser_file(const char *filename, di_release *release);

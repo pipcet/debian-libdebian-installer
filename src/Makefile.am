@@ -28,7 +28,8 @@ libdebian_installer_la_SOURCES = \
 
 libdebian_installer_extra_la_SOURCES = \
 	list.c \
-	release.c
+	release.c \
+	release_parser.c
 
 libdebian_installer_la_LIBADD = \
 	system/libsystem.la
