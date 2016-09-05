@@ -163,7 +163,7 @@ static void di_release_parser_read_file(data, fip, field_modifier, value, user_d
 
     if (ret == 3)
     {
-      struct di_release_file_internal *f = di_new(struct di_release_file_internal, 1);
+      struct di_release_file_internal *f = di_new0(struct di_release_file_internal, 1);
       f->name = filename;
       f->sum_sha256 = sum;
       di_tree_insert(release->files, filename, f);
