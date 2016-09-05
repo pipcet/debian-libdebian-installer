@@ -6,24 +6,24 @@
 
 #include "test.h"
 
-const char input[] = "\
+const char input_default[] = "\
 Origin: Debian\n\
 Label: Debian\n\
 Suite: unstable\n\
 Codename: sid\n\
 Version: x.y\n\
-Date: Sun, 04 Sep 2016 09:30:08 UTC\n\
-Valid-Until: Sun, 11 Sep 2016 09:30:08 UTC\n\
 Acquire-By-Hash: yes\n\
-Architectures: amd64 arm64 armel armhf hurd-i386 i386 kfreebsd-amd64 kfreebsd-i386 mips mips64el mipsel powerpc ppc64el s390x\n\
-Components: main contrib non-free\n\
 Description: Debian x.y Unstable - Not Released\n\
 SHA256:\n\
  c048039669653f7f126f1d9bea9942101b91cd69344c6db33e8bef9cd4893b80  1441599 contrib/Contents-amd64\n\
- 64af05653654e690cbfd73021463b0fd4c25329b1e184013fcb19a94a91c903b    27796 contrib/Contents-amd64.diff/Index\n\
  39a5e7c71560909adf8057d40b4469f4b3d55e641b859d8cb669ec7794a3720e   112577 contrib/Contents-amd64.gz\n\
 ";
-size_t input_len = strlen(input);
+
+const char input_nobyhash[] = "\
+SHA256:\n\
+ c048039669653f7f126f1d9bea9942101b91cd69344c6db33e8bef9cd4893b80  1441599 contrib/Contents-amd64\n\
+ 39a5e7c71560909adf8057d40b4469f4b3d55e641b859d8cb669ec7794a3720e   112577 contrib/Contents-amd64.gz\n\
+";
 
 di_release *release;
 
@@ -85,8 +85,23 @@ START_TEST(test_get_file)
 }
 END_TEST
 
-static void setup() {
-  release = di_release_read(input, input_len);
+START_TEST(test_get_file_nobyhash)
+{
+  di_release_file fk = di_release_get_file(release, "contrib/Contents-amd64.gz");
+  ck_assert_str_eq(fk.name, "contrib/Contents-amd64.gz");
+  ck_assert_ptr_eq(fk.name_byhash, NULL);
+  ck_assert_int_eq(fk.checksum.type, DI_RELEASE_FILE_CHECKSUM_SHA256);
+  ck_assert_str_eq(fk.checksum.value, "39a5e7c71560909adf8057d40b4469f4b3d55e641b859d8cb669ec7794a3720e");
+}
+END_TEST
+
+static void setup_default() {
+  release = di_release_read(input_default, strlen(input_default));
+  ck_assert_ptr_ne(release, NULL);
+}
+
+static void setup_nobyhash() {
+  release = di_release_read(input_nobyhash, strlen(input_nobyhash));
   ck_assert_ptr_ne(release, NULL);
 }
 
@@ -95,20 +110,24 @@ static void teardown() {
 }
 
 Suite* make_test_release_suite() {
-  Suite *s;
-  TCase *tc_core;
+  Suite *s = suite_create("test release");
+  TCase *tc;
 
-  s = suite_create("test release");
-  tc_core = tcase_create("Core");
-  tcase_add_checked_fixture(tc_core, setup, teardown);
-  tcase_add_test(tc_core, test_get_codename);
-  tcase_add_test(tc_core, test_get_description);
-  tcase_add_test(tc_core, test_get_label);
-  tcase_add_test(tc_core, test_get_origin);
-  tcase_add_test(tc_core, test_get_suite);
-  tcase_add_test(tc_core, test_get_version);
-  tcase_add_test(tc_core, test_get_file);
-  suite_add_tcase(s, tc_core);
+  tc = tcase_create("default");
+  tcase_add_checked_fixture(tc, setup_default, teardown);
+  tcase_add_test(tc, test_get_codename);
+  tcase_add_test(tc, test_get_description);
+  tcase_add_test(tc, test_get_label);
+  tcase_add_test(tc, test_get_origin);
+  tcase_add_test(tc, test_get_suite);
+  tcase_add_test(tc, test_get_version);
+  tcase_add_test(tc, test_get_file);
+  suite_add_tcase(s, tc);
+
+  tc = tcase_create("nobyhash");
+  tcase_add_checked_fixture(tc, setup_nobyhash, teardown);
+  tcase_add_test(tc, test_get_file_nobyhash);
+  suite_add_tcase(s, tc);
 
   return s;
 }
