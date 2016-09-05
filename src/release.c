@@ -55,7 +55,8 @@ static void files_finish(void *key __attribute__((unused)), void *value, void *u
   {
     const char *delim = strrchr(file->name, '/');
     if (delim)
-      asprintf(&file->name_sha256, "%.*s/by-hash/SHA256/%s", (int)(delim - file->name), file->name, file->sum_sha256);
+      if (asprintf(&file->name_sha256, "%.*s/by-hash/SHA256/%s", (int)(delim - file->name), file->name, file->sum_sha256) < 0)
+        file->name_sha256 = NULL;
   }
 }
 
