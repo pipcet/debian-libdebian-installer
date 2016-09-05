@@ -8,7 +8,7 @@ Standards-Version: 3.9.6
 Vcs-Browser: https://anonscm.debian.org/cgit/d-i/libdebian-installer.git
 Vcs-Git: https://anonscm.debian.org/git/d-i/libdebian-installer.git
 
-Package: libdebian-installer4
+Package: libdebian-installer5
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
@@ -19,10 +19,10 @@ Description: Library of common debian-installer functions
  working on debian-installer or building your own install system based
  on debian-installer, then you probably don't need this library.
 
-Package: libdebian-installer4-dev
+Package: libdebian-installer5-dev
 Section: libdevel
 Architecture: any
-Depends: ${misc:Depends}, libdebian-installer4 (= ${binary:Version}), libdebian-installer-extra4 (= ${binary:Version})
+Depends: ${misc:Depends}, libdebian-installer5 (= ${binary:Version}), libdebian-installer-extra5 (= ${binary:Version})
 Conflicts: libdebian-installer-dev
 Provides: libdebian-installer-dev
 Description: Library of common debian-installer functions
@@ -33,7 +33,7 @@ Description: Library of common debian-installer functions
  .
  This package contains files needed to do libdebian-installer development.
 
-Package: libdebian-installer4-udeb
+Package: libdebian-installer5-udeb
 Package-Type: udeb
 Section: debian-installer
 Architecture: any
@@ -44,22 +44,21 @@ Description: Library of common debian-installer functions
  working on debian-installer or building your own install system based
  on debian-installer, then you probably don't need this library.
 
-Package: libdebian-installer-extra4
+Package: libdebian-installer-extra5
 Architecture: any
 Multi-Arch: same
-Depends: ${shlibs:Depends}, ${misc:Depends}, libdebian-installer4 (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, libdebian-installer5 (= ${binary:Version})
 Description: Library of some extra debian-installer functions
  This library is used by debian-installer to perform common functions
  such as logging messages and executing commands. If you aren't
  working on debian-installer or building your own install system based
  on debian-installer, then you probably don't need this library.
 
-Package: libdebian-installer-extra4-udeb
+Package: libdebian-installer-extra5-udeb
 Package-Type: udeb
 Section: debian-installer
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libdebian-installer4-udeb (= ${binary:Version})
-Provides: libdebian-installer-extra4
+Depends: ${shlibs:Depends}, ${misc:Depends}, libdebian-installer5-udeb (= ${binary:Version})
 Description: Library of some extra debian-installer functions
  This library is used by debian-installer to perform common functions
  such as logging messages and executing commands. If you aren't
