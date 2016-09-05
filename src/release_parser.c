@@ -159,7 +159,7 @@ static void di_release_parser_read_file(data, fip, field_modifier, value, user_d
     char *sum, *filename;
     size_t size;
 
-    int ret = sscanf(begin, "%ms %zu %ms", &sum, &size, &filename);
+    int ret = sscanf(begin, "%*[ ]%ms%*[ ]%zu%*[ ]%ms", &sum, &size, &filename);
 
     if (ret == 3)
     {
