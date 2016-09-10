@@ -134,22 +134,20 @@ const char *di_release_get_version(const di_release *release)
   return release ? release->version : NULL;
 }
 
-di_release_file di_release_get_file(const di_release *release, const char *filename)
+bool di_release_get_file(di_release_file *out, const di_release *release, const char *filename)
 {
-  di_release_file file = { 0, };
+  if (!release)
+    return false;
 
-  if (release)
-  {
-    struct di_release_file_internal *f = di_tree_lookup(release->files, filename);
+  struct di_release_file_internal *f = di_tree_lookup(release->files, filename);
 
-    if (f)
-    {
-      file.name = f->name;
-      file.name_byhash = f->name_sha256;
-      file.checksum.type = DI_RELEASE_FILE_CHECKSUM_SHA256;
-      file.checksum.value = f->sum_sha256;
-    }
-  }
+  if (!f)
+    return false;
 
-  return file;
+  out->name = f->name;
+  out->name_byhash = f->name_sha256;
+  out->checksum.type = DI_RELEASE_FILE_CHECKSUM_SHA256;
+  out->checksum.value = f->sum_sha256;
+
+  return true;
 }

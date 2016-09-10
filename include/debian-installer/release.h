@@ -20,6 +20,7 @@
 #ifndef DEBIAN_INSTALLER__RELEASE_H
 #define DEBIAN_INSTALLER__RELEASE_H
 
+#include <stdbool.h>
 #include <stddef.h>
 
 typedef struct di_release di_release;
@@ -53,7 +54,7 @@ const char *di_release_get_origin(const di_release *);
 const char *di_release_get_suite(const di_release *);
 const char *di_release_get_version(const di_release *);
 
-di_release_file di_release_get_file(const di_release *, const char *filename);
+bool di_release_get_file(di_release_file *, const di_release *, const char *filename);
 
 /** @} */
 #endif
