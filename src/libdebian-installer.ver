@@ -160,8 +160,8 @@ LIBDI_4.7 {
     di_system_subarch_analyze_guess;
 } LIBDI_4.6;
 
-#LIBDI_PRIVATE {
-#  global:
-#    internal_*;
-#} LIBDI_4.1;
+LIBDI_5.0 {
+  global:
+    di_file_rfc822_read_one;
+} LIBDI_4.7;
 

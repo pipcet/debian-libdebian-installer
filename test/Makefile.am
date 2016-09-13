@@ -15,6 +15,7 @@ AM_CFLAGS = -I$(top_srcdir)/include @CHECK_CFLAGS@ -DDATADIR=\"$(srcdir)\"
 
 test_SOURCES = main.c \
 	test_exec.c \
+	test_file_rfc822.c \
 	test_hash.c \
 	test_release.c \
 	test_system_packages.c

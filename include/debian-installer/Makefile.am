@@ -6,6 +6,7 @@ realinclude_HEADERS = \
 	config.h \
 	exec.h \
 	hash.h \
+	file_rfc822.h \
 	list.h \
 	log.h \
 	macros.h \

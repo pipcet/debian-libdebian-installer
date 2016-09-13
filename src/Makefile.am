@@ -11,6 +11,7 @@ lib_LTLIBRARIES = libdebian-installer.la libdebian-installer-extra.la
 
 libdebian_installer_la_SOURCES = \
 	exec.c \
+	file_rfc822_read.c \
 	hash.c \
 	log.c \
 	mem.c \
