@@ -163,5 +163,6 @@ LIBDI_4.7 {
 LIBDI_5.0 {
   global:
     di_file_rfc822_read_one;
+    di_file_rfc822_read_many;
 } LIBDI_4.7;
 

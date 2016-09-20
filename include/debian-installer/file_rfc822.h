@@ -37,9 +37,22 @@
  * @param info parser info
  * @param user_data user_data for parser functions
  *
- * @return -1 on error
+ * @return -1 on error, read entries otherwise
  */
 int di_file_rfc822_read_one(FILE *stream, di_parser_info *info, void *user_data);
+
+/**
+ * Read a Debian RFC822 formated file
+ *
+ * @param stream file opened for readiningg
+ * @param info parser info
+ * @param entry_new function which is called before each entry
+ * @param entry_finish function which is called after each entry
+ * @param user_data user_data for parser functions
+ *
+ * @return -1 on error, read entries otherwise
+ */
+int di_file_rfc822_read_many(FILE *stream, di_parser_info *info, di_parser_read_entry_new entry_new, di_parser_read_entry_finish entry_finish, void *user_data);
 
 /** @} */
 #endif

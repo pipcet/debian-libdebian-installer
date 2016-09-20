@@ -151,3 +151,8 @@ int di_file_rfc822_read_one(FILE *stream, di_parser_info *info, void *user_data)
     return 1;
   return -1;
 }
+
+int di_file_rfc822_read_many(FILE *stream, di_parser_info *info, di_parser_read_entry_new entry_new, di_parser_read_entry_finish entry_finish, void *user_data)
+{
+  return -1;
+}
