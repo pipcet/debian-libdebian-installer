@@ -154,5 +154,22 @@ int di_file_rfc822_read_one(FILE *stream, di_parser_info *info, void *user_data)
 
 int di_file_rfc822_read_many(FILE *stream, di_parser_info *info, di_parser_read_entry_new entry_new, di_parser_read_entry_finish entry_finish, void *user_data)
 {
-  return -1;
+  int ret = 0;
+
+  while (true)
+  {
+    void *act = entry_new(user_data);
+    if (read_one(stream, info, act, user_data) > 0)
+    {
+      ret++;
+      entry_finish(act, user_data);
+    }
+
+    char n = getc(stream);
+    if (n != EOF)
+      ungetc(n, stream);
+    else
+      break;
+  }
+  return ret;
 }
