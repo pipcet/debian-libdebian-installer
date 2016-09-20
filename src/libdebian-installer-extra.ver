@@ -22,7 +22,6 @@ LIBDI_5.0 {
     di_release_get_suite;
     di_release_get_version;
     di_release_read;
-    di_release_read_file;
 } LIBDI_4.1;
 
 #LIBDI_PRIVATE {

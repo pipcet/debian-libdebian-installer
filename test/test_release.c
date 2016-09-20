@@ -99,13 +99,21 @@ START_TEST(test_get_file_nobyhash)
 END_TEST
 
 static void setup_default() {
-  release = di_release_read(input_default, strlen(input_default));
+  FILE *f = fmemopen((void *)input_default, strlen(input_default), "r");
+
+  release = di_release_read(f);
   ck_assert_ptr_ne(release, NULL);
+
+  fclose(f);
 }
 
 static void setup_nobyhash() {
-  release = di_release_read(input_nobyhash, strlen(input_nobyhash));
+  FILE *f = fmemopen((void *)input_nobyhash, strlen(input_nobyhash), "r");
+
+  release = di_release_read(f);
   ck_assert_ptr_ne(release, NULL);
+
+  fclose(f);
 }
 
 static void teardown() {

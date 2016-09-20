@@ -60,28 +60,12 @@ static void files_finish(void *key __attribute__((unused)), void *value, void *u
   }
 }
 
-di_release *di_release_read(const char *mem, size_t len)
+di_release *di_release_read(FILE *f)
 {
   di_release *ret = di_new0(struct di_release, 1);
   ret->files = di_tree_new_full(files_compare, NULL, files_destroy);
 
-  if (di_release_parser(mem, len, ret) < 0)
-  {
-    di_release_free(ret);
-    return NULL;
-  }
-
-  di_tree_foreach(ret->files, files_finish, ret);
-
-  return ret;
-}
-
-di_release *di_release_read_file(const char *filename)
-{
-  di_release *ret = di_new0(struct di_release, 1);
-  ret->files = di_tree_new_full(files_compare, NULL, files_destroy);
-
-  if (di_release_parser_file(filename, ret) < 0)
+  if (di_release_parser(f, ret) < 0)
   {
     di_release_free(ret);
     return NULL;

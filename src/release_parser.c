@@ -20,8 +20,8 @@
 #include <debian-installer/release.h>
 #include "release_internal.h"
 
+#include <debian-installer/file_rfc822.h>
 #include <debian-installer/mem.h>
-#include <debian-installer/parser_rfc822.h>
 #include <debian-installer/string.h>
 
 static di_parser_fields_function_read
@@ -109,31 +109,13 @@ const di_parser_fieldinfo *di_release_parser_fieldinfo[] =
   NULL
 };
 
-static void *parser_new (void *user_data)
-{
-  return user_data;
-}
-
 __attribute__((visibility("internal")))
-int di_release_parser(const char *mem, size_t len, di_release *release)
+int di_release_parser(FILE *f, di_release *release)
 {
   di_parser_info *info = di_parser_info_alloc();
   di_parser_info_add(info, di_release_parser_fieldinfo);
 
-  int ret = di_parser_rfc822_read((char *)mem, len, info, parser_new, NULL, release);
-
-  di_parser_info_free(info);
-
-  return ret;
-}
-
-__attribute__((visibility("internal")))
-int di_release_parser_file(const char *filename, di_release *release)
-{
-  di_parser_info *info = di_parser_info_alloc();
-  di_parser_info_add(info, di_release_parser_fieldinfo);
-
-  int ret = di_parser_rfc822_read_file(filename, info, parser_new, NULL, release);
+  int ret = di_file_rfc822_read_one(f, info, release);
 
   di_parser_info_free(info);
 
@@ -155,11 +137,12 @@ static void di_release_parser_read_file(data, fip, field_modifier, value, user_d
     char *next = memchr(begin, '\n', end - begin);
     if (!next)
       next = end;
+    *next = '\0';
 
     char *sum, *filename;
     size_t size;
 
-    int ret = sscanf(begin, "%*[ ]%ms%*[ ]%zu%*[ ]%ms", &sum, &size, &filename);
+    int ret = sscanf(begin, "%ms%*[ ]%zu%*[ ]%ms", &sum, &size, &filename);
 
     if (ret == 3)
     {

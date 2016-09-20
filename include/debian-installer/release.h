@@ -22,6 +22,7 @@
 
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdio.h>
 
 typedef struct di_release di_release;
 typedef struct di_release_file di_release_file;
@@ -43,8 +44,7 @@ struct di_release_file {
   } checksum;
 };
 
-di_release *di_release_read(const char *mem, size_t len);
-di_release *di_release_read_file(const char *filename);
+di_release *di_release_read(FILE *);
 void di_release_free(di_release *);
 
 const char *di_release_get_codename(const di_release *);
