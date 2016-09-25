@@ -27,7 +27,6 @@
 
 typedef struct di_package di_package;
 typedef struct di_package_dependency di_package_dependency;
-typedef struct di_package_version di_package_version;
 
 typedef enum di_package_dependency_type di_package_dependency_type;
 typedef enum di_package_priority di_package_priority;
@@ -144,16 +143,6 @@ struct di_package_dependency
   di_package *ptr;                                      /**< the package, may be NULL */
 };
 
-/**
- * @brief Package version
- */
-struct di_package_version
-{
-  unsigned long epoch;                                  /**< epoch */
-  char *upstream;                                       /**< upstream */
-  char *debian_revision;                                /**< debian revision */
-};
-
 void di_package_destroy (di_package *package);
 
 static inline di_package *di_package_alloc (di_packages_allocator *allocator)
@@ -165,11 +154,6 @@ static inline di_package_dependency *di_package_dependency_alloc (di_packages_al
 {
   return di_mem_chunk_alloc0 (allocator->package_dependency_mem_chunk);
 }
-
-void di_package_version_free (di_package_version *version);
-
-int di_package_version_compare (const di_package_version *a, const di_package_version *b);
-di_package_version *di_package_version_parse (di_package *package);
 
 extern const char *const di_package_priority_text[];
 extern const char *const di_package_status_want_text[];
