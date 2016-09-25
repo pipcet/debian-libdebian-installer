@@ -13,11 +13,15 @@ DEFAULT_INCLUDES = -I.@am__isrc@
 
 AM_CFLAGS = -I$(top_srcdir)/include @CHECK_CFLAGS@ -DDATADIR=\"$(srcdir)\"
 
+test_LDFLAGS = \
+	-static
+
 test_SOURCES = main.c \
 	test_exec.c \
 	test_file_rfc822.c \
 	test_hash.c \
-	test_release.c
+	test_release.c \
+	test_version.c
 
 test_LDADD = \
 	$(top_builddir)/src/.libs/libdebian-installer.la \

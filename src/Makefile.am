@@ -21,7 +21,8 @@ libdebian_installer_la_SOURCES = \
 	slist.c \
 	string.c \
 	tree.c \
-	utils.c
+	utils.c \
+	version.c
 
 libdebian_installer_extra_la_SOURCES = \
 	list.c \

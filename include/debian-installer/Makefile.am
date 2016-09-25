@@ -21,7 +21,8 @@ realinclude_HEADERS = \
 	string.h \
 	tree.h \
 	types.h \
-	utils.h
+	utils.h \
+	version.h
 
 noinst_HEADERS = \
 	package_internal.h \
