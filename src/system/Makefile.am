@@ -11,7 +11,6 @@ libsystem_la_SOURCES = \
 	devfs.c \
 	dpkg.c \
 	efi.c \
-	packages.c \
 	prebaseconfig.c \
 	utils.c
 
