@@ -51,7 +51,6 @@ LIBDI_4.0 {
     di_snprintfcat;
     di_stradup;
     di_system_devfs_map_from;
-    di_system_dpkg_package_control_file_exec;
     di_system_init;
     di_system_prebaseconfig_append;
     di_vlog;
