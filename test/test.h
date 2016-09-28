@@ -6,6 +6,7 @@
 Suite* make_test_exec_suite();
 Suite* make_test_file_rfc822_suite();
 Suite* make_test_hash_suite();
+Suite* make_test_package_suite();
 Suite* make_test_release_suite();
 Suite* make_test_system_packages_suite();
 Suite* make_test_version_suite();

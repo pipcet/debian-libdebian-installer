@@ -110,5 +110,19 @@ LIBDI_5.0 {
   global:
     di_file_rfc822_read_one;
     di_file_rfc822_read_many;
+    di_package_free;
+    di_package_get_architecture;
+    di_package_get_description;
+    di_package_get_di_installermenuitem;
+    di_package_get_di_kernelversion;
+    di_package_get_di_subarchitecture;
+    di_package_get_filename;
+    di_package_get_package;
+    di_package_get_priority;
+    di_package_get_relation;
+    di_package_get_section;
+    di_package_get_size;
+    di_package_get_version;
+    di_package_read;
 } LIBDI_4.7;
 

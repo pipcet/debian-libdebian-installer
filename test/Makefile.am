@@ -20,6 +20,7 @@ test_SOURCES = main.c \
 	test_exec.c \
 	test_file_rfc822.c \
 	test_hash.c \
+	test_package.c \
 	test_release.c \
 	test_version.c
 
