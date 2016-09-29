@@ -110,7 +110,7 @@ const di_file_fieldinfo *di_release_parser_fieldinfo[] =
 };
 
 __attribute__((visibility("internal")))
-int di_release_parser(FILE *f, di_release *release)
+int di_release_file_read(FILE *f, di_release *release)
 {
   di_file_info *info = di_file_info_alloc();
   di_file_info_add(info, di_release_parser_fieldinfo);

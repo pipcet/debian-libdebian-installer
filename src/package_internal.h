@@ -42,4 +42,4 @@ struct di_package {
   char *di_subarchitecture;
 };
 
-int di_package_parser(FILE *, di_package *release);
+int di_package_file_read(FILE *, di_package *release);

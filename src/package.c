@@ -30,7 +30,7 @@ di_package *di_package_read(FILE *f)
 {
   di_package *ret = di_new0(struct di_package, 1);
 
-  if (di_package_parser(f, ret) < 0)
+  if (di_package_file_read(f, ret) < 0)
   {
     di_package_free(ret);
     return NULL;

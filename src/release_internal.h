@@ -38,4 +38,4 @@ struct di_release_file_internal {
   char *sum_sha256;
 };
 
-int di_release_parser(FILE *, di_release *release);
+int di_release_file_read(FILE *, di_release *release);

@@ -18,7 +18,7 @@ libdebian_installer_la_SOURCES = \
 	mem.c \
 	mem_chunk.c \
 	package.c \
-	package_parser.c \
+	package_file.c \
 	slist.c \
 	string.c \
 	tree.c \
@@ -28,7 +28,7 @@ libdebian_installer_la_SOURCES = \
 libdebian_installer_extra_la_SOURCES = \
 	list.c \
 	release.c \
-	release_parser.c
+	release_file.c
 
 libdebian_installer_la_LIBADD = \
 	system/libsystem.la

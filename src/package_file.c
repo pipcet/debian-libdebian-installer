@@ -208,7 +208,7 @@ static const di_file_fieldinfo *di_package_parser_fieldinfo[] =
 };
 
 __attribute__((visibility("internal")))
-int di_package_parser(FILE *f, di_package *package)
+int di_package_file_read(FILE *f, di_package *package)
 {
   di_file_info *info = di_file_info_alloc();
   di_file_info_add(info, di_package_parser_fieldinfo);
