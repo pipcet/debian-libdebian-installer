@@ -24,68 +24,68 @@
 #include <debian-installer/mem.h>
 #include <debian-installer/string.h>
 
-static di_parser_fields_function_read
+static di_file_fields_function_read
   di_release_parser_read_file;
 
-const di_parser_fieldinfo
+const di_file_fieldinfo
   di_release_parser_field_acquire_byhash =
-    DI_PARSER_FIELDINFO
+    DI_FILE_FIELDINFO
     (
       "Acquire-By-Hash",
-      di_parser_read_boolean,
+      di_file_read_boolean,
       NULL,
       offsetof(di_release, acquire_byhash)
     ),
   di_release_parser_field_codename =
-    DI_PARSER_FIELDINFO
+    DI_FILE_FIELDINFO
     (
       "Codename",
-      di_parser_read_string,
+      di_file_read_string,
       NULL,
       offsetof(di_release, codename)
     ),
   di_release_parser_field_description =
-    DI_PARSER_FIELDINFO
+    DI_FILE_FIELDINFO
     (
       "Description",
-      di_parser_read_string,
+      di_file_read_string,
       NULL,
       offsetof(di_release, description)
     ),
   di_release_parser_field_label =
-    DI_PARSER_FIELDINFO
+    DI_FILE_FIELDINFO
     (
       "Label",
-      di_parser_read_string,
+      di_file_read_string,
       NULL,
       offsetof(di_release, label)
     ),
   di_release_parser_field_origin =
-    DI_PARSER_FIELDINFO
+    DI_FILE_FIELDINFO
     (
       "Origin",
-      di_parser_read_string,
+      di_file_read_string,
       NULL,
       offsetof(di_release, origin)
     ),
   di_release_parser_field_suite =
-    DI_PARSER_FIELDINFO
+    DI_FILE_FIELDINFO
     (
       "Suite",
-      di_parser_read_string,
+      di_file_read_string,
       NULL,
       offsetof(di_release, suite)
     ),
   di_release_parser_field_version =
-    DI_PARSER_FIELDINFO
+    DI_FILE_FIELDINFO
     (
       "Version",
-      di_parser_read_string,
+      di_file_read_string,
       NULL,
       offsetof(di_release, version)
     ),
   di_release_parser_field_sha256 =
-    DI_PARSER_FIELDINFO
+    DI_FILE_FIELDINFO
     (
       "SHA256",
       di_release_parser_read_file,
@@ -96,7 +96,7 @@ const di_parser_fieldinfo
 /**
  * Standard Release file
  */
-const di_parser_fieldinfo *di_release_parser_fieldinfo[] =
+const di_file_fieldinfo *di_release_parser_fieldinfo[] =
 {
   &di_release_parser_field_acquire_byhash,
   &di_release_parser_field_codename,
@@ -112,19 +112,19 @@ const di_parser_fieldinfo *di_release_parser_fieldinfo[] =
 __attribute__((visibility("internal")))
 int di_release_parser(FILE *f, di_release *release)
 {
-  di_parser_info *info = di_parser_info_alloc();
-  di_parser_info_add(info, di_release_parser_fieldinfo);
+  di_file_info *info = di_file_info_alloc();
+  di_file_info_add(info, di_release_parser_fieldinfo);
 
   int ret = di_file_rfc822_read_one(f, info, release);
 
-  di_parser_info_free(info);
+  di_file_info_free(info);
 
   return ret;
 }
 
 static void di_release_parser_read_file(data, fip, field_modifier, value, user_data)
   void **data;
-  const di_parser_fieldinfo *fip __attribute__((unused));
+  const di_file_fieldinfo *fip __attribute__((unused));
   di_rstring *field_modifier __attribute__((unused));
   di_rstring *value;
   void *user_data __attribute__((unused));

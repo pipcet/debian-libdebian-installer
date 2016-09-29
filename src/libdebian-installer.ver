@@ -25,15 +25,6 @@ LIBDI_4.0 {
     di_mem_chunk_destroy;
     di_mem_chunk_new;
     di_mem_chunk_size;
-    di_parser_info_add;
-    di_parser_info_alloc;
-    di_parser_info_free;
-    di_parser_read_boolean;
-    di_parser_read_int;
-    di_parser_read_string;
-    di_parser_write_boolean;
-    di_parser_write_int;
-    di_parser_write_string;
     di_prebaseconfig_append;
     di_progname_get;
     di_realloc;
@@ -105,6 +96,15 @@ LIBDI_4.7 {
 
 LIBDI_5.0 {
   global:
+    di_file_info_add;
+    di_file_info_alloc;
+    di_file_info_free;
+    di_file_read_boolean;
+    di_file_read_int;
+    di_file_read_string;
+    di_file_write_boolean;
+    di_file_write_int;
+    di_file_write_string;
     di_file_rfc822_read_one;
     di_file_rfc822_read_many;
     di_package_free;

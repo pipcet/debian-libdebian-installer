@@ -35,12 +35,12 @@ Multiline: test\n\
 \n\
 ";
 
-static di_parser_fields_function_read
+static di_file_fields_function_read
   real_read, multiline_read, wildcard_read;
 
-const di_parser_fieldinfo
+const di_file_fieldinfo
   real =
-    DI_PARSER_FIELDINFO
+    DI_FILE_FIELDINFO
     (
       "Real",
       real_read,
@@ -48,7 +48,7 @@ const di_parser_fieldinfo
       1
     ),
   multiline =
-    DI_PARSER_FIELDINFO
+    DI_FILE_FIELDINFO
     (
       "Multiline",
       multiline_read,
@@ -56,7 +56,7 @@ const di_parser_fieldinfo
       2
     ),
   wildcard =
-    DI_PARSER_FIELDINFO
+    DI_FILE_FIELDINFO
     (
       "",
       wildcard_read,
@@ -64,7 +64,7 @@ const di_parser_fieldinfo
       3
     );
 
-const di_parser_fieldinfo *fieldinfo[] =
+const di_file_fieldinfo *fieldinfo[] =
 {
   &real,
   &multiline,
@@ -79,7 +79,7 @@ struct read_info {
 
 static void real_read(
   void **data,
-  const di_parser_fieldinfo *fip,
+  const di_file_fieldinfo *fip,
   di_rstring *field_modifier,
   di_rstring *value,
   void *user_data)
@@ -93,7 +93,7 @@ static void real_read(
 
 static void multiline_read(
   void **data,
-  const di_parser_fieldinfo *fip,
+  const di_file_fieldinfo *fip,
   di_rstring *field_modifier,
   di_rstring *value,
   void *user_data)
@@ -107,7 +107,7 @@ static void multiline_read(
 
 static void wildcard_read(
   void **data,
-  const di_parser_fieldinfo *fip,
+  const di_file_fieldinfo *fip,
   di_rstring *field_modifier,
   di_rstring *value,
   void *user_data)
@@ -119,8 +119,8 @@ static void wildcard_read(
   ck_assert_int_eq(value->size, strlen("wildcard"));
 }
 
-di_parser_read_entry_new many_new;
-di_parser_read_entry_finish many_finish;
+di_file_read_entry_new many_new;
+di_file_read_entry_finish many_finish;
 
 void *many_new(void *user_data)
 {
@@ -139,22 +139,22 @@ int many_finish(void *data, void *user_data)
 
 START_TEST(test_empty)
 {
-  di_parser_info *info = di_parser_info_alloc();
-  di_parser_info_add(info, fieldinfo);
+  di_file_info *info = di_file_info_alloc();
+  di_file_info_add(info, fieldinfo);
 
   FILE *f = fmemopen((void *)input_empty, strlen(input_empty), "r");
 
   ck_assert_int_eq(di_file_rfc822_read_one(f, info, NULL), -1);
 
   fclose(f);
-  di_parser_info_free(info);
+  di_file_info_free(info);
 }
 END_TEST
 
 START_TEST(test_one_default)
 {
-  di_parser_info *info = di_parser_info_alloc();
-  di_parser_info_add(info, fieldinfo);
+  di_file_info *info = di_file_info_alloc();
+  di_file_info_add(info, fieldinfo);
   struct read_info read_info = { 0, };
 
   FILE *f = fmemopen((void *)input_one_default, strlen(input_one_default), "r");
@@ -165,14 +165,14 @@ START_TEST(test_one_default)
   ck_assert_int_eq(read_info.found_wildcard, 0);
 
   fclose(f);
-  di_parser_info_free(info);
+  di_file_info_free(info);
 }
 END_TEST
 
 START_TEST(test_one_default_wildcard)
 {
-  di_parser_info *info = di_parser_info_alloc();
-  di_parser_info_add(info, fieldinfo);
+  di_file_info *info = di_file_info_alloc();
+  di_file_info_add(info, fieldinfo);
   info->wildcard = true;
   struct read_info read_info = { 0, };
 
@@ -184,14 +184,14 @@ START_TEST(test_one_default_wildcard)
   ck_assert_int_eq(read_info.found_wildcard, 1);
 
   fclose(f);
-  di_parser_info_free(info);
+  di_file_info_free(info);
 }
 END_TEST
 
 START_TEST(test_many)
 {
-  di_parser_info *info = di_parser_info_alloc();
-  di_parser_info_add(info, fieldinfo);
+  di_file_info *info = di_file_info_alloc();
+  di_file_info_add(info, fieldinfo);
   struct read_info read_info = { 0, };
 
   FILE *f = fmemopen((void *)input_many, strlen(input_many), "r");
@@ -204,7 +204,7 @@ START_TEST(test_many)
   ck_assert_int_eq(read_info.found_wildcard, 0);
 
   fclose(f);
-  di_parser_info_free(info);
+  di_file_info_free(info);
 }
 END_TEST
 

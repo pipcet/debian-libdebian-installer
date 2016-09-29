@@ -20,7 +20,7 @@
 #ifndef DEBIAN_INSTALLER__FILE_RFC822_H
 #define DEBIAN_INSTALLER__FILE_RFC822_H
 
-#include <debian-installer/parser.h>
+#include <debian-installer/file.h>
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -39,7 +39,7 @@
  *
  * @return -1 on error, read entries otherwise
  */
-int di_file_rfc822_read_one(FILE *stream, di_parser_info *info, void *user_data);
+int di_file_rfc822_read_one(FILE *stream, di_file_info *info, void *user_data);
 
 /**
  * Read a Debian RFC822 formated file
@@ -52,7 +52,7 @@ int di_file_rfc822_read_one(FILE *stream, di_parser_info *info, void *user_data)
  *
  * @return -1 on error, read entries otherwise
  */
-int di_file_rfc822_read_many(FILE *stream, di_parser_info *info, di_parser_read_entry_new entry_new, di_parser_read_entry_finish entry_finish, void *user_data);
+int di_file_rfc822_read_many(FILE *stream, di_file_info *info, di_file_read_entry_new entry_new, di_file_read_entry_finish entry_finish, void *user_data);
 
 /** @} */
 #endif

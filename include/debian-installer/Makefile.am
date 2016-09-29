@@ -6,6 +6,7 @@ realinclude_HEADERS = \
 	config.h \
 	exec.h \
 	hash.h \
+	file.h \
 	file_rfc822.h \
 	list.h \
 	log.h \
@@ -14,7 +15,6 @@ realinclude_HEADERS = \
 	mem_chunk.h \
 	package.h \
 	packages.h \
-	parser.h \
 	release.h \
 	slist.h \
 	string.h \

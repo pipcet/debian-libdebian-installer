@@ -1,5 +1,5 @@
 /*
- * parser.c
+ * file.c - Generic file support
  *
  * Copyright (C) 2003 Bastian Blank <waldi@debian.org>
  *
@@ -19,41 +19,41 @@
 
 #include <config.h>
 
-#include <debian-installer/parser.h>
+#include <debian-installer/file.h>
 
 #include <debian-installer/mem.h>
 
-di_parser_info *di_parser_info_alloc (void)
+di_file_info *di_file_info_alloc(void)
 {
-  di_parser_info *info;
+  di_file_info *info;
 
-  info = di_new0 (di_parser_info, 1);
+  info = di_new0 (di_file_info, 1);
   info->table = di_hash_table_new (di_rstring_hash, di_rstring_equal);
 
   return info;
 }
 
-void di_parser_info_free (di_parser_info *info)
+void di_file_info_free(di_file_info *info)
 {
   di_hash_table_destroy (info->table);
   di_slist_destroy (&info->list, NULL);
   di_free (info);
 }
 
-void di_parser_info_add (di_parser_info *info, const di_parser_fieldinfo *fieldinfo[])
+void di_file_info_add(di_file_info *info, const di_file_fieldinfo *fieldinfo[])
 {
-  di_parser_fieldinfo **fip;
+  di_file_fieldinfo **fip;
 
-  for (fip = (di_parser_fieldinfo **) fieldinfo; *fip; fip++)
+  for (fip = (di_file_fieldinfo **) fieldinfo; *fip; fip++)
   {
     di_hash_table_insert (info->table, &(*fip)->key, *fip);
     di_slist_append (&info->list, *fip);
   }
 }
 
-void di_parser_read_boolean (
+void di_file_read_boolean(
   void **data,
-  const di_parser_fieldinfo *fip __attribute__ ((unused)),
+  const di_file_fieldinfo *fip __attribute__ ((unused)),
   di_rstring *field_modifier __attribute__ ((unused)),
   di_rstring *value,
   void *user_data __attribute__ ((unused)))
@@ -65,10 +65,10 @@ void di_parser_read_boolean (
     *f = 0;
 }
 
-void di_parser_write_boolean (
+void di_file_write_boolean(
   void **data,
-  const di_parser_fieldinfo *fip,
-  di_parser_fields_function_write_callback callback,
+  const di_file_fieldinfo *fip,
+  di_file_fields_function_write_callback callback,
   void *callback_data,
   void *user_data __attribute__ ((unused)))
 {
@@ -79,9 +79,9 @@ void di_parser_write_boolean (
     callback (&fip->key, &value, callback_data);
 }
 
-void di_parser_read_int (
+void di_file_read_int(
   void **data,
-  const di_parser_fieldinfo *fip __attribute__ ((unused)),
+  const di_file_fieldinfo *fip __attribute__ ((unused)),
   di_rstring *field_modifier __attribute__ ((unused)),
   di_rstring *value,
   void *user_data __attribute__ ((unused)))
@@ -90,10 +90,10 @@ void di_parser_read_int (
   *f = strtol (value->string, NULL, 10);
 }
 
-void di_parser_write_int (
+void di_file_write_int(
   void **data,
-  const di_parser_fieldinfo *fip,
-  di_parser_fields_function_write_callback callback,
+  const di_file_fieldinfo *fip,
+  di_file_fields_function_write_callback callback,
   void *callback_data,
   void *user_data __attribute__ ((unused)))
 {
@@ -108,9 +108,9 @@ void di_parser_write_int (
   }
 }
 
-void di_parser_read_rstring (
+void di_file_read_rstring(
   void **data,
-  const di_parser_fieldinfo *fip __attribute__ ((unused)),
+  const di_file_fieldinfo *fip __attribute__ ((unused)),
   di_rstring *field_modifier __attribute__ ((unused)),
   di_rstring *value,
   void *user_data __attribute__ ((unused)))
@@ -122,10 +122,10 @@ void di_parser_read_rstring (
   f->size = value->size;
 }
 
-void di_parser_write_rstring (
+void di_file_write_rstring(
   void **data,
-  const di_parser_fieldinfo *fip,
-  di_parser_fields_function_write_callback callback,
+  const di_file_fieldinfo *fip,
+  di_file_fields_function_write_callback callback,
   void *callback_data,
   void *user_data __attribute__ ((unused)))
 {
@@ -133,9 +133,9 @@ void di_parser_write_rstring (
   callback (&fip->key, f, callback_data);
 }
 
-void di_parser_read_string (
+void di_file_read_string(
   void **data,
-  const di_parser_fieldinfo *fip __attribute__ ((unused)),
+  const di_file_fieldinfo *fip __attribute__ ((unused)),
   di_rstring *field_modifier __attribute__ ((unused)),
   di_rstring *value,
   void *user_data __attribute__ ((unused)))
@@ -146,10 +146,10 @@ void di_parser_read_string (
   *f = di_stradup (value->string, value->size);
 }
 
-void di_parser_write_string (
+void di_file_write_string(
   void **data,
-  const di_parser_fieldinfo *fip,
-  di_parser_fields_function_write_callback callback,
+  const di_file_fieldinfo *fip,
+  di_file_fields_function_write_callback callback,
   void *callback_data,
   void *user_data __attribute__ ((unused)))
 {
@@ -163,4 +163,3 @@ void di_parser_write_string (
     callback (&fip->key, &value, callback_data);
   }
 }
-

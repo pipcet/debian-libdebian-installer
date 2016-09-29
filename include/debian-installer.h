@@ -3,12 +3,12 @@
 #include <debian-installer/config.h>
 
 #include <debian-installer/exec.h>
+#include <debian-installer/file.h>
 #include <debian-installer/hash.h>
 #include <debian-installer/list.h>
 #include <debian-installer/log.h>
 #include <debian-installer/mem.h>
 #include <debian-installer/mem_chunk.h>
-#include <debian-installer/parser.h>
 #include <debian-installer/package.h>
 #include <debian-installer/packages.h>
 #include <debian-installer/release.h>

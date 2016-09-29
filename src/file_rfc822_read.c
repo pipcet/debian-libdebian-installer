@@ -19,7 +19,7 @@
 
 #include <debian-installer/file_rfc822.h>
 
-static int read_field(char *data, ssize_t datalen, di_parser_info *info, void **act, void *user_data)
+static int read_field(char *data, ssize_t datalen, di_file_info *info, void **act, void *user_data)
 {
   // Remove trailing newline
   data[datalen - 1] = 0;
@@ -38,7 +38,7 @@ static int read_field(char *data, ssize_t datalen, di_parser_info *info, void **
   di_rstring field_string = { data, field_end - data };
   di_rstring value_string = { value_begin, datalen - (value_begin - data) };
 
-  const di_parser_fieldinfo *fip = di_hash_table_lookup(info->table, &field_string);
+  const di_file_fieldinfo *fip = di_hash_table_lookup(info->table, &field_string);
 
   if (fip)
   {
@@ -78,7 +78,7 @@ static bool read_continuation(FILE *stream)
   }
 }
 
-static int read_one(FILE *stream, di_parser_info *info, void *act, void *user_data)
+static int read_one(FILE *stream, di_file_info *info, void *act, void *user_data)
 {
   size_t linesize = 0;
   char *line = NULL;
@@ -145,14 +145,14 @@ static int read_one(FILE *stream, di_parser_info *info, void *act, void *user_da
   return ret;
 }
 
-int di_file_rfc822_read_one(FILE *stream, di_parser_info *info, void *user_data)
+int di_file_rfc822_read_one(FILE *stream, di_file_info *info, void *user_data)
 {
   if (read_one(stream, info, user_data, user_data) > 0 && getc(stream) == EOF)
     return 1;
   return -1;
 }
 
-int di_file_rfc822_read_many(FILE *stream, di_parser_info *info, di_parser_read_entry_new entry_new, di_parser_read_entry_finish entry_finish, void *user_data)
+int di_file_rfc822_read_many(FILE *stream, di_file_info *info, di_file_read_entry_new entry_new, di_file_read_entry_finish entry_finish, void *user_data)
 {
   int ret = 0;
 
