@@ -27,93 +27,71 @@
 static di_file_fields_function_read
   di_release_parser_read_file;
 
-const di_file_fieldinfo
-  di_release_parser_field_acquire_byhash =
-    DI_FILE_FIELDINFO
-    (
-      "Acquire-By-Hash",
-      di_file_read_boolean,
-      NULL,
-      offsetof(di_release, acquire_byhash)
-    ),
-  di_release_parser_field_codename =
-    DI_FILE_FIELDINFO
-    (
-      "Codename",
-      di_file_read_string,
-      NULL,
-      offsetof(di_release, codename)
-    ),
-  di_release_parser_field_description =
-    DI_FILE_FIELDINFO
-    (
-      "Description",
-      di_file_read_string,
-      NULL,
-      offsetof(di_release, description)
-    ),
-  di_release_parser_field_label =
-    DI_FILE_FIELDINFO
-    (
-      "Label",
-      di_file_read_string,
-      NULL,
-      offsetof(di_release, label)
-    ),
-  di_release_parser_field_origin =
-    DI_FILE_FIELDINFO
-    (
-      "Origin",
-      di_file_read_string,
-      NULL,
-      offsetof(di_release, origin)
-    ),
-  di_release_parser_field_suite =
-    DI_FILE_FIELDINFO
-    (
-      "Suite",
-      di_file_read_string,
-      NULL,
-      offsetof(di_release, suite)
-    ),
-  di_release_parser_field_version =
-    DI_FILE_FIELDINFO
-    (
-      "Version",
-      di_file_read_string,
-      NULL,
-      offsetof(di_release, version)
-    ),
-  di_release_parser_field_sha256 =
-    DI_FILE_FIELDINFO
-    (
-      "SHA256",
-      di_release_parser_read_file,
-      NULL,
-      DI_RELEASE_FILE_CHECKSUM_SHA256
-    );
-
-/**
- * Standard Release file
- */
-const di_file_fieldinfo *di_release_parser_fieldinfo[] =
+static const di_file_fieldinfo di_release_parser_fieldinfo[] =
 {
-  &di_release_parser_field_acquire_byhash,
-  &di_release_parser_field_codename,
-  &di_release_parser_field_description,
-  &di_release_parser_field_label,
-  &di_release_parser_field_origin,
-  &di_release_parser_field_suite,
-  &di_release_parser_field_version,
-  &di_release_parser_field_sha256,
-  NULL
+  DI_FILE_FIELDINFO
+  (
+    "Acquire-By-Hash",
+    di_file_read_boolean,
+    NULL,
+    offsetof(di_release, acquire_byhash)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Codename",
+    di_file_read_string,
+    NULL,
+    offsetof(di_release, codename)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Description",
+    di_file_read_string,
+    NULL,
+    offsetof(di_release, description)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Label",
+    di_file_read_string,
+    NULL,
+    offsetof(di_release, label)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Origin",
+    di_file_read_string,
+    NULL,
+    offsetof(di_release, origin)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Suite",
+    di_file_read_string,
+    NULL,
+    offsetof(di_release, suite)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Version",
+    di_file_read_string,
+    NULL,
+    offsetof(di_release, version)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "SHA256",
+    di_release_parser_read_file,
+    NULL,
+    DI_RELEASE_FILE_CHECKSUM_SHA256
+  ),
 };
 
 __attribute__((visibility("internal")))
 int di_release_file_read(FILE *f, di_release *release)
 {
   di_file_info *info = di_file_info_alloc();
-  di_file_info_add(info, di_release_parser_fieldinfo);
+  di_file_info_add(info, di_release_parser_fieldinfo, sizeof(di_release_parser_fieldinfo)/sizeof(di_release_parser_fieldinfo[0]));
 
   int ret = di_file_rfc822_read_one(f, info, release);
 

@@ -29,189 +29,148 @@ static di_file_fields_function_read
   di_package_parser_read_priority,
   di_package_parser_read_version;
 
-static const di_file_fieldinfo 
-  di_package_parser_field_package = 
-    DI_FILE_FIELDINFO
-    (
-      "Package",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, package)
-    ),
-  di_package_parser_field_priority =
-    DI_FILE_FIELDINFO
-    (
-      "Priority",
-      di_package_parser_read_priority,
-      NULL,
-      0
-    ),
-  di_package_parser_field_section =
-    DI_FILE_FIELDINFO
-    (
-      "Section",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, section)
-    ),
-  di_package_parser_field_architecture =
-    DI_FILE_FIELDINFO
-    (
-      "Architecture",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof (di_package, architecture)
-    ),
-  di_package_parser_field_version =
-    DI_FILE_FIELDINFO
-    (
-      "Version",
-      di_package_parser_read_version,
-      NULL,
-      0
-    ),
-  di_package_parser_field_replaces =
-    DI_FILE_FIELDINFO
-    (
-      "Replaces",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, relation_replaces)
-    ),
-  di_package_parser_field_provides =
-    DI_FILE_FIELDINFO
-    (
-      "Provides",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, relation_provides)
-    ),
-  di_package_parser_field_depends =
-    DI_FILE_FIELDINFO
-    (
-      "Depends",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, relation_depends)
-    ),
-  di_package_parser_field_pre_depends =
-    DI_FILE_FIELDINFO
-    (
-      "Pre-Depends",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, relation_predepends)
-    ),
-  di_package_parser_field_recommends =
-    DI_FILE_FIELDINFO
-    (
-      "Recommends",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, relation_recommends)
-    ),
-  di_package_parser_field_suggests =
-    DI_FILE_FIELDINFO
-    (
-      "Suggests",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, relation_suggests)
-    ),
-  di_package_parser_field_conflicts =
-    DI_FILE_FIELDINFO
-    (
-      "Conflicts",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, relation_conflicts)
-    ),
-  di_package_parser_field_enhances =
-    DI_FILE_FIELDINFO
-    (
-      "Enhances",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, relation_enhances)
-    ),
-  di_package_parser_field_filename =
-    DI_FILE_FIELDINFO
-    (
-      "Filename",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, filename)
-    ),
-  di_package_parser_field_size =
-    DI_FILE_FIELDINFO
-    (
-      "Size",
-      di_file_read_int,
-      di_file_write_int,
-      offsetof(di_package, size)
-    ),
-  di_package_parser_field_description =
-    DI_FILE_FIELDINFO
-    (
-      "Description",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, description)
-    ),
-  di_package_parser_field_di_installermenuitem =
-    DI_FILE_FIELDINFO
-    (
-      "Installer-Menu-Item",
-      di_file_read_int,
-      di_file_write_int,
-      offsetof(di_package, di_installermenuitem)
-    ),
-  di_package_parser_field_di_kernelversion =
-    DI_FILE_FIELDINFO
-    (
-      "Kernel-Version",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, di_kernelversion)
-    ),
-  di_package_parser_field_di_subarchitecture =
-    DI_FILE_FIELDINFO
-    (
-      "Subarchitecture",
-      di_file_read_string,
-      di_file_write_string,
-      offsetof(di_package, di_subarchitecture)
-    );
-
-static const di_file_fieldinfo *di_package_parser_fieldinfo[] =
+static const di_file_fieldinfo di_package_parser_fieldinfo[] =
 {
-  &di_package_parser_field_package,
-  &di_package_parser_field_priority,
-  &di_package_parser_field_section,
-  &di_package_parser_field_architecture,
-  &di_package_parser_field_version,
-  &di_package_parser_field_filename,
-  &di_package_parser_field_size,
-  &di_package_parser_field_description,
-  &di_package_parser_field_replaces,
-  &di_package_parser_field_provides,
-  &di_package_parser_field_depends,
-  &di_package_parser_field_pre_depends,
-  &di_package_parser_field_recommends,
-  &di_package_parser_field_suggests,
-  &di_package_parser_field_conflicts,
-  &di_package_parser_field_enhances,
-  &di_package_parser_field_di_installermenuitem,
-  &di_package_parser_field_di_kernelversion,
-  &di_package_parser_field_di_subarchitecture,
-  NULL
+  DI_FILE_FIELDINFO
+  (
+    "Package",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, package)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Priority",
+    di_package_parser_read_priority,
+    NULL,
+    0
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Section",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, section)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Architecture",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof (di_package, architecture)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Version",
+    di_package_parser_read_version,
+    NULL,
+    0
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Replaces",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, relation_replaces)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Provides",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, relation_provides)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Depends",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, relation_depends)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Pre-Depends",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, relation_predepends)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Recommends",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, relation_recommends)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Suggests",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, relation_suggests)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Conflicts",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, relation_conflicts)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Enhances",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, relation_enhances)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Filename",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, filename)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Size",
+    di_file_read_int,
+    di_file_write_int,
+    offsetof(di_package, size)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Description",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, description)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Installer-Menu-Item",
+    di_file_read_int,
+    di_file_write_int,
+    offsetof(di_package, di_installermenuitem)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Kernel-Version",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, di_kernelversion)
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Subarchitecture",
+    di_file_read_string,
+    di_file_write_string,
+    offsetof(di_package, di_subarchitecture)
+  ),
 };
 
 __attribute__((visibility("internal")))
 int di_package_file_read(FILE *f, di_package *package)
 {
   di_file_info *info = di_file_info_alloc();
-  di_file_info_add(info, di_package_parser_fieldinfo);
+  di_file_info_add(info, di_package_parser_fieldinfo, sizeof(di_package_parser_fieldinfo)/sizeof(di_package_parser_fieldinfo[0]));
 
   int ret = di_file_rfc822_read_one(f, info, package);
 

@@ -42,11 +42,11 @@ void di_file_info_free(di_file_info *info)
   di_tree_destroy(info);
 }
 
-void di_file_info_add(di_file_info *info, const di_file_fieldinfo *fieldinfo[])
+void di_file_info_add(di_file_info *info, const di_file_fieldinfo fieldinfo[], size_t len)
 {
-  for (di_file_fieldinfo **fip = (di_file_fieldinfo **)fieldinfo; *fip; fip++)
+  for (di_file_fieldinfo *fip = (di_file_fieldinfo *)fieldinfo; len; fip++, len--)
   {
-    di_tree_insert(info, (char *)(*fip)->key, *fip);
+    di_tree_insert(info, (char *)fip->key, fip);
   }
 }
 

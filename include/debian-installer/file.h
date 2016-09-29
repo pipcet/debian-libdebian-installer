@@ -144,7 +144,7 @@ di_file_fields_function_write
 di_file_info *di_file_info_alloc(void);
 void di_file_info_free(di_file_info *info);
 
-void di_file_info_add(di_file_info *info, const di_file_fieldinfo *fieldinfo[]);
+void di_file_info_add(di_file_info *info, const di_file_fieldinfo fieldinfo[], size_t len);
 
 /** @} */
 #endif

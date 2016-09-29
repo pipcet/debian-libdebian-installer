@@ -38,38 +38,29 @@ Multiline: test\n\
 static di_file_fields_function_read
   real_read, multiline_read, wildcard_read;
 
-const di_file_fieldinfo
-  real =
-    DI_FILE_FIELDINFO
-    (
-      "Real",
-      real_read,
-      NULL,
-      1
-    ),
-  multiline =
-    DI_FILE_FIELDINFO
-    (
-      "Multiline",
-      multiline_read,
-      NULL,
-      2
-    ),
-  wildcard =
-    DI_FILE_FIELDINFO
-    (
-      "",
-      wildcard_read,
-      NULL,
-      3
-    );
-
-const di_file_fieldinfo *fieldinfo[] =
+const di_file_fieldinfo fieldinfo[] =
 {
-  &real,
-  &multiline,
-  &wildcard,
-  NULL
+  DI_FILE_FIELDINFO
+  (
+    "Real",
+    real_read,
+    NULL,
+    1
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "Multiline",
+    multiline_read,
+    NULL,
+    2
+  ),
+  DI_FILE_FIELDINFO
+  (
+    "",
+    wildcard_read,
+    NULL,
+    3
+  ),
 };
 
 struct read_info {
@@ -86,7 +77,7 @@ static void real_read(
 {
   struct read_info *i = user_data;
   i->found_real++;
-  ck_assert_ptr_eq(fip, &real);
+  ck_assert_ptr_eq(fip, &fieldinfo[0]);
   ck_assert_str_eq(value->string, "test");
   ck_assert_int_eq(value->size, strlen("test"));
 }
@@ -100,7 +91,7 @@ static void multiline_read(
 {
   struct read_info *i = user_data;
   i->found_multiline++;
-  ck_assert_ptr_eq(fip, &multiline);
+  ck_assert_ptr_eq(fip, &fieldinfo[1]);
   ck_assert_str_eq(value->string, "test\nmultiline1\nmultiline2\nmultiline3");
   ck_assert_int_eq(value->size, strlen("test\nmultiline1\nmultiline2\nmultiline3"));
 }
@@ -114,7 +105,7 @@ static void wildcard_read(
 {
   struct read_info *i = user_data;
   i->found_wildcard++;
-  ck_assert_ptr_eq(fip, &wildcard);
+  ck_assert_ptr_eq(fip, &fieldinfo[2]);
   ck_assert_str_eq(value->string, "wildcard");
   ck_assert_int_eq(value->size, strlen("wildcard"));
 }
@@ -140,7 +131,7 @@ int many_finish(void *data, void *user_data)
 START_TEST(test_empty)
 {
   di_file_info *info = di_file_info_alloc();
-  di_file_info_add(info, fieldinfo);
+  di_file_info_add(info, fieldinfo, sizeof(fieldinfo)/sizeof(fieldinfo[0]));
 
   FILE *f = fmemopen((void *)input_empty, strlen(input_empty), "r");
 
@@ -154,7 +145,7 @@ END_TEST
 START_TEST(test_one_default)
 {
   di_file_info *info = di_file_info_alloc();
-  di_file_info_add(info, fieldinfo);
+  di_file_info_add(info, fieldinfo, sizeof(fieldinfo)/sizeof(fieldinfo[0]));
   struct read_info read_info = { 0, };
 
   FILE *f = fmemopen((void *)input_one_default, strlen(input_one_default), "r");
@@ -172,7 +163,7 @@ END_TEST
 START_TEST(test_many)
 {
   di_file_info *info = di_file_info_alloc();
-  di_file_info_add(info, fieldinfo);
+  di_file_info_add(info, fieldinfo, sizeof(fieldinfo)/sizeof(fieldinfo[0]));
   struct read_info read_info = { 0, };
 
   FILE *f = fmemopen((void *)input_many, strlen(input_many), "r");
