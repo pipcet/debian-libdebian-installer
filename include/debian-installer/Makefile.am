@@ -15,7 +15,6 @@ realinclude_HEADERS = \
 	package.h \
 	packages.h \
 	parser.h \
-	parser_rfc822.h \
 	release.h \
 	slist.h \
 	string.h \

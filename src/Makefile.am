@@ -19,7 +19,6 @@ libdebian_installer_la_SOURCES = \
 	package.c \
 	package_parser.c \
 	parser.c \
-	parser_rfc822.c \
 	slist.c \
 	string.c \
 	tree.c \

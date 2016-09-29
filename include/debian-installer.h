@@ -9,7 +9,6 @@
 #include <debian-installer/mem.h>
 #include <debian-installer/mem_chunk.h>
 #include <debian-installer/parser.h>
-#include <debian-installer/parser_rfc822.h>
 #include <debian-installer/package.h>
 #include <debian-installer/packages.h>
 #include <debian-installer/release.h>

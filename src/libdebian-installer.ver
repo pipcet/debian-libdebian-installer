@@ -31,9 +31,6 @@ LIBDI_4.0 {
     di_parser_read_boolean;
     di_parser_read_int;
     di_parser_read_string;
-    di_parser_rfc822_read;
-    di_parser_rfc822_read_file;
-    di_parser_rfc822_write_file;
     di_parser_write_boolean;
     di_parser_write_int;
     di_parser_write_string;
