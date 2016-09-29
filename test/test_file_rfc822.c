@@ -80,7 +80,7 @@ struct read_info {
 static void real_read(
   void **data,
   const di_file_fieldinfo *fip,
-  di_rstring *field_modifier,
+  di_rstring *field,
   di_rstring *value,
   void *user_data)
 {
@@ -94,7 +94,7 @@ static void real_read(
 static void multiline_read(
   void **data,
   const di_file_fieldinfo *fip,
-  di_rstring *field_modifier,
+  di_rstring *field,
   di_rstring *value,
   void *user_data)
 {
@@ -108,7 +108,7 @@ static void multiline_read(
 static void wildcard_read(
   void **data,
   const di_file_fieldinfo *fip,
-  di_rstring *field_modifier,
+  di_rstring *field,
   di_rstring *value,
   void *user_data)
 {

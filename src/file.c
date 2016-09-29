@@ -54,7 +54,7 @@ void di_file_info_add(di_file_info *info, const di_file_fieldinfo *fieldinfo[])
 void di_file_read_boolean(
   void **data,
   const di_file_fieldinfo *fip __attribute__ ((unused)),
-  di_rstring *field_modifier __attribute__ ((unused)),
+  di_rstring *field __attribute__ ((unused)),
   di_rstring *value,
   void *user_data __attribute__ ((unused)))
 {
@@ -82,7 +82,7 @@ void di_file_write_boolean(
 void di_file_read_int(
   void **data,
   const di_file_fieldinfo *fip __attribute__ ((unused)),
-  di_rstring *field_modifier __attribute__ ((unused)),
+  di_rstring *field __attribute__ ((unused)),
   di_rstring *value,
   void *user_data __attribute__ ((unused)))
 {
@@ -111,7 +111,7 @@ void di_file_write_int(
 void di_file_read_rstring(
   void **data,
   const di_file_fieldinfo *fip __attribute__ ((unused)),
-  di_rstring *field_modifier __attribute__ ((unused)),
+  di_rstring *field __attribute__ ((unused)),
   di_rstring *value,
   void *user_data __attribute__ ((unused)))
 {
@@ -136,7 +136,7 @@ void di_file_write_rstring(
 void di_file_read_string(
   void **data,
   const di_file_fieldinfo *fip __attribute__ ((unused)),
-  di_rstring *field_modifier __attribute__ ((unused)),
+  di_rstring *field __attribute__ ((unused)),
   di_rstring *value,
   void *user_data __attribute__ ((unused)))
 {

@@ -46,7 +46,7 @@ typedef struct di_file_fieldinfo di_file_fieldinfo;
  * @param value_size size of the actual value
  * @param user_data data supplied to the parser
  */
-typedef void di_file_fields_function_read(void **data, const di_file_fieldinfo *fip, di_rstring *field_modifier, di_rstring *value, void *user_data);
+typedef void di_file_fields_function_read(void **data, const di_file_fieldinfo *fip, di_rstring *field, di_rstring *value, void *user_data);
 
 /**
  * Write a single field - callback
@@ -94,7 +94,6 @@ struct di_file_info
 {
   di_hash_table *table;                                 /**< table of di_file_fieldinfo */
   di_slist list;                                        /**< list of di_file_fieldinfo */
-  bool modifier;                                        /**< use modifier */
   bool wildcard;                                        /**< use wildcard (entry with key "") */
 };
 

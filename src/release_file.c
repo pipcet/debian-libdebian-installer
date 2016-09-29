@@ -122,10 +122,10 @@ int di_release_file_read(FILE *f, di_release *release)
   return ret;
 }
 
-static void di_release_parser_read_file(data, fip, field_modifier, value, user_data)
+static void di_release_parser_read_file(data, fip, field, value, user_data)
   void **data;
   const di_file_fieldinfo *fip __attribute__((unused));
-  di_rstring *field_modifier __attribute__((unused));
+  di_rstring *field __attribute__((unused));
   di_rstring *value;
   void *user_data __attribute__((unused));
 {

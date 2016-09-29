@@ -42,7 +42,7 @@ static int read_field(char *data, ssize_t datalen, di_file_info *info, void **ac
 
   if (fip)
   {
-    fip->read(act, fip, NULL, &value_string, user_data);
+    fip->read(act, fip, &field_string, &value_string, user_data);
     return 0;
   }
 

@@ -242,7 +242,7 @@ static const char *const di_package_priority_text[] =
 static void di_package_parser_read_priority(
   void **data,
   const di_file_fieldinfo *fip __attribute__((unused)),
-  di_rstring *field_modifier __attribute__((unused)),
+  di_rstring *field __attribute__((unused)),
   di_rstring *value,
   void *user_data __attribute__((unused)))
 {
@@ -253,7 +253,7 @@ static void di_package_parser_read_priority(
 static void di_package_parser_read_version(
   void **data,
   const di_file_fieldinfo *fip __attribute__((unused)),
-  di_rstring *field_modifier __attribute__((unused)),
+  di_rstring *field __attribute__((unused)),
   di_rstring *value,
   void *user_data __attribute__((unused)))
 {
