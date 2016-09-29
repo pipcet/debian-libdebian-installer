@@ -19,6 +19,8 @@
 
 #include <debian-installer/file_rfc822.h>
 
+#include <debian-installer/tree.h>
+
 static int read_field(char *data, ssize_t datalen, di_file_info *info, void **act, void *user_data)
 {
   // Remove trailing newline
@@ -29,6 +31,7 @@ static int read_field(char *data, ssize_t datalen, di_file_info *info, void **ac
   char *field_end = memchr(data, ':', datalen);
   if (!field_end)
     abort();
+  *field_end = '\0';
 
   // Search begin of value, ignore any whitespaces
   char *value_begin = field_end + 1;
@@ -38,7 +41,7 @@ static int read_field(char *data, ssize_t datalen, di_file_info *info, void **ac
   di_rstring field_string = { data, field_end - data };
   di_rstring value_string = { value_begin, datalen - (value_begin - data) };
 
-  const di_file_fieldinfo *fip = di_hash_table_lookup(info->table, &field_string);
+  const di_file_fieldinfo *fip = di_tree_lookup(info, data);
 
   if (fip)
   {
@@ -46,9 +49,7 @@ static int read_field(char *data, ssize_t datalen, di_file_info *info, void **ac
     return 0;
   }
 
-  di_rstring empty_string = { "", 0 };
-
-  fip = di_hash_table_lookup (info->table, &empty_string);
+  fip = di_tree_lookup(info, "");
 
   if (fip)
   {

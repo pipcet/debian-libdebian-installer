@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct di_file_info di_file_info;
+typedef void di_file_info;
 typedef struct di_file_fieldinfo di_file_fieldinfo;
 
 /**
@@ -55,7 +55,7 @@ typedef void di_file_fields_function_read(void **data, const di_file_fieldinfo *
  * @param value the value of the field
  * @param data the callback_data
  */
-typedef void di_file_fields_function_write_callback(const di_rstring *field, const di_rstring *value, void *data);
+typedef void di_file_fields_function_write_callback(const char *field, const di_rstring *value, void *data);
 
 /**
  * Write a single field
@@ -88,22 +88,13 @@ typedef int di_file_read_entry_finish(void *data, void *user_data);
 typedef void *di_file_write_entry_next(void **state_data, void *user_data);
 
 /**
- * @brief Parse info
- */
-struct di_file_info
-{
-  di_hash_table *table;                                 /**< table of di_file_fieldinfo */
-  di_slist list;                                        /**< list of di_file_fieldinfo */
-};
-
-/**
  * @brief Info about a parser field
  */
 struct di_file_fieldinfo
 {
-  di_rstring key;                                       /**< field name */
-  di_file_fields_function_read *read;                 /**< function for reading a field */
-  di_file_fields_function_write *write;               /**< function for writing a field */
+  const char *key;                                      /**< field name */
+  di_file_fields_function_read *read;                   /**< function for reading a field */
+  di_file_fields_function_write *write;                 /**< function for writing a field */
   unsigned int integer;                                 /**< Simple value, usage is defined by the read and write functions.
                                                          *   Most used with an offset of the field in the structure. */
 };
@@ -112,7 +103,7 @@ struct di_file_fieldinfo
  * generates a di_file_fieldinfo
  */
 #define DI_FILE_FIELDINFO(name, read, write, integer) \
-  { { name, sizeof(name) - 1 }, read, write, integer }
+  { name, read, write, integer }
 
 di_file_fields_function_read
   /**

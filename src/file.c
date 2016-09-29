@@ -22,32 +22,31 @@
 #include <debian-installer/file.h>
 
 #include <debian-installer/mem.h>
+#include <debian-installer/string.h>
+#include <debian-installer/tree.h>
+
+static di_compare_func key_compare;
+
+static int key_compare(const void *key1, const void *key2)
+{
+  return strcasecmp(key1, key2);
+}
 
 di_file_info *di_file_info_alloc(void)
 {
-  di_file_info *info;
-
-  info = di_new0 (di_file_info, 1);
-  info->table = di_hash_table_new (di_rstring_hash, di_rstring_equal);
-
-  return info;
+  return di_tree_new(key_compare);
 }
 
 void di_file_info_free(di_file_info *info)
 {
-  di_hash_table_destroy (info->table);
-  di_slist_destroy (&info->list, NULL);
-  di_free (info);
+  di_tree_destroy(info);
 }
 
 void di_file_info_add(di_file_info *info, const di_file_fieldinfo *fieldinfo[])
 {
-  di_file_fieldinfo **fip;
-
-  for (fip = (di_file_fieldinfo **) fieldinfo; *fip; fip++)
+  for (di_file_fieldinfo **fip = (di_file_fieldinfo **)fieldinfo; *fip; fip++)
   {
-    di_hash_table_insert (info->table, &(*fip)->key, *fip);
-    di_slist_append (&info->list, *fip);
+    di_tree_insert(info, (char *)(*fip)->key, *fip);
   }
 }
 
@@ -76,7 +75,7 @@ void di_file_write_boolean(
   di_rstring value = { "Yes", 3 };
 
   if (*f)
-    callback (&fip->key, &value, callback_data);
+    callback(fip->key, &value, callback_data);
 }
 
 void di_file_read_int(
@@ -104,7 +103,7 @@ void di_file_write_int(
   if (*f)
   {
     value.size = snprintf (value_buf, sizeof (value_buf), "%d", *f);
-    callback (&fip->key, &value, callback_data);
+    callback(fip->key, &value, callback_data);
   }
 }
 
@@ -130,7 +129,7 @@ void di_file_write_rstring(
   void *user_data __attribute__ ((unused)))
 {
   di_rstring *f = (di_rstring *)((char *)*data + fip->integer);
-  callback (&fip->key, f, callback_data);
+  callback(fip->key, f, callback_data);
 }
 
 void di_file_read_string(
@@ -160,6 +159,6 @@ void di_file_write_string(
   {
     value.string = *f;
     value.size = strlen (*f);
-    callback (&fip->key, &value, callback_data);
+    callback(fip->key, &value, callback_data);
   }
 }
