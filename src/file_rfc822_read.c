@@ -46,17 +46,14 @@ static int read_field(char *data, ssize_t datalen, di_file_info *info, void **ac
     return 0;
   }
 
-  if (info->wildcard)
+  di_rstring empty_string = { "", 0 };
+
+  fip = di_hash_table_lookup (info->table, &empty_string);
+
+  if (fip)
   {
-    di_rstring empty_string = { "", 0 };
-
-    fip = di_hash_table_lookup (info->table, &empty_string);
-
-    if (fip)
-    {
-      fip->read(act, fip, &field_string, &value_string, user_data);
-      return 0;
-    }
+    fip->read(act, fip, &field_string, &value_string, user_data);
+    return 0;
   }
 
   return -1;

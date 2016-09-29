@@ -94,7 +94,6 @@ struct di_file_info
 {
   di_hash_table *table;                                 /**< table of di_file_fieldinfo */
   di_slist list;                                        /**< list of di_file_fieldinfo */
-  bool wildcard;                                        /**< use wildcard (entry with key "") */
 };
 
 /**

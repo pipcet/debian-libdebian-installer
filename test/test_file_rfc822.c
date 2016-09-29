@@ -162,25 +162,6 @@ START_TEST(test_one_default)
   ck_assert_int_eq(di_file_rfc822_read_one(f, info, &read_info), 1);
   ck_assert_int_eq(read_info.found_real, 3);
   ck_assert_int_eq(read_info.found_multiline, 1);
-  ck_assert_int_eq(read_info.found_wildcard, 0);
-
-  fclose(f);
-  di_file_info_free(info);
-}
-END_TEST
-
-START_TEST(test_one_default_wildcard)
-{
-  di_file_info *info = di_file_info_alloc();
-  di_file_info_add(info, fieldinfo);
-  info->wildcard = true;
-  struct read_info read_info = { 0, };
-
-  FILE *f = fmemopen((void *)input_one_default, strlen(input_one_default), "r");
-
-  ck_assert_int_eq(di_file_rfc822_read_one(f, info, &read_info), 1);
-  ck_assert_int_eq(read_info.found_real, 3);
-  ck_assert_int_eq(read_info.found_multiline, 1);
   ck_assert_int_eq(read_info.found_wildcard, 1);
 
   fclose(f);
@@ -218,7 +199,6 @@ Suite* make_test_file_rfc822_suite() {
 
   tc = tcase_create("one");
   tcase_add_test(tc, test_one_default);
-  tcase_add_test(tc, test_one_default_wildcard);
   suite_add_tcase(s, tc);
 
   tc = tcase_create("many");
