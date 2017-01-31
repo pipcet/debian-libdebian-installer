@@ -1,3 +1,9 @@
+libdebian-installer (0.109) UNRELEASED; urgency=medium
+
+  * Fix build with gcc-7. Closes: #853489
+
+ -- Samuel Thibault <sthibault@debian.org>  Tue, 31 Jan 2017 11:09:16 +0100
+
 libdebian-installer (0.108) unstable; urgency=medium
 
   [ Helmut Grohne ]

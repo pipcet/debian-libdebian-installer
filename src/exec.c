@@ -159,6 +159,7 @@ static int internal_di_exec (const char *path, bool use_path, const char *const 
         break;
       case 3:
         files[1].handler = stderr_handler;
+        /* Fall through */
       case 1:
         files[0].handler = stdout_handler;
         break;
