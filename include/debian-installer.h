@@ -2,6 +2,7 @@
 
 #include <debian-installer/config.h>
 
+#include <debian-installer/digest.h>
 #include <debian-installer/exec.h>
 #include <debian-installer/file.h>
 #include <debian-installer/hash.h>

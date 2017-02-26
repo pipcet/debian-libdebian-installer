@@ -130,8 +130,8 @@ bool di_release_get_file(di_release_file *out, const di_release *release, const 
 
   out->name = f->name;
   out->name_byhash = f->name_sha256;
-  out->checksum.type = DI_RELEASE_FILE_CHECKSUM_SHA256;
-  out->checksum.value = f->sum_sha256;
+  out->digest.type = DI_DIGEST_SHA256;
+  out->digest.value = f->sum_sha256;
 
   return true;
 }

@@ -83,7 +83,7 @@ static const di_file_fieldinfo di_release_parser_fieldinfo[] =
     "SHA256",
     di_release_parser_read_file,
     NULL,
-    DI_RELEASE_FILE_CHECKSUM_SHA256
+    DI_DIGEST_SHA256
   ),
 };
 

@@ -24,6 +24,8 @@
 #include <stddef.h>
 #include <stdio.h>
 
+#include <debian-installer/digest.h>
+
 typedef struct di_release di_release;
 typedef struct di_release_file di_release_file;
 
@@ -35,13 +37,7 @@ typedef struct di_release_file di_release_file;
 struct di_release_file {
   const char *name;
   const char *name_byhash;
-
-  struct di_release_file_checksum {
-    enum {
-      DI_RELEASE_FILE_CHECKSUM_SHA256 = 1,
-    } type;
-    const char *value;
-  } checksum;
+  di_digest digest;
 };
 
 di_release *di_release_read(FILE *);

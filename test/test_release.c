@@ -75,15 +75,15 @@ START_TEST(test_get_file)
   ck_assert_int_eq(di_release_get_file(&fu, release, "contrib/Contents-amd64.unknown"), 0);
   ck_assert_ptr_eq(fu.name, NULL);
   ck_assert_ptr_eq(fu.name_byhash, NULL);
-  ck_assert_int_eq(fu.checksum.type, 0);
-  ck_assert_ptr_eq(fu.checksum.value, NULL);
+  ck_assert_int_eq(fu.digest.type, 0);
+  ck_assert_ptr_eq(fu.digest.value, NULL);
 
   di_release_file fk;
   ck_assert_int_eq(di_release_get_file(&fk, release, "contrib/Contents-amd64.gz"), 1);
   ck_assert_str_eq(fk.name, "contrib/Contents-amd64.gz");
   ck_assert_str_eq(fk.name_byhash, "contrib/by-hash/SHA256/39a5e7c71560909adf8057d40b4469f4b3d55e641b859d8cb669ec7794a3720e");
-  ck_assert_int_eq(fk.checksum.type, DI_RELEASE_FILE_CHECKSUM_SHA256);
-  ck_assert_str_eq(fk.checksum.value, "39a5e7c71560909adf8057d40b4469f4b3d55e641b859d8cb669ec7794a3720e");
+  ck_assert_int_eq(fk.digest.type, DI_DIGEST_SHA256);
+  ck_assert_str_eq(fk.digest.value, "39a5e7c71560909adf8057d40b4469f4b3d55e641b859d8cb669ec7794a3720e");
 }
 END_TEST
 
@@ -93,8 +93,8 @@ START_TEST(test_get_file_nobyhash)
   ck_assert_int_eq(di_release_get_file(&fk, release, "contrib/Contents-amd64.gz"), 1);
   ck_assert_str_eq(fk.name, "contrib/Contents-amd64.gz");
   ck_assert_ptr_eq(fk.name_byhash, NULL);
-  ck_assert_int_eq(fk.checksum.type, DI_RELEASE_FILE_CHECKSUM_SHA256);
-  ck_assert_str_eq(fk.checksum.value, "39a5e7c71560909adf8057d40b4469f4b3d55e641b859d8cb669ec7794a3720e");
+  ck_assert_int_eq(fk.digest.type, DI_DIGEST_SHA256);
+  ck_assert_str_eq(fk.digest.value, "39a5e7c71560909adf8057d40b4469f4b3d55e641b859d8cb669ec7794a3720e");
 }
 END_TEST
 
