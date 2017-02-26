@@ -18,3 +18,9 @@
  */
 
 #include <debian-installer/packages.h>
+
+#include <debian-installer/tree.h>
+
+struct di_packages {
+  di_tree *p;
+};

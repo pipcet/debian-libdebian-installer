@@ -17,6 +17,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <debian-installer/file.h>
 #include <debian-installer/package.h>
 
 struct di_package {
@@ -43,3 +44,4 @@ struct di_package {
 };
 
 int di_package_file_read(FILE *, di_package *release);
+int di_package_file_read_many(FILE *f, di_file_read_entry_new entry_new, di_file_read_entry_finish entry_finish, void *user_data);

@@ -179,6 +179,19 @@ int di_package_file_read(FILE *f, di_package *package)
   return ret;
 }
 
+__attribute__((visibility("internal")))
+int di_package_file_read_many(FILE *f, di_file_read_entry_new entry_new, di_file_read_entry_finish entry_finish, void *user_data)
+{
+  di_file_info *info = di_file_info_alloc();
+  di_file_info_add(info, di_package_parser_fieldinfo, sizeof(di_package_parser_fieldinfo)/sizeof(di_package_parser_fieldinfo[0]));
+
+  int ret = di_file_rfc822_read_many(f, info, entry_new, entry_finish, user_data);
+
+  di_file_info_free(info);
+
+  return ret;
+}
+
 static int di_package_array_text_from(const char *const *array, const char *text)
 {
   for (int i = 1; array[i]; i++)
