@@ -200,25 +200,6 @@ int di_package_file_read_many(FILE *f, di_file_read_entry_new entry_new, di_file
   return ret;
 }
 
-static int di_package_array_text_from(const char *const *array, const char *text)
-{
-  for (int i = 1; array[i]; i++)
-    if (strcmp(array[i], text) == 0)
-      return i;
-  return 0;
-}
-
-static const char *const di_package_priority_text[] =
-{
-  "unspecified",
-  "extra",                              /* == di_package_priority_extra */
-  "optional",                           /* == di_package_priority_optional */
-  "standard",                           /* == di_package_priority_standard */
-  "important",                          /* == di_package_priority_important */
-  "required",                           /* == di_package_priority_required */
-  NULL
-};
-
 static void di_package_parser_read_priority(
   void **data,
   const di_file_fieldinfo *fip __attribute__((unused)),
@@ -227,7 +208,7 @@ static void di_package_parser_read_priority(
   void *user_data __attribute__((unused)))
 {
   di_package *p = *data;
-  p->priority = di_package_array_text_from(di_package_priority_text, value->string);
+  p->priority = di_package_priority_text_from(value->string);
 }
 
 static void di_package_parser_read_version(

@@ -150,3 +150,43 @@ const char *di_package_get_di_subarchitecture(const di_package *package)
 {
   return package ? package->di_subarchitecture : NULL;
 }
+
+static const char *const di_package_priority_text[] =
+{
+  "unspecified",
+  "extra",                              /* == di_package_priority_extra */
+  "optional",                           /* == di_package_priority_optional */
+  "standard",                           /* == di_package_priority_standard */
+  "important",                          /* == di_package_priority_important */
+  "required",                           /* == di_package_priority_required */
+  NULL
+};
+
+const char *const di_package_status_text[] =
+{
+  "undefined",                          /* == di_package_status_undefined */
+  "not-installed",                      /* == di_package_status_not_installed */
+  "unpacked",                           /* == di_package_status_unpacked */
+  "installed",                          /* == di_package_status_installed */
+  "half-configured",                    /* == di_package_status_half_configured */
+  "config-files",                       /* == di_package_status_config_files */
+  NULL
+};
+
+static int di_package_array_text_from(const char *const *array, const char *text)
+{
+  for (int i = 1; array[i]; i++)
+    if (strcmp(array[i], text) == 0)
+      return i;
+  return 0;
+}
+
+enum di_package_priority di_package_priority_text_from(const char *priority)
+{
+  return di_package_array_text_from(di_package_priority_text, priority);
+}
+
+enum di_package_status di_package_status_text_from(const char *status)
+{
+  return di_package_array_text_from(di_package_status_text, status);
+}

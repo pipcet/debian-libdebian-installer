@@ -102,5 +102,8 @@ int di_package_get_di_installermenuitem(const di_package *);
 const char *di_package_get_di_kernelversion(const di_package *);
 const char *di_package_get_di_subarchitecture(const di_package *);
 
+enum di_package_priority di_package_priority_text_from(const char *priority);
+enum di_package_status di_package_status_text_from(const char *status);
+
 /** @} */
 #endif
