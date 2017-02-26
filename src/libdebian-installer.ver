@@ -121,5 +121,10 @@ LIBDI_5.0 {
     di_package_get_size;
     di_package_get_version;
     di_package_read;
+    di_packages_new;
+    di_packages_read;
+    di_packages_free;
+    di_packages_add_package;
+    di_packages_get_package;
 } LIBDI_4.7;
 
