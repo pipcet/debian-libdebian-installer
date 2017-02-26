@@ -13,6 +13,7 @@ int main() {
   srunner_add_suite(sr, make_test_exec_suite());
   srunner_add_suite(sr, make_test_file_rfc822_suite());
   srunner_add_suite(sr, make_test_package_suite());
+  srunner_add_suite(sr, make_test_packages_suite());
   srunner_add_suite(sr, make_test_release_suite());
   srunner_add_suite(sr, make_test_version_suite());
   srunner_run_all(sr, CK_NORMAL);

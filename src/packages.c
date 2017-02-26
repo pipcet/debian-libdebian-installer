@@ -1,5 +1,5 @@
 /*
- * packages.h - Debian Packages file support
+ * packages.c - Debian Packages support
  *
  * Copyright (C) 2017 Bastian Blank <waldi@debian.org>
  *
@@ -17,24 +17,29 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DEBIAN_INSTALLER__PACKAGES_H
-#define DEBIAN_INSTALLER__PACKAGES_H
+#include <config.h>
 
-#include <debian-installer/package.h>
+#include "packages_internal.h"
 
-typedef struct di_packages di_packages;
+di_packages *di_packages_new()
+{
+  return NULL;
+}
 
-/**
- * @addtogroup di_packages
- * @{
- */
+int di_packages_read(di_packages *packages, FILE *f)
+{
+  return 0;
+}
 
-di_packages *di_packages_new();
-int di_packages_read(di_packages *, FILE *);
-void di_packages_free(di_packages *);
+void di_packages_free(di_packages *packages)
+{
+}
 
-void di_packages_add_package(di_packages *, di_package *);
-const di_package *di_packages_get_package(di_packages *, const char *name);
+void di_packages_add_package(di_packages *packages, di_package *p)
+{
+}
 
-/** @} */
-#endif
+const di_package *di_packages_get_package(di_packages *packages, const char *name)
+{
+  return NULL;
+}

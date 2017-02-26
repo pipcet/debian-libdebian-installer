@@ -19,6 +19,7 @@ libdebian_installer_la_SOURCES = \
 	mem_chunk.c \
 	package.c \
 	package_file.c \
+	packages.c \
 	slist.c \
 	string.c \
 	tree.c \
