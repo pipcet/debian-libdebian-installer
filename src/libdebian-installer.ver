@@ -128,5 +128,6 @@ LIBDI_5.0 {
     di_packages_free;
     di_packages_add_package;
     di_packages_get_package;
+    di_tree_replace;
 } LIBDI_4.7;
 

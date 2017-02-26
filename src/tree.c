@@ -216,18 +216,27 @@ static di_tree_node *di_tree_node_rotate (di_tree_node *node)
   return node;
 }
 
-static di_tree_node *di_tree_node_insert (di_tree *tree, di_tree_node *node, void *key, void *value)
+static di_tree_node *di_tree_node_insert(di_tree *tree, di_tree_node *node, void *key, void *value, bool replace)
 {
   int cmp = tree->key_compare_func (key, node->key);
 
   if (cmp == 0)
   {
+    if (replace)
+    {
+      if (tree->key_destroy_func)
+        tree->key_destroy_func(node->key);
+      if (tree->value_destroy_func)
+        tree->value_destroy_func(node->value);
+      node->key = key;
+      node->value = value;
+    }
     // TODO
   }
   else if (cmp < 0)
   {
     if (node->left)
-      node->left = di_tree_node_insert (tree, node->left, key, value);
+      node->left = di_tree_node_insert(tree, node->left, key, value, replace);
     else
     {
       node->left = di_tree_node_new (key, value);
@@ -237,7 +246,7 @@ static di_tree_node *di_tree_node_insert (di_tree *tree, di_tree_node *node, voi
   else
   {
     if (node->right)
-      node->right = di_tree_node_insert (tree, node->right, key, value);
+      node->right = di_tree_node_insert(tree, node->right, key, value, replace);
     else
     {
       node->right = di_tree_node_new (key, value);
@@ -255,7 +264,18 @@ void di_tree_insert (di_tree *tree, void *key, void *value)
     tree->nnodes++;
   }
   else
-    tree->root = di_tree_node_insert (tree, tree->root, key, value);
+    tree->root = di_tree_node_insert(tree, tree->root, key, value, false);
+}
+
+void di_tree_replace(di_tree *tree, void *key, void *value)
+{
+  if (!tree->root)
+  {
+    tree->root = di_tree_node_new(key, value);
+    tree->nnodes++;
+  }
+  else
+    tree->root = di_tree_node_insert(tree, tree->root, key, value, true);
 }
 
 static void di_tree_node_foreach (di_tree_node *node, di_hfunc *func, void *user_data)

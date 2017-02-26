@@ -83,6 +83,18 @@ void di_tree_destroy (di_tree *tree);
 void di_tree_insert (di_tree *tree, void *key, void *value);
 
 /**
+ * Inserts or replaces a key into a di_tree.
+ *
+ * If the key already exists in the di_tree its current value is replaced with
+ * the new value.
+ *
+ * @param tree a di_tree.
+ * @param key a key to insert.
+ * @param value the value to associate with the key.
+ */
+void di_tree_replace(di_tree *tree, void *key, void *value);
+
+/**
  * Looks up a key in a di_tree.
  *
  * @param tree a di_tree.,
