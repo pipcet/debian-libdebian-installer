@@ -39,7 +39,7 @@ di_package *di_package_read(FILE *f)
   return ret;
 }
 
-void di_package_free(di_package *package)
+void di_package_destroy(di_package *package)
 {
   di_free(package->package);
   di_free(package->section);
@@ -57,6 +57,11 @@ void di_package_free(di_package *package)
   di_free(package->description);
   di_free(package->di_kernelversion);
   di_free(package->di_subarchitecture);
+}
+
+void di_package_free(di_package *package)
+{
+  di_package_destroy(package);
   di_free(package);
 }
 

@@ -85,6 +85,7 @@ enum di_package_relation_type
 };
 
 di_package *di_package_read(FILE *);
+void di_package_destroy(di_package *);
 void di_package_free(di_package *);
 
 const char *di_package_get_package(const di_package *);
