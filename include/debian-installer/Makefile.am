@@ -24,6 +24,5 @@ realinclude_HEADERS = \
 	version.h
 
 noinst_HEADERS = \
-	packages_internal.h \
 	slist_internal.h
 
