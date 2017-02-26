@@ -21,6 +21,12 @@
 
 #include <debian-installer/tree.h>
 
+#include "package_internal.h"
+
 struct di_packages {
   di_tree *p;
+};
+
+struct di_packages_entry {
+  di_package p;
 };

@@ -22,27 +22,28 @@
 #include <string.h>
 
 #include "packages_internal.h"
-#include "package_internal.h"
 
 #include <debian-installer/mem.h>
 
 static di_compare_func package_cmp;
 static int package_cmp(const void *key1, const void *key2)
 {
-  const di_package *p1 = key1, *p2 = key2;
-  return strcmp(p1->package, p2->package);
+  const struct di_packages_entry *p1 = key1, *p2 = key2;
+  return strcmp(p1->p.package, p2->p.package);
 }
 
 static di_destroy_notify package_destroy;
 static void package_destroy(void *data)
 {
-  di_package_free(data);
+  struct di_packages_entry *p = data;
+  di_package_destroy(&p->p);
+  di_free(p);
 }
 
 static di_file_read_entry_new package_new;
 static void *package_new(void *user_data)
 {
-  return di_new0(struct di_package, 1);
+  return di_new0(struct di_packages_entry, 1);
 }
 
 static di_file_read_entry_finish package_finish;
@@ -71,15 +72,24 @@ void di_packages_free(di_packages *packages)
   di_free(packages);
 }
 
+static const struct di_packages_entry *get_entry(di_packages *packages, const char *name)
+{
+  if (!packages || !name)
+    return NULL;
+  const struct di_packages_entry lookup = { .p = { .package = (char *)name } };
+  return di_tree_lookup(packages->p, &lookup);
+}
+
 void di_packages_add_package(di_packages *packages, di_package *p)
 {
-  di_tree_insert(packages->p, p, p);
+  if (!get_entry(packages, di_package_get_package(p)))
+  {
+    di_tree_insert(packages->p, p, p);
+  }
 }
 
 const di_package *di_packages_get_package(di_packages *packages, const char *name)
 {
-  if (!packages || !name)
-    return NULL;
-  const di_package lookup = { .package = (char *)name };
-  return di_tree_lookup(packages->p, &lookup);
+  const struct di_packages_entry *e = get_entry(packages, name);
+  return e ? &e->p : NULL;
 }
