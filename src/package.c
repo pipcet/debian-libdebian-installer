@@ -131,6 +131,11 @@ const char *di_package_get_description(const di_package *package)
   return package ? package->description : NULL;
 }
 
+const di_digest *di_package_get_digest(const di_package *package)
+{
+  return package ? &package->digest : NULL;
+}
+
 int di_package_get_di_installermenuitem(const di_package *package)
 {
   return package ? package->di_installermenuitem : 0;

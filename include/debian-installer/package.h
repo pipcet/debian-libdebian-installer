@@ -22,6 +22,7 @@
 
 #include <stdio.h>
 
+#include <debian-installer/digest.h>
 #include <debian-installer/version.h>
 
 typedef struct di_package di_package;
@@ -95,6 +96,7 @@ const char *di_package_get_relation(const di_package *, enum di_package_relation
 const char *di_package_get_filename(const di_package *);
 const int di_package_get_size(const di_package *);
 const char *di_package_get_description(const di_package *);
+const di_digest *di_package_get_digest(const di_package *);
 
 int di_package_get_di_installermenuitem(const di_package *);
 const char *di_package_get_di_kernelversion(const di_package *);

@@ -37,6 +37,7 @@ struct di_package {
   char *filename;
   int size;
   char *description;
+  di_digest digest;
 
   int di_installermenuitem;
   char *di_kernelversion;

@@ -26,6 +26,7 @@
 #include <stddef.h>
 
 static di_file_fields_function_read
+  di_package_file_read_digest,
   di_package_parser_read_priority,
   di_package_parser_read_version;
 
@@ -145,6 +146,13 @@ static const di_file_fieldinfo di_package_parser_fieldinfo[] =
   ),
   DI_FILE_FIELDINFO
   (
+    "SHA256",
+    di_package_file_read_digest,
+    NULL,
+    DI_DIGEST_SHA256
+  ),
+  DI_FILE_FIELDINFO
+  (
     "Installer-Menu-Item",
     di_file_read_int,
     di_file_write_int,
@@ -231,4 +239,16 @@ static void di_package_parser_read_version(
 {
   di_package *p = *data;
   p->version = di_version_parse(value->string);
+}
+
+static void di_package_file_read_digest(
+  void **data,
+  const di_file_fieldinfo *fip,
+  di_rstring *field __attribute__ ((unused)),
+  di_rstring *value,
+  void *user_data __attribute__((unused)))
+{
+  di_package *p = *data;
+  p->digest.type = fip->integer;
+  p->digest.value = di_stradup(value->string, value->size);
 }

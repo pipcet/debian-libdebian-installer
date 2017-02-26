@@ -18,6 +18,7 @@ Pre-Depends: multiarch-support\n\
 Filename: test.deb\n\
 Size: 100\n\
 Description: test\n\
+SHA256: c048039669653f7f126f1d9bea9942101b91cd69344c6db33e8bef9cd4893b80\n\
 Installer-Menu-Item: 20\n\
 Kernel-Version: 1.1\n\
 Subarchitecture: opteron\n\
@@ -105,6 +106,14 @@ START_TEST(test_get_description)
 }
 END_TEST
 
+START_TEST(test_get_digest)
+{
+  ck_assert_ptr_eq(di_package_get_digest(NULL), NULL);
+  ck_assert_int_eq(di_package_get_digest(package)->type, DI_DIGEST_SHA256);
+  ck_assert_str_eq(di_package_get_digest(package)->value, "c048039669653f7f126f1d9bea9942101b91cd69344c6db33e8bef9cd4893b80");
+}
+END_TEST
+
 START_TEST(test_get_di_installermenuitem)
 {
   ck_assert_int_eq(di_package_get_di_installermenuitem(NULL), 0);
@@ -157,6 +166,7 @@ Suite* make_test_package_suite() {
   tcase_add_test(tc, test_get_filename);
   tcase_add_test(tc, test_get_size);
   tcase_add_test(tc, test_get_description);
+  tcase_add_test(tc, test_get_digest);
   tcase_add_test(tc, test_get_di_installermenuitem);
   tcase_add_test(tc, test_get_di_kernelversion);
   tcase_add_test(tc, test_get_di_subarchitecture);
