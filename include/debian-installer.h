@@ -5,6 +5,7 @@
 #include <debian-installer/digest.h>
 #include <debian-installer/exec.h>
 #include <debian-installer/file.h>
+#include <debian-installer/file_rfc822.h>
 #include <debian-installer/hash.h>
 #include <debian-installer/list.h>
 #include <debian-installer/log.h>
@@ -20,7 +21,6 @@
 #include <debian-installer/utils.h>
 #include <debian-installer/system/devfs.h>
 #include <debian-installer/system/dpkg.h>
-#include <debian-installer/system/packages.h>
 #include <debian-installer/system/prebaseconfig.h>
 #include <debian-installer/system/subarch.h>
 #include <debian-installer/system/utils.h>
