@@ -38,7 +38,7 @@ void di_package_destroy (di_package *package)
   di_free (package->architecture);
   di_free (package->version);
   di_free (package->filename);
-  di_free (package->md5sum);
+  di_free (package->sha256);
   di_free (package->short_description);
   di_free (package->description);
 

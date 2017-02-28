@@ -180,13 +180,13 @@ const di_parser_fieldinfo
       di_parser_write_int,
       offsetof (di_package, size)
     ),
-  internal_di_package_parser_field_md5sum =
+  internal_di_package_parser_field_sha256 =
     DI_PARSER_FIELDINFO
     (
-      "MD5sum",
+      "SHA256",
       di_parser_read_string,
       di_parser_write_string,
-      offsetof (di_package, md5sum)
+      offsetof (di_package, sha256)
     ),
   internal_di_package_parser_field_description =
     DI_PARSER_FIELDINFO
@@ -217,7 +217,7 @@ const di_parser_fieldinfo *di_package_parser_fieldinfo[] =
   &internal_di_package_parser_field_enhances,
   &internal_di_package_parser_field_filename,
   &internal_di_package_parser_field_size,
-  &internal_di_package_parser_field_md5sum,
+  &internal_di_package_parser_field_sha256,
   &internal_di_package_parser_field_description,
   NULL
 };

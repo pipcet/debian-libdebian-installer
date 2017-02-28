@@ -112,7 +112,7 @@ struct di_package
   di_slist depends;                                     /**< Any different dependency types */
   char *filename;                                       /**< Filename field */
   size_t size;                                          /**< Size field */
-  char *md5sum;                                         /**< MD5Sum field */
+  char *sha256;                                         /**< SHA256 field */
   char *short_description;                              /**< Description field, first part*/
   char *description;                                    /**< Description field, second part */
   unsigned int resolver;                                /**< @internal */

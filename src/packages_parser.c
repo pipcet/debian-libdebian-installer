@@ -65,7 +65,7 @@ const di_parser_fieldinfo *di_packages_parser_fieldinfo[] =
   &internal_di_package_parser_field_enhances,
   &internal_di_package_parser_field_filename,
   &internal_di_package_parser_field_size,
-  &internal_di_package_parser_field_md5sum,
+  &internal_di_package_parser_field_sha256,
   &internal_di_package_parser_field_description,
   NULL
 };
@@ -109,7 +109,7 @@ const di_parser_fieldinfo *di_packages_minimal_parser_fieldinfo[] =
   &internal_di_package_parser_field_depends,
   &internal_di_package_parser_field_pre_depends,
   &internal_di_package_parser_field_filename,
-  &internal_di_package_parser_field_md5sum,
+  &internal_di_package_parser_field_sha256,
   &internal_di_package_parser_field_size,
   NULL
 };
