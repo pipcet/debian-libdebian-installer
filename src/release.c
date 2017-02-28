@@ -69,10 +69,10 @@ const di_parser_fieldinfo
       NULL,
       0
     ),
-  internal_di_release_parser_field_sha1 =
+  internal_di_release_parser_field_sha256 =
     DI_PARSER_FIELDINFO
     (
-      "SHA1",
+      "SHA256",
       di_release_parser_read_file,
       NULL,
       1
@@ -87,7 +87,7 @@ const di_parser_fieldinfo *di_release_parser_fieldinfo[] =
   &internal_di_release_parser_field_suite,
   &internal_di_release_parser_field_codename,
   &internal_di_release_parser_field_md5sum,
-  &internal_di_release_parser_field_sha1,
+  &internal_di_release_parser_field_sha256,
   NULL
 };
 
@@ -110,7 +110,7 @@ di_release *di_release_alloc (void)
   di_release *ret;
 
   ret = di_new0 (di_release, 1);
-  ret->md5sum = di_hash_table_new_full (di_rstring_hash, di_rstring_equal, NULL, internal_di_release_file_destroy_func);
+  ret->sha256 = di_hash_table_new_full (di_rstring_hash, di_rstring_equal, NULL, internal_di_release_file_destroy_func);
   ret->release_file_mem_chunk = di_mem_chunk_new (sizeof (di_release_file), 4096);
 
   return ret;
@@ -124,7 +124,7 @@ void di_release_free (di_release *release)
   di_free (release->origin);
   di_free (release->suite);
   di_free (release->codename);
-  di_hash_table_destroy (release->md5sum);
+  di_hash_table_destroy (release->sha256);
   di_mem_chunk_destroy (release->release_file_mem_chunk);
   di_free (release);
 }
@@ -169,7 +169,7 @@ void di_release_parser_read_file (data, fip, field_modifier, value, user_data)
   int ret;
   size_t buf_size;
   di_release *release = *data;
-  di_hash_table *table = release->md5sum;
+  di_hash_table *table = release->sha256;
 
   while (1)
   {

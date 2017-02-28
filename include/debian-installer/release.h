@@ -40,7 +40,7 @@ struct di_release
   char *origin;                                 /**< Origin field */
   char *suite;                                  /**< Suite field */
   char *codename;                               /**< Codename field */
-  di_hash_table *md5sum;                        /**< checksum fields, includes di_release_file */
+  di_hash_table *sha256;                        /**< checksum fields, includes di_release_file */
   di_mem_chunk *release_file_mem_chunk;         /**< @internal */
 };
 
@@ -55,7 +55,7 @@ struct di_release_file
     di_rstring key;                             /**< @internal */
   };
   unsigned int size;                            /**< size */
-  char *sum[2];                                 /**< checksums, currently md5 and sha1 */
+  char *sum[2];                                 /**< checksums, currently md5 and sha256 */
 };
 
 di_release *di_release_alloc (void);

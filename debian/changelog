@@ -5,6 +5,7 @@ libdebian-installer (0.109) UNRELEASED; urgency=medium
 
   [ Steven Chamberlain ]
   * Parse SHA256 fields in Packages files.  (closes: #856210)
+  * Parse SHA256 fields in Release files.
 
  -- Samuel Thibault <sthibault@debian.org>  Tue, 31 Jan 2017 11:09:16 +0100
 
