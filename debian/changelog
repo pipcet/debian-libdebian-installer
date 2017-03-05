@@ -9,7 +9,7 @@ libdebian-installer (0.109) unstable; urgency=medium
 
   [ Bastian Blank ]
   * Update versions for changed symbols.
-    - Add Breaks on cdebootrap.
+    - Add Breaks on cdebootstrap.
 
  -- Bastian Blank <waldi@debian.org>  Sun, 05 Mar 2017 11:02:27 +0000
 
