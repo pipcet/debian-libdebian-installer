@@ -18,21 +18,8 @@ static struct hwmap_type hwmap[] = {
 	{"MIPS Malta",		"MIPS (5K|20K)",		".*",		"5kc-malta" },
 	{"MIPS Malta",		".*",				"mips64r2",	"5kc-malta" },
 	{"MIPS Malta",		".*",				"mips32r2",	"4kc-malta" },
-	{".*",			"ICT Loongson-2 V0.2",		".*",		"loongson-2e" },
-	{".*",			"ICT Loongson-2 V0.3",		".*",		"loongson-2f" },
 	{".*",			"ICT Loongson-3",		".*",		"loongson-3" },
 	{".*",			"Cavium Octeon",		".*",		"octeon" },
-	{"SGI (Indy|Indigo2)",	"R4",				".*",		"r4k-ip22" },
-	{"SGI (Indy|Indigo2)",	"R5000",			".*",		"r5k-ip22" },
-	{"SGI (Indy|Indigo2)",	"R8000",			".*",		"r8k-ip26" },
-	{"SGI (Indy|Indigo2)",	"R10000",			".*",		"r10k-ip28" },
-	{"SGI Origin",		"R10000",			".*",		"r10k-ip27" },
-	{"SGI Origin",		"R12000",			".*",		"r12k-ip27" },
-	{"SGI (O2|IP32)",	"R5|Nevada|RM7000",		".*",		"r5k-ip32" },
-	{"SGI (O2|IP32)",	"RM10000",			".*",		"r10k-ip32" },
-	{"SGI (O2|IP32)",	"RM12000",			".*",		"r12k-ip32" },
-	{"SiByte BCM91250",	"SiByte SB1",			".*",		"sb1-bcm91250a" },
-	{"SiByte BCM91.80",	"SiByte SB1A",			".*",		"sb1a-bcm91480b" },
 
 	/* add new hwmap here */
 

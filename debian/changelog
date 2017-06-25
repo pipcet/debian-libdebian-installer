@@ -4,6 +4,7 @@ libdebian-installer (0.111) UNRELEASED; urgency=medium
   * subarch-mips-linux.c: Add support for checking the "isa" field.
     Fallback checking for the "isa" field for unknown CPUs. Closes:
     #865425.
+    Drop unsupported subarchitectures.
 
  -- Aurelien Jarno <aurel32@debian.org>  Sun, 25 Jun 2017 18:04:38 +0200
 
