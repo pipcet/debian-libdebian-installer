@@ -16,6 +16,8 @@ struct hwmap_type {
 static struct hwmap_type hwmap[] = {
 	{"MIPS Malta",		"MIPS (4K|24K|34K|74K)",	".*",		"4kc-malta" },
 	{"MIPS Malta",		"MIPS (5K|20K)",		".*",		"5kc-malta" },
+	{"MIPS Malta",		".*",				"mips64r2",	"5kc-malta" },
+	{"MIPS Malta",		".*",				"mips32r2",	"4kc-malta" },
 	{".*",			"ICT Loongson-2 V0.2",		".*",		"loongson-2e" },
 	{".*",			"ICT Loongson-2 V0.3",		".*",		"loongson-2f" },
 	{".*",			"ICT Loongson-3",		".*",		"loongson-3" },
