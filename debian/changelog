@@ -1,3 +1,10 @@
+libdebian-installer (0.111) UNRELEASED; urgency=medium
+
+  [ Aurelien Jarno ]
+  * subarch-mips-linux.c: Add support for checking the "isa" field.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 25 Jun 2017 18:04:38 +0200
+
 libdebian-installer (0.110) unstable; urgency=medium
 
   [ Martin Michlmayr ]
