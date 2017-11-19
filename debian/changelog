@@ -1,3 +1,10 @@
+libdebian-installer (0.112) UNRELEASED; urgency=medium
+
+  [ Reiner Herrmann ]
+  * src/exec.c: Include poll.h instead of sys/poll.h.  Closes: #861598.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 19 Nov 2017 17:28:29 +0100
+
 libdebian-installer (0.111) unstable; urgency=medium
 
   [ Aurelien Jarno ]
