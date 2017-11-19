@@ -1,4 +1,4 @@
-libdebian-installer (0.112) UNRELEASED; urgency=medium
+libdebian-installer (0.112) unstable; urgency=medium
 
   [ Reiner Herrmann ]
   * src/exec.c: Include poll.h instead of sys/poll.h.  Closes: #861598.
@@ -11,7 +11,7 @@ libdebian-installer (0.112) UNRELEASED; urgency=medium
   * src/system/devfs.c: include <sys/sysmacros.h> instead of <sys/types.h>.
     Closes: #882089.
 
- -- Aurelien Jarno <aurel32@debian.org>  Sun, 19 Nov 2017 17:28:29 +0100
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 19 Nov 2017 18:12:25 +0100
 
 libdebian-installer (0.111) unstable; urgency=medium
 
