@@ -7,6 +7,10 @@ libdebian-installer (0.112) UNRELEASED; urgency=medium
   * Fix FTBFS with gcc-8: Mark di_parser_fieldinfo constants extern.
     Closes: #881932.
 
+  [ Aurelien Jarno ]
+  * src/system/devfs.c: include <sys/sysmacros.h> instead of <sys/types.h>.
+    Closes: #882089.
+
  -- Aurelien Jarno <aurel32@debian.org>  Sun, 19 Nov 2017 17:28:29 +0100
 
 libdebian-installer (0.111) unstable; urgency=medium
