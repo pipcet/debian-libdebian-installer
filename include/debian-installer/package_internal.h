@@ -33,7 +33,7 @@ typedef struct internal_di_package_parser_data internal_di_package_parser_data;
  * @internal
  * parser info
  */
-const di_parser_fieldinfo
+extern const di_parser_fieldinfo
   internal_di_package_parser_field_status,
   internal_di_package_parser_field_essential,
   internal_di_package_parser_field_priority,

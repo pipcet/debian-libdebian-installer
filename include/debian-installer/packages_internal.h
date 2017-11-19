@@ -84,7 +84,7 @@ struct di_packages_resolve_dependencies_do_real_list_append_data
 di_parser_write_entry_next
   internal_di_packages_parser_write_entry_next;
 
-const di_parser_fieldinfo
+extern const di_parser_fieldinfo
   internal_di_packages_parser_field_package;
 
 /** @} */
