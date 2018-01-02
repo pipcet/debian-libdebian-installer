@@ -1,9 +1,11 @@
-libdebian-installer (0.113) UNRELEASED; urgency=medium
+libdebian-installer (0.113) unstable; urgency=medium
+
+  * Team upload.
 
   [ Helmut Grohne ]
   * Do not compile with -Werror by default.  Closes: #885712.
 
- -- Karsten Merker <merker@debian.org>  Tue, 02 Jan 2018 21:01:09 +0100
+ -- Karsten Merker <merker@debian.org>  Tue, 02 Jan 2018 22:28:29 +0100
 
 libdebian-installer (0.112) unstable; urgency=medium
 
