@@ -31,6 +31,7 @@ EXTRA_libsystem_la_SOURCES = \
 	subarch-ppc64el-linux.c \
 	subarch-sh4-linux.c \
 	subarch-sparc-linux.c \
+	subarch-sparc64-linux.c \
 	subarch-x86-linux.c \
 	subarch-x86-kfreebsd.c
 

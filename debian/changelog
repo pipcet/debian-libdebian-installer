@@ -4,6 +4,7 @@ libdebian-installer (0.114) UNRELEASED; urgency=medium
   * subarch-sparc-linux.c:
     - Add support for detecting actual sun4 sub-architecture
     - Add support for detecting supported partition tables
+  * Use subarch-sparc-linux.c for sparc64 as well.
 
  -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Thu, 15 Feb 2018 13:53:01 +0100
 
