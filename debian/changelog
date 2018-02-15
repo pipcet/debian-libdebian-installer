@@ -1,3 +1,12 @@
+libdebian-installer (0.114) UNRELEASED; urgency=medium
+
+  [ John Paul Adrian Glaubitz ]
+  * subarch-sparc-linux.c:
+    - Add support for detecting actual sun4 sub-architecture
+    - Add support for detecting supported partition tables
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Thu, 15 Feb 2018 13:53:01 +0100
+
 libdebian-installer (0.113) unstable; urgency=medium
 
   * Team upload.

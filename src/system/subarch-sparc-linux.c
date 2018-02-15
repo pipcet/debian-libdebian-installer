@@ -1,17 +1,46 @@
 #include <debian-installer/system/subarch.h>
-#include <sys/utsname.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+
+#define BUFFER_LENGTH (1024)
 
 const char *di_system_subarch_analyze(void) 
 {
-  struct utsname buf;
+  FILE *file;
+  char buf[BUFFER_LENGTH];
+  const char *pos;
+  char *subarch = NULL;
+  const char *label = NULL;
+  size_t len;
 
-  if (uname(&buf) == 0)
-  {
-    if (!strcmp(buf.machine, "sparc64"))
-      return "sparc64";
-    else
-      return "sparc32";
+  file = fopen("/proc/cpuinfo", "r");
+
+  if (file) {
+    while (fgets(buf, sizeof(buf), file)) {
+      if (!(pos = strchr(buf, ':')))
+	continue;
+      if (!(len = strspn(pos, ": \t")))
+	continue;
+      if (!strncmp(buf, "type", strlen("type")))
+	subarch = strndup(pos + len, strlen(pos + len) - 1);
+    }
+
+    fclose(file);
   }
-  return "unknown";
+
+  if (!subarch)
+    subarch = strdup("unknown");
+
+  if (access("/sys/firmware/devicetree/base/packages/disk-label/gpt", F_OK) != -1)
+    label = "gpt";
+  else
+    label = "sun";
+
+  snprintf(buf, BUFFER_LENGTH, "%s_%s", subarch, label);
+
+  free(subarch);
+
+  return buf;
 }
