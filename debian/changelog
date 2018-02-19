@@ -1,4 +1,4 @@
-libdebian-installer (0.114) UNRELEASED; urgency=medium
+libdebian-installer (0.114) unstable; urgency=medium
 
   [ John Paul Adrian Glaubitz ]
   * subarch-sparc-linux.c:
@@ -6,7 +6,7 @@ libdebian-installer (0.114) UNRELEASED; urgency=medium
     - Add support for detecting supported partition tables
   * Use subarch-sparc-linux.c for sparc64 as well.
 
- -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Thu, 15 Feb 2018 13:53:01 +0100
+ -- Christian Perrier <bubulle@debian.org>  Mon, 19 Feb 2018 07:19:16 +0100
 
 libdebian-installer (0.113) unstable; urgency=medium
 
