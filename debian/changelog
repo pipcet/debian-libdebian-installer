@@ -1,3 +1,11 @@
+libdebian-installer (0.115) UNRELEASED; urgency=medium
+
+  [ Manuel A. Fernandez Montecelo ]
+  * Support "nodoc" in DEB_BUILD_PROFILES and DEB_BUILD_OPTIONS
+    (Closes: #892935)
+
+ -- Karsten Merker <merker@debian.org>  Wed, 14 Mar 2018 21:15:08 +0100
+
 libdebian-installer (0.114) unstable; urgency=medium
 
   [ John Paul Adrian Glaubitz ]

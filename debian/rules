@@ -23,12 +23,17 @@ endif
 
 override_dh_auto_build:
 	dh_auto_build
+ifeq ($(filter nodoc,$(DEB_BUILD_OPTIONS))$(filter nodoc,$(DEB_BUILD_PROFILES)),)
 	$(MAKE) -C build/doc doc
+endif
 
 override_dh_install:
 	install $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libdebian-installer.so.4 $(CURDIR)/debian/libdebian-installer4-udeb/lib
 	install $(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libdebian-installer-extra.so.4 $(CURDIR)/debian/libdebian-installer-extra4-udeb/lib
 	dh_install --sourcedir=debian/tmp
+ifeq ($(filter nodoc,$(DEB_BUILD_OPTIONS))$(filter nodoc,$(DEB_BUILD_PROFILES)),)
+	dh_install -plibdebian-installer4-dev --sourcedir=debian/tmp usr/share/doc/libdebian-installer4-dev
+endif
 
 override_dh_makeshlibs:
 	dh_makeshlibs -plibdebian-installer4 -V \
