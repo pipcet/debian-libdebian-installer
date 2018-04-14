@@ -1,9 +1,9 @@
-libdebian-installer (0.116) UNRELEASED; urgency=medium
+libdebian-installer (0.116) unstable; urgency=medium
 
   [ Michael Karcher ]
   * subarch-sparc-linux.c: Fix return value of di_system_subarch_analyze
 
- -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Thu, 05 Apr 2018 14:01:08 +0200
+ -- Christian Perrier <bubulle@debian.org>  Sat, 14 Apr 2018 07:47:18 +0200
 
 libdebian-installer (0.115) unstable; urgency=medium
 
