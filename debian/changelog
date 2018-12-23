@@ -1,8 +1,8 @@
-libdebian-installer (0.117) UNRELEASED; urgency=medium
+libdebian-installer (0.117) unstable; urgency=medium
 
   * Update Vcs-{Browser,Git} to point to salsa (alioth's replacement).
 
- -- Cyril Brulebois <kibi@debian.org>  Fri, 27 Apr 2018 03:43:02 +0200
+ -- Cyril Brulebois <kibi@debian.org>  Sun, 23 Dec 2018 17:38:42 +0100
 
 libdebian-installer (0.116) unstable; urgency=medium
 
