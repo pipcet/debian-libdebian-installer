@@ -177,6 +177,10 @@ const char *di_system_subarch_analyze(void)
 	int i;
 	int ret;
 
+	/* If we detect EFI firmware, bail out early here */
+	if (di_system_is_efi())
+		return "efi";
+
 	entry[0] = '\0';
 
 	ret = read_dt_model(entry, sizeof(entry));

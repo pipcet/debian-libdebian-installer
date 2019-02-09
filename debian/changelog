@@ -1,3 +1,9 @@
+libdebian-installer (0.118) UNRELEASED; urgency=medium
+
+  * Make all arm32 machines with EFI show up as subarch efi
+
+ -- Steve McIntyre <93sam@debian.org>  Sat, 09 Feb 2019 19:04:11 +0000
+
 libdebian-installer (0.117) unstable; urgency=medium
 
   * Update Vcs-{Browser,Git} to point to salsa (alioth's replacement).
