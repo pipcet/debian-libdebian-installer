@@ -1,4 +1,4 @@
-libdebian-installer (0.118) UNRELEASED; urgency=medium
+libdebian-installer (0.118) unstable; urgency=medium
 
   * Make all arm32 machines with EFI show up as subarch efi
 
