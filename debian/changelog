@@ -3,7 +3,7 @@ libdebian-installer (0.119) UNRELEASED; urgency=medium
   * Drop support for arm*/ixp4xx and arm*/iop32x; support for those
     platforms was removed from the Linux kernel and therefore d-i.
   * Remove Christian Perrier from Uploaders, with many thanks for all
-    his contributions over the years!
+    his contributions over the years! (Closes: #927544)
 
  -- Cyril Brulebois <kibi@debian.org>  Thu, 21 Feb 2019 13:41:01 +0100
 
