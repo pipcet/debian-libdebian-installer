@@ -1,4 +1,4 @@
-libdebian-installer (0.119) UNRELEASED; urgency=medium
+libdebian-installer (0.119) unstable; urgency=medium
 
   [ Cyril Brulebois ]
   * Drop support for arm*/ixp4xx and arm*/iop32x; support for those
@@ -10,7 +10,7 @@ libdebian-installer (0.119) UNRELEASED; urgency=medium
   * Enlarge maximum line length in Packages and Sources files.
     (closes: #554444)
 
- -- Cyril Brulebois <kibi@debian.org>  Thu, 21 Feb 2019 13:41:01 +0100
+ -- Bastian Blank <waldi@debian.org>  Tue, 07 May 2019 13:17:47 +0200
 
 libdebian-installer (0.118) unstable; urgency=medium
 
