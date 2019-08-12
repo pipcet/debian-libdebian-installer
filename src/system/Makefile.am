@@ -29,6 +29,7 @@ EXTRA_libsystem_la_SOURCES = \
 	subarch-powerpc-linux.c \
 	subarch-ppc64-linux.c \
 	subarch-ppc64el-linux.c \
+	subarch-riscv64-linux.c \
 	subarch-sh4-linux.c \
 	subarch-sparc-linux.c \
 	subarch-sparc64-linux.c \
