@@ -1,11 +1,11 @@
-libdebian-installer (0.120) UNRELEASED; urgency=medium
+libdebian-installer (0.120) unstable; urgency=medium
 
   * Team upload.
 
   [ Karsten Merker ]
   * Add subarch detection for riscv64.
 
- -- Karsten Merker <merker@debian.org>  Mon, 12 Aug 2019 16:11:55 +0200
+ -- Karsten Merker <merker@debian.org>  Wed, 14 Aug 2019 20:49:28 +0200
 
 libdebian-installer (0.119) unstable; urgency=medium
 
