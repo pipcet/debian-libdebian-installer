@@ -1,3 +1,10 @@
+libdebian-installer (0.121) UNRELEASED; urgency=medium
+
+  * Remove trailing whitespaces from changelog and control file, to fix 
+    lintian tag.
+
+ -- Holger Wansing <hwansing@mailbox.org>  Sun, 13 Oct 2019 12:54:31 +0200
+
 libdebian-installer (0.120) unstable; urgency=medium
 
   * Team upload.
@@ -516,8 +523,8 @@ libdebian-installer (0.68) unstable; urgency=low
 libdebian-installer (0.67) unstable; urgency=low
 
   [ Aurelien Jarno ]
-  * Fix internal_di_exec() in case of a working poll() implementation. 
-    This fixes d-i on GNU/kFreeBSD when running on dual-core CPU or 
+  * Fix internal_di_exec() in case of a working poll() implementation.
+    This fixes d-i on GNU/kFreeBSD when running on dual-core CPU or
     more.
 
  -- Aurelien Jarno <aurel32@debian.org>  Fri, 04 Sep 2009 00:06:07 +0200
@@ -536,7 +543,7 @@ libdebian-installer (0.65) unstable; urgency=low
 
   [ Aurelien Jarno ]
   * Teach archdetect about GNU/kFreeBSD.
-  * Fix build with recent automake by removing GNU extension usage in 
+  * Fix build with recent automake by removing GNU extension usage in
     doc/Makefile.am.
   * Point to the right GPL version in debian/copyright.
 
@@ -635,7 +642,7 @@ libdebian-installer (0.56) unstable; urgency=low
   * Return more correct errors fom execution.
 
   [ Joey Hess ]
-  * Fix subarch detection of mips on current versions of qemu. The cpu 
+  * Fix subarch detection of mips on current versions of qemu. The cpu
     model is reported as "MIPS 24K", not "MIPS 4K". Left the old value in to
     support old qemu versions.
 

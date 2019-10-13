@@ -67,4 +67,3 @@ Description: Library of some extra debian-installer functions
  such as logging messages and executing commands. If you aren't
  working on debian-installer or building your own install system based
  on debian-installer, then you probably don't need this library.
-
