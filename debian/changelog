@@ -1,6 +1,6 @@
 libdebian-installer (0.121) UNRELEASED; urgency=medium
 
-  * Remove trailing whitespaces from changelog and control file, to fix 
+  * Remove trailing whitespaces from changelog and control file, to fix
     lintian tag.
 
  -- Holger Wansing <hwansing@mailbox.org>  Sun, 13 Oct 2019 12:54:31 +0200
