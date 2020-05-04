@@ -2,8 +2,8 @@
 %:
 	dh $@ --builddirectory=build
 
+include /usr/share/dpkg/architecture.mk
 DEB_HOST_ARCH_OS    := $(shell dpkg-architecture -qDEB_HOST_ARCH_OS 2>/dev/null)
-DEB_HOST_MULTIARCH  := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 #CFLAGS = -Wall -W -Werror -ggdb -Wstrict-prototypes -Wmissing-declarations -Wmissing-prototypes
 CFLAGS = -Wall -W -ggdb -Wmissing-declarations
