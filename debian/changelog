@@ -10,6 +10,11 @@ libdebian-installer (0.121) UNRELEASED; urgency=medium
   * Drop unnecessary dependency on dh-autoreconf.
   * Rely on pre-initialized dpkg-architecture variables.
 
+  [ Steve McIntyre ]
+  * Remove the arbitrary limitation on maximum line length in Packages
+    and Sources files - it's pointless and breaks things
+    periodically. Closes: #971946
+
  -- Holger Wansing <hwansing@mailbox.org>  Sun, 13 Oct 2019 12:54:31 +0200
 
 libdebian-installer (0.120) unstable; urgency=medium

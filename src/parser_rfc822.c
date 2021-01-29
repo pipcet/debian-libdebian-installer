@@ -35,8 +35,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#define READSIZE 65536
-
 int di_parser_rfc822_read (char *begin, size_t size, di_parser_info *info, di_parser_read_entry_new entry_new, di_parser_read_entry_finish entry_finish, void *user_data)
 {
   char *cur, *end;
@@ -82,7 +80,7 @@ int di_parser_rfc822_read (char *begin, size_t size, di_parser_info *info, di_pa
     while (1)
     {
       field_begin = cur;
-      readsize = end - field_begin < READSIZE ? end - field_begin : READSIZE;
+      readsize = end - field_begin;
       if (!readsize)
         break;
       field_end = memchr (cur, ':', readsize);
@@ -120,7 +118,7 @@ int di_parser_rfc822_read (char *begin, size_t size, di_parser_info *info, di_pa
       value_begin = field_end + 1;
       while (value_begin < end && (*value_begin == ' ' || *value_begin == '\t'))
         value_begin++;
-      readsize = end - field_begin < READSIZE ? end - field_begin : READSIZE;
+      readsize = end - field_begin;
       value_end = memchr (field_begin, '\n', readsize);
       if (!value_end)
       {
@@ -136,7 +134,7 @@ int di_parser_rfc822_read (char *begin, size_t size, di_parser_info *info, di_pa
       /* while (isblank (value_end[1])) FIXME: C99 */
       while (value_end[1] == ' ' || value_end[1] == '\t')
       {
-        readsize = end - value_end + 1 < READSIZE ? end - value_end + 1 : READSIZE;
+        readsize = end - value_end + 1;
         if ((value_end = memchr (value_end + 1, '\n', readsize)) == NULL)
         {
           di_warning ("Iek! Don't find end of large value\n");
