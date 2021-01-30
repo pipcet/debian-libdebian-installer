@@ -1,4 +1,4 @@
-libdebian-installer (0.121) UNRELEASED; urgency=medium
+libdebian-installer (0.121) unstable; urgency=medium
 
   [ Holger Wansing ]
   * Remove trailing whitespaces from changelog and control file, to fix
@@ -16,7 +16,7 @@ libdebian-installer (0.121) UNRELEASED; urgency=medium
     periodically. Closes: #971946
   * Update Standards-Version to 4.5.1
 
- -- Holger Wansing <hwansing@mailbox.org>  Sun, 13 Oct 2019 12:54:31 +0200
+ -- Steve McIntyre <93sam@debian.org>  Sat, 30 Jan 2021 00:50:27 +0000
 
 libdebian-installer (0.120) unstable; urgency=medium
 
