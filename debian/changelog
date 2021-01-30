@@ -14,6 +14,7 @@ libdebian-installer (0.121) UNRELEASED; urgency=medium
   * Remove the arbitrary limitation on maximum line length in Packages
     and Sources files - it's pointless and breaks things
     periodically. Closes: #971946
+  * Update Standards-Version to 4.5.1
 
  -- Holger Wansing <hwansing@mailbox.org>  Sun, 13 Oct 2019 12:54:31 +0200
 
