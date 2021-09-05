@@ -1,3 +1,9 @@
+libdebian-installer (0.122) UNRELEASED; urgency=medium
+
+  * debian/rules: Inherit CFLAGS from environment.
+
+ -- Samuel Thibault <sthibault@debian.org>  Sun, 05 Sep 2021 14:10:49 +0200
+
 libdebian-installer (0.121) unstable; urgency=medium
 
   [ Holger Wansing ]

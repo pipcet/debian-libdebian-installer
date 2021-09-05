@@ -5,16 +5,17 @@
 include /usr/share/dpkg/architecture.mk
 DEB_HOST_ARCH_OS    := $(shell dpkg-architecture -qDEB_HOST_ARCH_OS 2>/dev/null)
 
-#CFLAGS = -Wall -W -Werror -ggdb -Wstrict-prototypes -Wmissing-declarations -Wmissing-prototypes
-CFLAGS = -Wall -W -ggdb -Wmissing-declarations
+CFLAGS += -Wall -W
+
+#CFLAGS += -Werror
+#CFLAGS += -Wstrict-prototypes -Wmissing-prototypes
+CFLAGS += -Wmissing-declarations
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 	CFLAGS += -O0
 else
 	CFLAGS += -Os -fomit-frame-pointer
 endif
-
-export CFLAGS
 
 ifneq ($(filter nocheck,$(DEB_BUILD_OPTIONS)),)
 override_dh_auto_configure:
