@@ -20,10 +20,49 @@
 #include <debian-installer/system/subarch.h>
 #include <debian-installer/system/efi.h>
 
+
+struct map {
+	char *entry;
+	char *ret;
+};
+
+static struct map map_hardware[] = {
+	{ "Apple ", "m1" },
+	{ NULL, NULL },
+};
+
+static int read_dt_model(char *entry, int entry_len)
+{
+	FILE *model;
+	int ret;
+
+	model = fopen("/proc/device-tree/model", "r");
+	if (model == NULL)
+		return 1;
+
+	ret = fgets(entry, entry_len, model) == NULL;
+	fclose(model);
+	return ret;
+}
+
 const char *di_system_subarch_analyze(void)
 {
 	if (di_system_is_efi())
 		return "efi";
-	else
-		return "generic";
+	else {
+		char entry[256];
+		int ret;
+		int i;
+
+		ret = read_dt_model(entry, sizeof(entry));
+
+		if (!ret) {
+			for (i = 0; map_hardware[i].entry; i++)
+				if (!strncasecmp(map_hardware[i].entry, entry,
+						 strlen(map_hardware[i].entry)))
+					return map_hardware[i].ret;
+		}
+	}
+
+	return "generic";
 }
