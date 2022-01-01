@@ -20,6 +20,9 @@
 #include <debian-installer/system/subarch.h>
 #include <debian-installer/system/efi.h>
 
+#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
 
 struct map {
 	char *entry;
