@@ -1,3 +1,13 @@
+libdebian-installer (0.123) UNRELEASED; urgency=medium
+
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on dpkg-dev.
+    + libdebian-installer4: Drop versioned constraint on cdebootstrap in Breaks.
+    + libdebian-installer-extra4: Drop versioned constraint on cdebootstrap in
+      Breaks.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Thu, 03 Feb 2022 12:27:25 -0000
+
 libdebian-installer (0.122) unstable; urgency=medium
 
   [ Samuel Thibault ]
